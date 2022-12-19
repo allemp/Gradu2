@@ -1,0 +1,14 @@
+\chapter{Introduction}
+
+\begin{itemize}
+    \item Problem with MLOps/ML tools
+        \begin{itemize}
+            \item traditional ML performance metrics such as accuracy
+            \item fancy features such as neural architecture search, AutoML, performance tuning
+            \item fancy techniques such as early stopping, grid search, bayesian optimization search etc.
+            \item little support for non-ML metrics: CPU util, memory used, latency, throughput (images/s etc.), hardware required (CPU, GPU, TPU etc.)
+            \item ML in production has many objectives besides accuracy for example: satellite image processing model A took 4-5h and model B took 5min. Model A is infeasible in production despite being more accurate.
+            \item "Better' depends on the specific application
+        \end{itemize}
+    \item Hypothesis: Early stopping will speed up computing non-ML metrics (CPU util, Memory use, GPU/TPU requirement, latency, throughput)
+\end{itemize}

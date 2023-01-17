@@ -11,13 +11,48 @@ TODO what is ML
 
 TODO training vs serving
 
+
 \section{DevOps}
 \label{sec:devops}
 
+There is little consensus on the exact definition of DevOps, but especially collaboration between development and operation is emphasized \parencite{mishraDevOpsSoftwareQuality2020,wallerIncludingPerformanceBenchmarks2015}. DevOps can be studied from different points of view such as culture, collaboration, automation, measurements and monitoring \parencite{mishraDevOpsSoftwareQuality2020, wallerIncludingPerformanceBenchmarks2015}. This thesis is mostly focused on the automation, measurements and monitoring parts of DevOps.
+
+Continuous integration, continuous deployment and continuous monitoring are well known practices in DevOps \parencite{wallerIncludingPerformanceBenchmarks2015} describing the automatic nature of integrating, deploying and monitoring code changes. Performance profiling and monitoring are similar activities and the main difference is whether it's done during the development process or during operations respectively \parencite{wallerIncludingPerformanceBenchmarks2015}. DevOps bridges the gap between evaluating performance during the development process and during operations \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
+
+
 TODO resource allocation/resource consumption, small memory software, benchmarking
+
+\subsection{Performance Metrics}
+
+Performance metrics are fundamental to all activities involving performance evaluation such as profiling or monitoring \parencite{brunnertPerformanceorientedDevOpsResearch2015}. Common metrics involve measuring the CPU, but other metrics to collect include memory, network or I/O but might not be as well defined as a CPU metric \parencite{brunnertPerformanceorientedDevOpsResearch2015}. 
+
+\begin{itemize}
+    \item Task Completion time
+    \item Throughput
+    \item Latency
+    \item CPU usage
+    \item GPU usage
+    \item RAM usage
+    \item VRAM usage
+    \item I/O usage
+    \item Network traffic
+\end{itemize}
+
+\subsection{}
+
+Preprocessing
+
+Training
+
+Serving Latency
+
+Resource demands might change depending on the inputs \parencite{brunnertPerformanceorientedDevOpsResearch2015} making it important to systematically measure performance not only based on code changes but also on configuration changes or even data changes.
 
 \section{MLOps}
 \label{sec:mldevops}
 
+Performance measuring software is not new, but ML brings additional challenges in the form of models and data which requires a modified approach \parencite{breckMLTestScore2017a}. It is also important to note, that not every data scientist or ML engineer working on ML systems has a software engineering background \parencite{finzerDataScienceEducation2013} and might lack the necessary knowledge to apply software engineering best practices to ML systems.
+
 TODO what DevOps brings to ML
 
+TODO Continuous Training

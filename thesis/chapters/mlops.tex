@@ -1,30 +1,52 @@
 \chapter{Machine Learning Operations}
 
-TODO intro
-
+% TODO Tarvitseeko luku omaa pientä introa?
+% Luvun scope
 This chapter introduces the basic concepts of ML in \autoref{sec:ml} and basic concepts of DevOps in \autoref{sec:devops}. Finally in \autoref{sec:mldevops} DevOps and ML are combined to form a new concept of MLOps.
 
+%--------------------------------------------------------------------------------------------------------------------------------------------
 \section{Introduction Machine Learning}
 \label{sec:ml}
 
+\subsection{Overview}
 TODO what is ML
+
+TODO supervised vs unsupervised vs reinforcement
 
 TODO training vs serving
 
+\subsection{Machine learning algorithms}
 
+TODO Model evaluation
+
+
+\subsection{Hyperparameter optimization}
+
+Model parameters given as part of a configuration to the machine learning model are called hyperparameters \parencite{yangHyperparameterOptimizationMachine2020}. 
+
+Hyperparameter optimization techniques include grid search, random search, gradient based optimization and Bayesian optimization and they have different benefits and limitations \parencite{yangHyperparameterOptimizationMachine2020}
+
+Neural Architecture optimization and Meta modeling are similar to hyperparameter optimization where model structure or modeling algorithm is treated as a tunable parameter \parencite{bakerAcceleratingNeuralArchitecture2017} 
+
+%--------------------------------------------------------------------------------------------------------------------------------------------
 \section{DevOps}
 \label{sec:devops}
 
+\subsection{Overview}
+
 There is little consensus on the exact definition of DevOps, but especially collaboration between development and operation is emphasized \parencite{mishraDevOpsSoftwareQuality2020,wallerIncludingPerformanceBenchmarks2015}. DevOps can be studied from different points of view such as culture, collaboration, automation, measurements and monitoring \parencite{mishraDevOpsSoftwareQuality2020, wallerIncludingPerformanceBenchmarks2015}. This thesis is mostly focused on the automation, measurements and monitoring parts of DevOps.
+
+
+TODO: picture about devops
 
 Continuous integration, continuous deployment and continuous monitoring are well known practices in DevOps \parencite{wallerIncludingPerformanceBenchmarks2015} describing the automatic nature of integrating, deploying and monitoring code changes. Performance profiling and monitoring are similar activities and the main difference is whether it's done during the development process or during operations respectively \parencite{wallerIncludingPerformanceBenchmarks2015}. DevOps bridges the gap between evaluating performance during the development process and during operations \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
 
 
 TODO resource allocation/resource consumption, small memory software, benchmarking
 
-\subsection{Performance Metrics}
+\subsection{Performance metrics}
 
-Performance metrics are fundamental to all activities involving performance evaluation such as profiling or monitoring \parencite{brunnertPerformanceorientedDevOpsResearch2015}. Common metrics involve measuring the CPU, but other metrics to collect include memory, network or I/O but might not be as well defined as a CPU metric \parencite{brunnertPerformanceorientedDevOpsResearch2015}. 
+Performance metrics are fundamental to all activities involving performance evaluation such as profiling or monitoring \parencite{brunnertPerformanceorientedDevOpsResearch2015}. Common metrics involve measuring the CPU, but other metrics such as memory usage, network traffic or I/O usage are not as well defined as a CPU metric \parencite{brunnertPerformanceorientedDevOpsResearch2015}. 
 
 \begin{itemize}
     \item Task Completion time
@@ -38,7 +60,7 @@ Performance metrics are fundamental to all activities involving performance eval
     \item Network traffic
 \end{itemize}
 
-\subsection{}
+\subsection{Performance tuning}
 
 Preprocessing
 
@@ -48,11 +70,23 @@ Serving Latency
 
 Resource demands might change depending on the inputs \parencite{brunnertPerformanceorientedDevOpsResearch2015} making it important to systematically measure performance not only based on code changes but also on configuration changes or even data changes.
 
+%--------------------------------------------------------------------------------------------------------------------------------------------
 \section{MLOps}
 \label{sec:mldevops}
 
-Performance measuring software is not new, but ML brings additional challenges in the form of models and data which requires a modified approach \parencite{breckMLTestScore2017a}. It is also important to note, that not every data scientist or ML engineer working on ML systems has a software engineering background \parencite{finzerDataScienceEducation2013} and might lack the necessary knowledge to apply software engineering best practices to ML systems.
+\subsection{Overview}
+Performance measuring software is not new, but ML brings additional challenges in the form of models and data which requires a modified approach \parencite{breckMLTestScore2017a}. It is also important to note, that not every data scientist or machine learning engineer working on machine learning systems has a software engineering background \parencite{finzerDataScienceEducation2013} and might lack the necessary knowledge to apply software engineering best practices to machine learning systems.
 
 TODO what DevOps brings to ML
 
 TODO Continuous Training
+
+\subsection{AutoML}
+
+Machine learning systems in addition to machine learning performance metrics and system performance metrics will have their performance metrics tied to product or organization metrics such as user churn rate or click-through rate \parencite{shankarOperationalizingMachineLearning2022}. Choosing the right metrics to evaluate a machine learning system is important and the metrics will be different for different machine learning systems \parencite{shankarOperationalizingMachineLearning2022}.
+
+Automated Machine Learning (AutoML) aims to minimize human intervention in completing data analytics tasks using machine learning algorithms \parencite{yangIoTDataAnalytics2022}.
+
+\subsection{Performance prediction and early stopping}
+
+Performance prediction is an important step to reduce the amount of computation required for neural architecture search and hyperparameter optimization \parencite{bakerAcceleratingNeuralArchitecture2017}.

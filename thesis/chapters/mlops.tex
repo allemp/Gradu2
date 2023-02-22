@@ -13,6 +13,8 @@ TODO what is ML
 
 TODO supervised vs unsupervised vs reinforcement
 
+Unsupervised learning has the advantage of not requiring labeled data which is an advantage for problems where labels are uncommon \parencite{leBuildingHighlevelFeatures2012}. Unsupervised pretraining or feature learning on large datasets can yield to surprising results such as human facial recognition \parencite{leBuildingHighlevelFeatures2012}. Unsupervised machine learning techniques can be used as part of a learning pipeline as a preprocessing or postprocessing step even if the rest of the system uses supervised machine learning.
+
 TODO training vs serving
 
 \subsection{Machine learning algorithms}
@@ -22,11 +24,13 @@ TODO Model evaluation
 
 \subsection{Hyperparameter optimization}
 
-Model parameters given as part of a configuration to the machine learning model are called hyperparameters \parencite{yangHyperparameterOptimizationMachine2020}. 
+Parameters given as part of a configuration to the machine learning model are called hyperparameters \parencite{yangHyperparameterOptimizationMachine2020}. Hyperparameter selection is a difficult and automatic tuning of hyperparameters can help achieve state-of-the-art performance \parencite{maclaurinGradientbasedHyperparameterOptimization2015}. Hyperparameter optimization techniques include grid search, random search, gradient based optimization and Bayesian optimization and they have different benefits and limitations \parencite{yangHyperparameterOptimizationMachine2020}. 
 
-Hyperparameter optimization techniques include grid search, random search, gradient based optimization and Bayesian optimization and they have different benefits and limitations \parencite{yangHyperparameterOptimizationMachine2020}
+Neural Architecture optimization and Meta modeling are similar to hyperparameter optimization where model structure or modeling algorithm is treated as a tunable parameter \parencite{bakerAcceleratingNeuralArchitecture2017}. Traditional hyperparameter tuning methods such as Bayesian optimization are unfeasible for more than 10-20 hyperparameters \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
 
-Neural Architecture optimization and Meta modeling are similar to hyperparameter optimization where model structure or modeling algorithm is treated as a tunable parameter \parencite{bakerAcceleratingNeuralArchitecture2017} 
+Performance prediction is an important step to reduce the amount of computation required for neural architecture search and hyperparameter optimization \parencite{bakerAcceleratingNeuralArchitecture2017}. TODO early stopping reference. 
+
+
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{DevOps}
@@ -75,6 +79,9 @@ Resource demands might change depending on the inputs \parencite{brunnertPerform
 \label{sec:mldevops}
 
 \subsection{Overview}
+
+Requirements for a machine learning system are different depending on the task. For example speech and object recognition might have no particular performance requirements during training but strict latency and computational resource restrictions when deployed to serve large amounts users \parencite{hintonDistillingKnowledgeNeural2015}. One of the key areas of MLOps is using machine learning in production systems in addition to data processing and machine learning model training.
+
 Performance measuring software is not new, but ML brings additional challenges in the form of models and data which requires a modified approach \parencite{breckMLTestScore2017a}. It is also important to note, that not every data scientist or machine learning engineer working on machine learning systems has a software engineering background \parencite{finzerDataScienceEducation2013} and might lack the necessary knowledge to apply software engineering best practices to machine learning systems.
 
 TODO what DevOps brings to ML
@@ -89,4 +96,3 @@ Automated Machine Learning (AutoML) aims to minimize human intervention in compl
 
 \subsection{Performance prediction and early stopping}
 
-Performance prediction is an important step to reduce the amount of computation required for neural architecture search and hyperparameter optimization \parencite{bakerAcceleratingNeuralArchitecture2017}.

@@ -1,19 +1,46 @@
 \chapter{Methods}
 
-
-% Scope
-The scope of the study is limited to 5 performance metrics of 3 different ML models trained and tested on 3 different datasets.
-
-% Research questions
-This master's thesis asks the following research questions:
-\begin{itemize}
-    \item \emph{RQ1}: How can we measure the performance of real-world ML systems?
-    \item \emph{RQ2}: How can these performance metrics be effectively tuned?
-\end{itemize}
-TODO This is a methods chapter
-
-TODO no tool comparison
+%--------------------------------------------------------------------------------------------------------------------------------------------
+\section{Research setup}
+\subsection{Scope}
+The scope of the study is limited to 5 performance metrics of 3 different ML models trained and tested on 3 different datasets using a distributed computing framework Ray Tune \parencite{liawTuneResearchPlatform2018}.
 
 TODO different models, different datasets
 
+TODO Vertailukriteeristö: tapana ohjelmistopuolella + tapana koneoppimispuolella
+
 TODO different resources (memory, time, accuracy)
+
+
+
+\subsection{Research Questions}
+This master's thesis asks the following research questions:
+\begin{itemize}
+    %\item \emph{RQ1}: How can we measure the performance of real-world ML systems using Ray Tune \parencite{liawTuneResearchPlatform2018}?
+    \item \emph{RQ1}: How early stopping affects performance metrics during hyperparameter optimization?
+    \item \emph{RQ2}: How early stopping affects performance metrics during neural architecture optimization?
+\end{itemize}
+
+\subsection{Methodology}
+
+Methodology used is expanded from an existing methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016} to include AutoML and 
+
+%--------------------------------------------------------------------------------------------------------------------------------------------
+\section{Experiments}
+%\subsection{Overview}
+\subsection{Datasets}
+% Tarkemmin esimerkkinä, loput vähemmän tarkasti
+MNIST \parencite{dengMNISTDatabaseHandwritten2012}
+
+% Satunnaisesti valitaan X kappaletta
+Penn Machine Learning Benchmarks \parencite{olsonPMLBLargeBenchmark2017}
+
+
+
+
+\subsection{Machine Learning algorithms}
+\subsection{Metrics}
+\subsection{Training and validation}
+\subsection{Inference}
+
+%--------------------------------------------------------------------------------------------------------------------------------------------

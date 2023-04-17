@@ -5,7 +5,7 @@
 %This chapter introduces the basic concepts of ML in \autoref{sec:ml} and basic concepts of DevOps in \autoref{sec:devops}. Finally in \autoref{sec:mldevops} DevOps and ML are combined to form a new concept of MLOps.
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
-\section{Machine Learning}
+\section{Machine Learning} % 2 pages
 \label{sec:ml}
 
 \subsection{Overview}
@@ -44,13 +44,17 @@ Performance prediction is an important step to reduce the amount of computation 
 
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
-\section{DevOps}
+\section{DevOps} % 2 pages
 \label{sec:devops}
 
 \subsection{Overview}
 
-%TODO rajaa devops teknisiin asioihin
-There is little consensus on the exact definition of DevOps, but especially collaboration between development and operation is emphasized \parencite{mishraDevOpsSoftwareQuality2020,wallerIncludingPerformanceBenchmarks2015}. DevOps can be studied from different points of view such as culture, collaboration, automation, measurements and monitoring \parencite{mishraDevOpsSoftwareQuality2020, wallerIncludingPerformanceBenchmarks2015}. This thesis is mostly focused on the automation, measurements and monitoring parts of DevOps.
+%TODO 1. Intro to DevOps and definition mishra2020, waller2015
+
+There is little consensus on the exact definition of DevOps \parencite{smedsDevOpsDefinitionPerceived2015}. Most commonly DevOps is said to have a focus on software quality, collaboration between development and operations, process speed and rapid feedback \parencite{mishraDevOpsSoftwareQuality2020,wallerIncludingPerformanceBenchmarks2015, pereraImproveSoftwareQuality2017}. DevOps can be viewed from different points of view such as culture, collaboration, automation, measurements and monitoring \parencite{mishraDevOpsSoftwareQuality2020, wallerIncludingPerformanceBenchmarks2015}. This section will describe measurement, monitoring and automation parts of DevOps in more detail.
+
+% TODO 2. 
+
 
 Continuous integration, continuous deployment and continuous monitoring are well known practices in DevOps \parencite{wallerIncludingPerformanceBenchmarks2015} describing the automatic nature of integrating, deploying and monitoring code changes. Performance profiling and monitoring are similar activities and the main difference is whether it's done during the development process or during operations respectively \parencite{wallerIncludingPerformanceBenchmarks2015}. DevOps bridges the gap between evaluating performance during the development process and during operations \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
 
@@ -66,7 +70,7 @@ TODO Devops lifecycle steps
 
 TODO resource allocation/resource consumption, small memory software, benchmarking
 
-\subsection{Performance metrics}
+\subsection{Measurement and monitoring}
 
 Performance metrics are fundamental to all activities involving performance evaluation such as profiling or monitoring \parencite{brunnertPerformanceorientedDevOpsResearch2015}. Common metrics involve measuring the CPU, but other metrics such as memory usage, network traffic or I/O usage are not as well defined as a CPU metric \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
 
@@ -82,7 +86,7 @@ Performance metrics are fundamental to all activities involving performance eval
     \item Network traffic
 \end{itemize}
 
-\subsection{Performance tuning}
+\subsection{Continuous optimization?}
 
 Preprocessing
 
@@ -93,7 +97,7 @@ Serving Latency
 Resource demands might change depending on the inputs \parencite{brunnertPerformanceorientedDevOpsResearch2015} making it important to systematically measure performance not only based on code changes but also on configuration changes or even data changes.
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
-\section{MLOps}
+\section{MLOps} % 4 pages
 \label{sec:mldevops}
 
 \subsection{Overview}
@@ -111,7 +115,7 @@ TODO MLOps lifecycle steps
     \centering
     \includegraphics[width=0.75\textwidth]{mlops.jpg}
     \caption{Example of a typical MLOps lifecycle}
-    \label{fig:devops}
+    \label{fig:mlops}
 \end{figure}
 
 TODO what DevOps brings to ML

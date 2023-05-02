@@ -72,12 +72,20 @@ Preprocessing, feature engineering
 
 \subsection{Hyperparameter optimization}
 
-Parameters given as part of a configuration to the machine learning model are called hyperparameters \parencite{yangHyperparameterOptimizationMachine2020}. Hyperparameter selection is a difficult and automatic tuning of hyperparameters can help achieve state-of-the-art performance \parencite{maclaurinGradientbasedHyperparameterOptimization2015}. Hyperparameter optimization techniques include grid search, random search, gradient based optimization and Bayesian optimization and they have different benefits and limitations \parencite{yangHyperparameterOptimizationMachine2020}.
+Parameters given as part of a configuration to the machine learning model are called hyperparameters \parencite{yangHyperparameterOptimizationMachine2020}. 
+For example learning rate, batch size or a classification threshold are hyperparameters set before the model is trained. 
+Most common hyperparameter selection technique in practice is manually adjusting the hyperparameters and is humorously called graduate student descent. % TODO find reference
 
-Neural Architecture optimization and Meta modeling are similar to hyperparameter optimization where model structure or modeling algorithm is treated as a tunable parameter \parencite{bakerAcceleratingNeuralArchitecture2017}. Traditional hyperparameter tuning methods such as Bayesian optimization are unfeasible for more than 10-20 hyperparameters \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
+Hyperparameter selection is a difficult task and automatic tuning of hyperparameters can help achieve state-of-the-art performance \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
+Automatic hyperparameter optimization techniques include grid search, random search, gradient based optimization and Bayesian optimization and they have different benefits and limitations \parencite{yangHyperparameterOptimizationMachine2020}.
 
-Performance prediction is an important step to reduce the amount of computation required for neural architecture search and hyperparameter optimization \parencite{bakerAcceleratingNeuralArchitecture2017}. TODO early stopping reference.
+Similar to hyperparameter optimization we have neural architecture optimization and meta modeling where model structure or modeling algorithm is treated as a tunable parameter \parencite{bakerAcceleratingNeuralArchitecture2017}.
+Traditional hyperparameter tuning methods such as Bayesian optimization are unfeasible for more than 10-20 hyperparameters \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
+Performance prediction is an important step to reduce the amount of computation required for neural architecture search and hyperparameter optimization \parencite{bakerAcceleratingNeuralArchitecture2017}.
 
+Early stopping is a technique in which model training is halted before completion. %TODO find reference
+This is done to save on computational resources and the main reason for early stopping is predicting that the model will have poor performance %TODO find reference.
+Performance prediction usually relies on predicting a machine learning performance metric such as RMSE or F1 score given the current model is performing during training compared to other models %TODO find reference
 
 
 %--------------------------------------------------------------------------------------------------------------------------------------------

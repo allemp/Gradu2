@@ -5,52 +5,115 @@
 %This chapter introduces the basic concepts of ML in \autoref{sec:ml} and basic concepts of DevOps in \autoref{sec:devops}. Finally in \autoref{sec:mldevops} DevOps and ML are combined to form a new concept of MLOps.
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
-\section{Machine Learning}
+\section{Machine Learning} % 2 pages
 \label{sec:ml}
 
 \subsection{Overview}
 
-Writing programs and developing algorithms to complete specific tasks is a labor intensive task requiring professional programming expertise. A different approach is to develop generic algorithms that can change behavior by learning. The field studying these types of algorithms is called machine learning.
+% Definition and basics of ML
+Writing programs and developing algorithms to complete specific tasks is a labor intensive task requiring professional programming expertise.
+A different approach is to develop generic algorithms that can change behavior by learning.
+The field studying these types of algorithms is called machine learning.
+Machine learning algorithms learn by optimizing a set of parameters called a model and this optimization process is called training the model\todo{ref}. % TODO find reference
+A simplified machine learning workflow consists of splitting the data into training and test datasets, performing preprocessing separately for each dataset, training the model on the training dataset and finally evaluating the trained model on the test dataset\todo{ref}.  % TODO crispdm/kdd
+Machine learning workflows are explained in more detail in section \ref{sec:mlworkflow}.
 
-Machine learning is widely used in applications like search, drug design or ad placement and can be also known as data mining or predictive analytics \parencite{domingosFewUsefulThings2012}. Developing machine learning systems can be a difficult task. Unlike traditional software development, experiments with both code and data as inputs are central to machine learning development \parencite{zahariaAcceleratingMachineLearning2018} and reproducibility of the experiments is problematic. While plenty of research focuses on machine learning methods or even datasets and data quality, the biggest bottleneck is human cycles \parencite{domingosFewUsefulThings2012}. One important metric to pay attention to and optimize is the mean iteration cycle for machine learning developers.
+% Usefulness of ML
+Machine learning is widely used in applications like search, drug design or ad placement and can be also known as data mining or predictive analytics \parencite{domingosFewUsefulThings2012}. Developing machine learning systems, which are systems that are based on machine learning, can be a difficult task. Unlike traditional software development, experiments with both code and data as inputs are central to machine learning development \parencite{zahariaAcceleratingMachineLearning2018} and reproducibility of the experiments is often problematic. While plenty of research focuses on machine learning methods or even datasets and data quality, the biggest bottleneck is human cycles \parencite{domingosFewUsefulThings2012}. Faster iterations improve the machine learning developer or researcher experience. An important metric to pay attention to and optimize is the mean iteration cycle for machine learning developers.
 
-
-
-%TODO more references
-Machine learning can be practiced with two different goals in mind. First is explanatory modeling with the purpose of scientific theory building and testing and the second is predictive modeling mostly used outside of scientific research \parencite{shmueliExplainPredict2010a}. One practical difference is that unlike predictive modeling, explanatory modeling rarely uses holdout test sets or cross validation for evaluation \parencite{shmueliExplainPredict2010a}. Lack or presence of evaluation on a test set can be used as a heuristic to quickly determine whether a machine learning project is explanatory or predictive in nature. However, even explanatory modelling benefits from evaluating the predictive power \parencite{shmueliExplainPredict2010a}. Domingos \parencite*{domingosFewUsefulThings2012} in their paper assume all machine learning is predictive in nature and state the following: \begin{quote}
+% Types of ML
+Machine learning can be practiced with two different goals in mind. First is explanatory modeling with the purpose of scientific theory building and testing and the second is predictive modeling mostly used outside of scientific research \parencite{shmueliExplainPredict2010a}.
+One practical difference is that unlike predictive modeling, explanatory modeling rarely uses holdout test sets or cross validation for evaluation \parencite{shmueliExplainPredict2010a}.
+Lack or presence of evaluation on a test set can be used as a heuristic to quickly determine whether a machine learning project is explanatory or predictive in nature.
+However, even explanatory modeling benefits from evaluating the predictive power \parencite{shmueliExplainPredict2010a}.
+Domingos \parencite*{domingosFewUsefulThings2012} in their paper assume all machine learning is predictive in nature and state the following:
+\begin{quote}
     The fundamental goal of machine learning is to generalize beyond the examples in the training set.
 \end{quote}
-It is important to keep in mind the end goals of a machine learning project, because common practices might not be applicable.
+It is important to keep in mind the end goals of a machine learning project, because common practices in a research setting might not be applicable when creating machine learning systems.
 
-TODO Types of machine learning, get references
+Machine learning algorithms can be categorized as supervised learning, unsupervised learning or reinforcement learning\todo{ref}. %TODO find reference
+The main differences are related to whether the model learns by using "right answers" provided by labeled data in supervised learning, by finding structure in the dataset in unsupervised learning or by interacting with the world in reinforcement learning\todo{ref}. %TODO find reference
+Model evaluation is also different with supervised learning mostly relying on universal cross-validation on previously unseen data and unsupervised or reinforcement learning relying on internal evaluation metrics tied to the specific algorithm\todo{ref}. %TODO find reference  
+Unsupervised learning has the advantage of not requiring labeled data which is an advantage for problems where labels are uncommon \parencite{leBuildingHighlevelFeatures2012}.
 
-Unsupervised learning has the advantage of not requiring labeled data which is an advantage for problems where labels are uncommon \parencite{leBuildingHighlevelFeatures2012}. Unsupervised pretraining or feature learning on large datasets can yield to surprising results such as human facial recognition \parencite{leBuildingHighlevelFeatures2012}. Unsupervised machine learning techniques can be used as part of a learning pipeline as a preprocessing or postprocessing step even if the rest of the system uses supervised machine learning.
+% Scope in the thesis
+The amount of different ML algorithms is very large. This thesis will use commonly used supervised learning algorithms with widely available implementations to simplify the experiments in section \ref{sec:experiments} and focus more on the research questions.
 
-TODO ML model lifecycle, get references
+\subsection{Machine learning development workflow}
+\label{sec:mlworkflow}
 
-\subsection{Machine learning algorithms}
 
-TODO Model evaluation
+Projects involving machine learning often make common methodological mistakes that threaten the validity of the models, but are easily avoided\todo{ref}. %TODO reference common ml pitfalls paper
+Several workflows for developing machine learning systems have emerged attempting to standardize the overall development process including CRISP-DM and KDD\todo{ref}.  %TODO references
+These workflows will overall have similar steps. Using CRISP-DM as an example we have the following steps in the workflow: \todo{ref} %TODO crisp-dm, kdd citations
 
+\begin{enumerate}
+    \item Business and Data Understanding
+    \item Data Preparation
+    \item Modeling
+    \item Evaluation
+    \item Deployment
+\end{enumerate}
+
+
+
+% TODO CRISP-DM
+\todo{ref crisp-dm} Business and Data understanding refers to understanding the problem and the datasets. %TODO crisp-dm
+
+% TODO Data preparation
+
+Preprocessing, feature engineering
+
+% TODO Model training
+
+% TODO Linear regression
+% TODO K nearest neighbors
+% TODO Neural Network
+
+% TODO Model evaluation
+
+% TODO Model interpretation
 
 \subsection{Hyperparameter optimization}
 
-Parameters given as part of a configuration to the machine learning model are called hyperparameters \parencite{yangHyperparameterOptimizationMachine2020}. Hyperparameter selection is a difficult and automatic tuning of hyperparameters can help achieve state-of-the-art performance \parencite{maclaurinGradientbasedHyperparameterOptimization2015}. Hyperparameter optimization techniques include grid search, random search, gradient based optimization and Bayesian optimization and they have different benefits and limitations \parencite{yangHyperparameterOptimizationMachine2020}.
+% Hyperparameter definition and examples
 
-Neural Architecture optimization and Meta modeling are similar to hyperparameter optimization where model structure or modeling algorithm is treated as a tunable parameter \parencite{bakerAcceleratingNeuralArchitecture2017}. Traditional hyperparameter tuning methods such as Bayesian optimization are unfeasible for more than 10-20 hyperparameters \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
+Parameters given as part of a configuration to the machine learning model are called hyperparameters \parencite{yangHyperparameterOptimizationMachine2020}.
+For example learning rate, batch size or a classification threshold are hyperparameters set before the model is trained.
+\todo{ref} Most common hyperparameter selection technique in practice is manually adjusting the hyperparameters and is humorously called graduate student descent\todo{ref}. % TODO find reference
 
-Performance prediction is an important step to reduce the amount of computation required for neural architecture search and hyperparameter optimization \parencite{bakerAcceleratingNeuralArchitecture2017}. TODO early stopping reference.
+% Benefits of hyperparameter search
+Automatic tuning of hyperparameters can help achieve state-of-the-art performance in machine learning systems \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
+Hyperparameter optimization techniques include grid search, random search, gradient based optimization and Bayesian optimization and they have different benefits and limitations \parencite{yangHyperparameterOptimizationMachine2020}.
 
+Similar concepts to hyperparameter optimization are neural architecture optimization and meta modeling where model structure or modeling algorithm is treated as a tunable parameter \parencite{bakerAcceleratingNeuralArchitecture2017}.
+For example a machine learning system can automate the choosing of the number of neural network layers, the type of layers or even the type of machine learning algorithm.
+Tuning hyperparameters is generally a difficult task \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
+
+Traditional hyperparameter tuning methods such as Bayesian optimization are unfeasible for more than 10-20 hyperparameters \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
+More advanced techniques are required if a larger amount of tunable hyperparameters is desired.
+Performance prediction is an important step to reduce the amount of computation required for neural architecture search and hyperparameter optimization \parencite{bakerAcceleratingNeuralArchitecture2017}.
+
+Early stopping is a technique in which model training is halted before completion\todo{ref}. %TODO find reference
+This is done to save on computational resources and the main reason for early stopping is predicting that the model will have poor performance\todo{ref}. %TODO find reference.
+Performance prediction usually relies on predicting a machine learning performance metric such as RMSE or F1 score given the current model is performing during training compared to other models\todo{ref}. %TODO find reference
+
+Surprisingly there is little research on using early stopping to optimize alternative performance metrics such as CPU usage, memory usage or latency. This is one of the main research questions this thesis will attempt to answer\todo{chapter link?}. %TODO chapter link
 
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
-\section{DevOps}
+\section{DevOps} % 2 pages
 \label{sec:devops}
 
 \subsection{Overview}
 
-%TODO rajaa devops teknisiin asioihin
-There is little consensus on the exact definition of DevOps, but especially collaboration between development and operation is emphasized \parencite{mishraDevOpsSoftwareQuality2020,wallerIncludingPerformanceBenchmarks2015}. DevOps can be studied from different points of view such as culture, collaboration, automation, measurements and monitoring \parencite{mishraDevOpsSoftwareQuality2020, wallerIncludingPerformanceBenchmarks2015}. This thesis is mostly focused on the automation, measurements and monitoring parts of DevOps.
+%TODO 1. Intro to DevOps and definition mishra2020, waller2015
+% Common interpretation of devops is...
+Most commonly DevOps is said to have a focus on software quality, collaboration between development and operations, process speed and rapid feedback \parencite{mishraDevOpsSoftwareQuality2020,wallerIncludingPerformanceBenchmarks2015, pereraImproveSoftwareQuality2017}. DevOps can be viewed from different points of view such as culture, collaboration, automation, measurements and monitoring \parencite{mishraDevOpsSoftwareQuality2020, wallerIncludingPerformanceBenchmarks2015}. There is little consensus on the exact definition of DevOps \parencite{smedsDevOpsDefinitionPerceived2015}. This section will describe measurement, monitoring and automation parts of DevOps in more detail.
+
+% TODO 2. 
+
 
 Continuous integration, continuous deployment and continuous monitoring are well known practices in DevOps \parencite{wallerIncludingPerformanceBenchmarks2015} describing the automatic nature of integrating, deploying and monitoring code changes. Performance profiling and monitoring are similar activities and the main difference is whether it's done during the development process or during operations respectively \parencite{wallerIncludingPerformanceBenchmarks2015}. DevOps bridges the gap between evaluating performance during the development process and during operations \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
 
@@ -66,7 +129,7 @@ TODO Devops lifecycle steps
 
 TODO resource allocation/resource consumption, small memory software, benchmarking
 
-\subsection{Performance metrics}
+\subsection{Measurement and monitoring}
 
 Performance metrics are fundamental to all activities involving performance evaluation such as profiling or monitoring \parencite{brunnertPerformanceorientedDevOpsResearch2015}. Common metrics involve measuring the CPU, but other metrics such as memory usage, network traffic or I/O usage are not as well defined as a CPU metric \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
 
@@ -82,7 +145,7 @@ Performance metrics are fundamental to all activities involving performance eval
     \item Network traffic
 \end{itemize}
 
-\subsection{Performance tuning}
+\subsection{Continuous optimization?}
 
 Preprocessing
 
@@ -93,7 +156,7 @@ Serving Latency
 Resource demands might change depending on the inputs \parencite{brunnertPerformanceorientedDevOpsResearch2015} making it important to systematically measure performance not only based on code changes but also on configuration changes or even data changes.
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
-\section{MLOps}
+\section{MLOps} % 4 pages
 \label{sec:mldevops}
 
 \subsection{Overview}
@@ -111,7 +174,7 @@ TODO MLOps lifecycle steps
     \centering
     \includegraphics[width=0.75\textwidth]{mlops.jpg}
     \caption{Example of a typical MLOps lifecycle}
-    \label{fig:devops}
+    \label{fig:mlops}
 \end{figure}
 
 TODO what DevOps brings to ML

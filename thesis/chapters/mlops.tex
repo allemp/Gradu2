@@ -12,10 +12,10 @@
 
 % Definition and basics of ML
 Writing programs and developing algorithms to complete specific tasks is a labor intensive task requiring professional programming expertise.
-A different approach is to develop generic algorithms that can change behavior by learning. % TODO find reference
-The field studying these types of algorithms is called machine learning. % TODO find reference
-Machine learning algorithms learn by optimizing a set of parameters called a model and this optimization process is called training the model. % TODO find reference
-A simplified machine learning workflow consists of splitting the data into training and test datasets, performing preprocessing separately for each dataset, training the model on the training dataset and finally evaluating the trained model on the test dataset.  % TODO find reference
+A different approach is to develop generic algorithms that can change behavior by learning.
+The field studying these types of algorithms is called machine learning.
+Machine learning algorithms learn by optimizing a set of parameters called a model and this optimization process is called training the model\todo{ref}. % TODO find reference
+A simplified machine learning workflow consists of splitting the data into training and test datasets, performing preprocessing separately for each dataset, training the model on the training dataset and finally evaluating the trained model on the test dataset\todo{ref}.  % TODO crispdm/kdd
 Machine learning workflows are explained in more detail in section \ref{sec:mlworkflow}.
 
 % Usefulness of ML
@@ -32,9 +32,9 @@ Domingos \parencite*{domingosFewUsefulThings2012} in their paper assume all mach
 \end{quote}
 It is important to keep in mind the end goals of a machine learning project, because common practices in a research setting might not be applicable when creating machine learning systems.
 
-Machine learning algorithms can be categorized as supervised learning, unsupervised learning or reinforcement learning. %TODO find reference
-The main differences are related to whether the model learns by using "right answers" provided by labeled data in supervised learning, by finding structure in the dataset in unsupervised learning or by interacting with the world in reinforcement learning. %TODO find reference
-Model evaluation is also different with supervised learning mostly relying on universal cross-validation on previously unseen data and unsupervised or reinforcement learning relying on internal evaluation metrics tied to the specific algorithm %TODO find reference  
+Machine learning algorithms can be categorized as supervised learning, unsupervised learning or reinforcement learning\todo{ref}. %TODO find reference
+The main differences are related to whether the model learns by using "right answers" provided by labeled data in supervised learning, by finding structure in the dataset in unsupervised learning or by interacting with the world in reinforcement learning\todo{ref}. %TODO find reference
+Model evaluation is also different with supervised learning mostly relying on universal cross-validation on previously unseen data and unsupervised or reinforcement learning relying on internal evaluation metrics tied to the specific algorithm\todo{ref}. %TODO find reference  
 Unsupervised learning has the advantage of not requiring labeled data which is an advantage for problems where labels are uncommon \parencite{leBuildingHighlevelFeatures2012}.
 
 % Scope in the thesis
@@ -43,9 +43,10 @@ The amount of different ML algorithms is very large. This thesis will use common
 \subsection{Machine learning development workflow}
 \label{sec:mlworkflow}
 
-Projects involving machine learning often make common methodological mistakes that threaten the validity of the models, but are easily avoided. %TODO reference common ml pitfalls paper
-Several workflows for developing machine learning systems have emerged attempting to standardize the overall development process including CRISP-DM and KDD. %TODO references
-These workflows will overall have similar steps. Using CRISP-DM as an example we have the following steps in the workflow: %TODO crisp-dm, kdd citations
+
+Projects involving machine learning often make common methodological mistakes that threaten the validity of the models, but are easily avoided\todo{ref}. %TODO reference common ml pitfalls paper
+Several workflows for developing machine learning systems have emerged attempting to standardize the overall development process including CRISP-DM and KDD\todo{ref}.  %TODO references
+These workflows will overall have similar steps. Using CRISP-DM as an example we have the following steps in the workflow: \todo{ref} %TODO crisp-dm, kdd citations
 
 \begin{enumerate}
     \item Business and Data Understanding
@@ -58,7 +59,7 @@ These workflows will overall have similar steps. Using CRISP-DM as an example we
 
 
 % TODO CRISP-DM
-Business and Data understanding refers to understanding the problem and the datasets. %TODO crisp-dm
+\todo{ref crisp-dm} Business and Data understanding refers to understanding the problem and the datasets. %TODO crisp-dm
 
 % TODO Data preparation
 
@@ -76,22 +77,29 @@ Preprocessing, feature engineering
 
 \subsection{Hyperparameter optimization}
 
-Parameters given as part of a configuration to the machine learning model are called hyperparameters \parencite{yangHyperparameterOptimizationMachine2020}. 
-For example learning rate, batch size or a classification threshold are hyperparameters set before the model is trained. 
-Most common hyperparameter selection technique in practice is manually adjusting the hyperparameters and is humorously called graduate student descent. % TODO find reference
+% Hyperparameter definition and examples
 
-Hyperparameter selection is a difficult task and automatic tuning of hyperparameters can help achieve state-of-the-art performance \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
-Automatic hyperparameter optimization techniques include grid search, random search, gradient based optimization and Bayesian optimization and they have different benefits and limitations \parencite{yangHyperparameterOptimizationMachine2020}.
+Parameters given as part of a configuration to the machine learning model are called hyperparameters \parencite{yangHyperparameterOptimizationMachine2020}.
+For example learning rate, batch size or a classification threshold are hyperparameters set before the model is trained.
+\todo{ref} Most common hyperparameter selection technique in practice is manually adjusting the hyperparameters and is humorously called graduate student descent\todo{ref}. % TODO find reference
 
-Similar to hyperparameter optimization we have neural architecture optimization and meta modeling where model structure or modeling algorithm is treated as a tunable parameter \parencite{bakerAcceleratingNeuralArchitecture2017}.
+% Benefits of hyperparameter search
+Automatic tuning of hyperparameters can help achieve state-of-the-art performance in machine learning systems \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
+Hyperparameter optimization techniques include grid search, random search, gradient based optimization and Bayesian optimization and they have different benefits and limitations \parencite{yangHyperparameterOptimizationMachine2020}.
+
+Similar concepts to hyperparameter optimization are neural architecture optimization and meta modeling where model structure or modeling algorithm is treated as a tunable parameter \parencite{bakerAcceleratingNeuralArchitecture2017}.
+For example a machine learning system can automate the choosing of the number of neural network layers, the type of layers or even the type of machine learning algorithm.
+Tuning hyperparameters is generally a difficult task \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
+
 Traditional hyperparameter tuning methods such as Bayesian optimization are unfeasible for more than 10-20 hyperparameters \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
+More advanced techniques are required if a larger amount of tunable hyperparameters is desired.
 Performance prediction is an important step to reduce the amount of computation required for neural architecture search and hyperparameter optimization \parencite{bakerAcceleratingNeuralArchitecture2017}.
 
-Early stopping is a technique in which model training is halted before completion. %TODO find reference
-This is done to save on computational resources and the main reason for early stopping is predicting that the model will have poor performance %TODO find reference.
-Performance prediction usually relies on predicting a machine learning performance metric such as RMSE or F1 score given the current model is performing during training compared to other models %TODO find reference
+Early stopping is a technique in which model training is halted before completion\todo{ref}. %TODO find reference
+This is done to save on computational resources and the main reason for early stopping is predicting that the model will have poor performance\todo{ref}. %TODO find reference.
+Performance prediction usually relies on predicting a machine learning performance metric such as RMSE or F1 score given the current model is performing during training compared to other models\todo{ref}. %TODO find reference
 
-Surprisingly there is little research on using early stopping to optimize alternative performance metrics such as CPU usage, memory usage or latency. This is one of the main research questions this thesis will attempt to answer. %TODO chapter link
+Surprisingly there is little research on using early stopping to optimize alternative performance metrics such as CPU usage, memory usage or latency. This is one of the main research questions this thesis will attempt to answer\todo{chapter link?}. %TODO chapter link
 
 
 %--------------------------------------------------------------------------------------------------------------------------------------------

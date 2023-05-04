@@ -10,8 +10,6 @@ This repository is for Aleksander Lempinen's master's thesis at University of Jy
 
 ## Changelog
 
-### 2023-01-10
+### 2023-05-04
 
-- Introduction: Aim, scope, research question, contribution
-- Related work(new): snowball method
-- MLOps: split into intro, ML, DevOps and ML and DevOps
+- Modified MLOps chapter ML section

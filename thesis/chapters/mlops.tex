@@ -5,6 +5,60 @@
 %This chapter introduces the basic concepts of ML in \autoref{sec:ml} and basic concepts of DevOps in \autoref{sec:devops}. Finally in \autoref{sec:mldevops} DevOps and ML are combined to form a new concept of MLOps.
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
+
+%--------------------------------------------------------------------------------------------------------------------------------------------
+\section{DevOps} % 2 pages
+\label{sec:devops}
+
+\subsection{Overview}
+
+%TODO 1. Intro to DevOps and definition mishra2020, waller2015
+% Common interpretation of devops is...
+Most commonly DevOps is said to have a focus on software quality, collaboration between development and operations, process speed and rapid feedback \parencite{mishraDevOpsSoftwareQuality2020,wallerIncludingPerformanceBenchmarks2015, pereraImproveSoftwareQuality2017}. DevOps can be viewed from different points of view such as culture, collaboration, automation, measurements and monitoring \parencite{mishraDevOpsSoftwareQuality2020, wallerIncludingPerformanceBenchmarks2015}. There is little consensus on the exact definition of DevOps \parencite{smedsDevOpsDefinitionPerceived2015}. This section will describe measurement, monitoring and automation parts of DevOps in more detail.
+
+% TODO 2. 
+
+
+Continuous integration, continuous deployment and continuous monitoring are well known practices in DevOps \parencite{wallerIncludingPerformanceBenchmarks2015} describing the automatic nature of integrating, deploying and monitoring code changes. Performance profiling and monitoring are similar activities and the main difference is whether it's done during the development process or during operations respectively \parencite{wallerIncludingPerformanceBenchmarks2015}. DevOps bridges the gap between evaluating performance during the development process and during operations \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
+
+TODO Devops lifecycle steps
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{devops.jpg}
+    \caption{Example of a typical DevOps lifecycle}
+    \label{fig:devops}
+\end{figure}
+
+
+TODO resource allocation/resource consumption, small memory software, benchmarking
+
+\subsection{Measurement and monitoring}
+
+Performance metrics are fundamental to all activities involving performance evaluation such as profiling or monitoring \parencite{brunnertPerformanceorientedDevOpsResearch2015}. Common metrics involve measuring the CPU, but other metrics such as memory usage, network traffic or I/O usage are not as well defined as a CPU metric \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
+
+\begin{itemize}
+    \item Task Completion time
+    \item Throughput
+    \item Latency
+    \item CPU usage
+    \item GPU usage
+    \item RAM usage
+    \item VRAM usage
+    \item I/O usage
+    \item Network traffic
+\end{itemize}
+
+\subsection{Continuous optimization?}
+
+Preprocessing
+
+Training
+
+Serving Latency
+
+Resource demands might change depending on the inputs \parencite{brunnertPerformanceorientedDevOpsResearch2015} making it important to systematically measure performance not only based on code changes but also on configuration changes or even data changes.
+
 \section{Machine Learning} % 2 pages
 \label{sec:ml}
 
@@ -38,9 +92,9 @@ Model evaluation is also different with supervised learning mostly relying on un
 Unsupervised learning has the advantage of not requiring labeled data which is an advantage for problems where labels are uncommon \parencite{leBuildingHighlevelFeatures2012}.
 
 % Scope in the thesis
-The amount of different ML algorithms is very large. This thesis will use commonly used supervised learning algorithms with widely available implementations to simplify the experiments in section \ref{sec:experiments} and focus more on the research questions.
+The amount of different ML algorithms is very large. This thesis will use commonly used supervised learning algorithms with widely available implementations to simplify the experiments in section \todo{ei viitteitä eteenpäin} and focus more on the research questions. \todo{siirretään methods osioon}
 
-\subsection{Machine learning development workflow}
+\subsection{Machine learning development workflow} \todo{siirretään MLOps osioon}
 \label{sec:mlworkflow}
 
 
@@ -99,61 +153,9 @@ Early stopping is a technique in which model training is halted before completio
 This is done to save on computational resources and the main reason for early stopping is predicting that the model will have poor performance\todo{ref}. %TODO find reference.
 Performance prediction usually relies on predicting a machine learning performance metric such as RMSE or F1 score given the current model is performing during training compared to other models\todo{ref}. %TODO find reference
 
-Surprisingly there is little research on using early stopping to optimize alternative performance metrics such as CPU usage, memory usage or latency. This is one of the main research questions this thesis will attempt to answer\todo{chapter link?}. %TODO chapter link
+Surprisingly there is little research on using early stopping to optimize alternative performance metrics such as CPU usage, memory usage or latency. This is one of the main research questions this thesis will attempt to answer\todo{siirretään introon/methods}. %TODO chapter link
 
 
-%--------------------------------------------------------------------------------------------------------------------------------------------
-\section{DevOps} % 2 pages
-\label{sec:devops}
-
-\subsection{Overview}
-
-%TODO 1. Intro to DevOps and definition mishra2020, waller2015
-% Common interpretation of devops is...
-Most commonly DevOps is said to have a focus on software quality, collaboration between development and operations, process speed and rapid feedback \parencite{mishraDevOpsSoftwareQuality2020,wallerIncludingPerformanceBenchmarks2015, pereraImproveSoftwareQuality2017}. DevOps can be viewed from different points of view such as culture, collaboration, automation, measurements and monitoring \parencite{mishraDevOpsSoftwareQuality2020, wallerIncludingPerformanceBenchmarks2015}. There is little consensus on the exact definition of DevOps \parencite{smedsDevOpsDefinitionPerceived2015}. This section will describe measurement, monitoring and automation parts of DevOps in more detail.
-
-% TODO 2. 
-
-
-Continuous integration, continuous deployment and continuous monitoring are well known practices in DevOps \parencite{wallerIncludingPerformanceBenchmarks2015} describing the automatic nature of integrating, deploying and monitoring code changes. Performance profiling and monitoring are similar activities and the main difference is whether it's done during the development process or during operations respectively \parencite{wallerIncludingPerformanceBenchmarks2015}. DevOps bridges the gap between evaluating performance during the development process and during operations \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
-
-TODO Devops lifecycle steps
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.75\textwidth]{devops.jpg}
-    \caption{Example of a typical DevOps lifecycle}
-    \label{fig:devops}
-\end{figure}
-
-
-TODO resource allocation/resource consumption, small memory software, benchmarking
-
-\subsection{Measurement and monitoring}
-
-Performance metrics are fundamental to all activities involving performance evaluation such as profiling or monitoring \parencite{brunnertPerformanceorientedDevOpsResearch2015}. Common metrics involve measuring the CPU, but other metrics such as memory usage, network traffic or I/O usage are not as well defined as a CPU metric \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
-
-\begin{itemize}
-    \item Task Completion time
-    \item Throughput
-    \item Latency
-    \item CPU usage
-    \item GPU usage
-    \item RAM usage
-    \item VRAM usage
-    \item I/O usage
-    \item Network traffic
-\end{itemize}
-
-\subsection{Continuous optimization?}
-
-Preprocessing
-
-Training
-
-Serving Latency
-
-Resource demands might change depending on the inputs \parencite{brunnertPerformanceorientedDevOpsResearch2015} making it important to systematically measure performance not only based on code changes but also on configuration changes or even data changes.
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{MLOps} % 4 pages

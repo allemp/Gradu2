@@ -1,31 +1,31 @@
 \chapter{Introduction}
+\label{chap:intro}
 
-% Intro
-Machine learning (ML) systems are widely adopted and many organizations successfully have ML models running in production.
+%\info[inline]{Intro paragraph}
 
-\begin{itemize}
-    \item Problem with MLOps/ML tools
-        \begin{itemize}
-            \item traditional ML performance metrics such as accuracy
-            \item fancy features such as neural architecture search, AutoML, performance tuning
-            \item fancy techniques such as early stopping, grid search, bayesian optimization search etc.
-            \item little support for non-ML metrics: CPU util, memory used, latency, throughput (images/s etc.), hardware required (CPU, GPU, TPU etc.)
-            \item ML in production has many objectives besides accuracy for example: satellite image processing model A took 4-5h and model B took 5min. Model A is infeasible in production despite being more accurate.
-            \item "Better' depends on the specific application
-        \end{itemize}
-    \item Hypothesis: Early stopping will speed up computing non-ML metrics (CPU util, Memory use, GPU/TPU requirement, latency, throughput)
-\end{itemize}
+Machine learning (ML) and Artificial Intelligence (AI) have been a hot topic of discussion in the past decade. While there is a mountain of academic research on ML methods and tools, there is a lack of attention paid to practical real-world challenges encountered when developing or running ML systems. DevOps has previously addressed similar challenges in software engineering and a field of MLOps which is DevOps applied to ML has emerged. Machine learning operations (MLOps) focuses on solving challenges related to operating real world machine learning systems \parencite{kreuzbergerMachineLearningOperations2023}.
 
-TODO smaller and smaller devices, limited resources
+%\info[inline]{Context of the study}
+Machine learning (ML) systems are widely adopted and many organizations successfully have ML models running in production\improvement{Find ref}.
+Examples of machine learning systems in different fields include recommender systems \improvement{Find ref}, targeted ads \parencite{domingosFewUsefulThings2012}, drug design \parencite{domingosFewUsefulThings2012} or search engines \parencite{domingosFewUsefulThings2012}.
 
+Most recent breakthroughs that have generated media attention have been in the fields of computer vision in the form of latent diffusion models (LDM) \parencite{rombachHighResolutionImageSynthesis2022} such as Stable Diffusion \parencite{stabilityaiStableDiffusionPublic2022} for generating images from prompts and natural language processing in the form of large language models (LLM) \parencite{touvronLLaMAOpenEfficient2023} such as ChatGPT \parencite{openaiIntroducingChatGPT2022}. There have also been great developments in tooling for machine learning such as Tensorflow, Pytorch or scikit-learn \improvement{TF, Pytorch, scikit-learn refs} for model development, Ray, Horovod or DeepSpeed \improvement{Ray, Horovod and DeepSpeed refs} for distributed training and MLFlow or Tensorboard \improvement{MLFlow, Tensorboard refs} for machine learning monitoring.
 
-Real-world ML systems in addition to ML performance metrics will have similar performance metrics as traditional software systems. 
+%\info[inline]{Statement of the problem}
 
-% Aim of the study + contribution + summary
-The aim of the study is to tune performance metrics particularly relevant to real-world ML systems. 
-TODO Summary of thesis
-The main contribution of this master's thesis is using ML performance tuning techniques such as early stopping for tuning a wider range of real-world ML system performance metrics.
+Despite wide adoption and many successes, there are still challenges with machine learning systems in practice \improvement{Find ref, state of MLOps?}. The required amount of computation for machine learning has been on the rise. According to an OpenAI technical blog the trend is exponential and more compute leads to better performance \parencite{amodeiAICompute2018}. Increased compute requirements also mean increased costs such as financial, operational or environmental. Strubell et al. \parencite*{strubellEnergyPolicyConsiderations2020} in their extended abstract bring attention to the environmental impact of training models and in particular hyperparameter tuning, during which costs of training many relatively inexpensive models quickly adds up.
 
+In addition to cost there may be other requirements for machine learning systems. For example machine learning systems on the edge might encounter system requirements such as latency and energy use or have limited resources such as memory or compute \parencite{chenDeepLearningEdge2019}. Ways of meeting these requirements include hyperparameter tuning, reducing the amount of parameters in the model or model compression such as knowledge distillation \parencite{chenDeepLearningEdge2019}.
 
+Early stopping has been used as a cost optimization technique to reduce training time by stopping training when performance of the model stops improving on the validation set \parencite{precheltAutomaticEarlyStopping1998}. More recent work on larger models shows that models might still improve later if training continues for a longer time \parencite{hofferTrainLongerGeneralize2018}. Using early stopping with other performance metrics such as system metrics has not been as thoroughly studied.
 
-TODO Structure of the thesis
+%\info[inline]{Aim and Scope}
+
+The aim of this thesis is to investigate whether using early stopping with system metrics leads to more efficient hyperparameter tuning when there are resource constraints. Investigation is limited to a small set of widely available machine learning algorithms and datasets that do not require a lot of computation. While more complex and effective hyperparameter optimization methods exist only the simplest are used to simplify the experiments for clarity.
+
+%\info[inline]{Significance of the study}
+
+The theoretical significance of the thesis is to show that traditional hyperparameter optimization techniques can not only be used on machine learning performance metrics but also alternative metrics such as system metrics. The practical outcomes are reducing costs and allowing for quickly and efficiently tailoring models to fit specific system metric constrains.
+%\info[inline]{Overview}
+
+This thesis is structured in the following manner: Chapter \ref{chap:intro} provides an introduction and context for the thesis. Chapter \ref{chap:mloper} contains background information about machine learning, DevOps and MLOps and how they relate to each other. Chapter \ref{chap:methods} describes the performed experiments and their methods and design including research questions, datasets and algorithms used. Chapter \ref{chap:results} presents the results of the experiments. Chapter \ref{chap:discuss} revisits the research questions and discusses the interpretation of the results, limitations, related work and future work. Chapter \ref{chap:concl} concludes the thesis by summarizing key findings.

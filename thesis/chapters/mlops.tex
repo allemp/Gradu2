@@ -60,18 +60,6 @@ Performance metrics are fundamental to all activities involving performance eval
 
 Metrics can be divided into application metrics such as response time or throughput and resource utilization metrics such as CPU utilization or available memory \parencite{brunnertPerformanceorientedDevOpsResearch2015}. There is little peer reviewed research available with specifics on which metrics are to be collected or how they are defined.
 
-%\begin{itemize}
-%    \item Task Completion time
-%    \item Throughput
-%    \item Latency
-%    \item CPU usage
-%    \item GPU usage
-%    \item RAM usage
-%    \item VRAM usage
-%    \item I/O usage
-%    \item Network traffic
-%\end{itemize}
-
 Measurement based performance evaluation requires a system to test while model based performance evaluation allows to predict the performance of the future system \parencite{brunnertPerformanceorientedDevOpsResearch2015}. This type of performance prediction allows for better planning and comparing use cases especially when an existing legacy system exists with measured performance metrics \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
@@ -80,22 +68,22 @@ Measurement based performance evaluation requires a system to test while model b
 
 \subsection{Overview}
 
-TODO \parencite{kreuzbergerMachineLearningOperations2023} data scientists doing manual work issue from conclusions, definition of MLOps, limit to technical stuff and tooling
+While the focus of machine learning research has been on improving models, it is essential for the industry to be able to design production-ready machine learning pipelines \parencite{posoldovaMachineLearningPipelines2020}. The data often used for research is of higher quality than real-world data that is often messy, unstructured and unlabeled \parencite{posoldovaMachineLearningPipelines2020}. Continuous integration, continuous deployment and automated testing are also relevant to machine learning systems \parencite{posoldovaMachineLearningPipelines2020} which are familiar concepts from DevOps. A new concept of MLOps addresses this issue of designing and maintaining machine learning systems just like DevOps addressed it for traditional software \parencite{kreuzbergerMachineLearningOperations2023}.
 
-Requirements for a machine learning system are different depending on the task. For example speech and object recognition might have no particular performance requirements during training but has strict latency and computational resource restrictions when deployed to serve large amounts users \parencite{hintonDistillingKnowledgeNeural2015}. One of the key areas of MLOps is using machine learning in production systems in addition to data processing and machine learning model training.
+\improvement[inline]{Add ML specific practical problems}
 
 Performance measuring software is not new, but ML brings additional challenges in the form of models and data which requires a modified approach \parencite{breckMLTestScore2017a}. It is also important to note, that not every data scientist or machine learning engineer working on machine learning systems has a software engineering background \parencite{finzerDataScienceEducation2013} and might lack the necessary knowledge to apply software engineering best practices to machine learning systems.
 
-Projects involving machine learning often make common methodological mistakes that threaten the validity of the models, but are easily avoided\todo{ref}. %TODO reference common ml pitfalls paper
+Requirements for a machine learning system are different depending on the task. For example speech and object recognition might have no particular performance requirements during training but has strict latency and computational resource restrictions when deployed to serve large amounts users \parencite{hintonDistillingKnowledgeNeural2015}. MLOps has to take into account both machine learning performance metrics familiar from machine learning and software performance metrics familiar from DevOps and software engineering. Feedback from metrics collected during development and from monitoring of production systems are core MLOps principles \parencite{kreuzbergerMachineLearningOperations2023}.
 
 \subsection{Hyperparameter optimization}
 
-\info[inline]{Intro}
 % Hyperparameter definition and examples
 
-Parameters given as part of a configuration to the machine learning model are called hyperparameters \parencite{yangHyperparameterOptimizationMachine2020}.
-For example learning rate, batch size or a classification threshold are hyperparameters set before the model is trained.
-\todo{ref} Most common hyperparameter selection technique in practice is manually adjusting the hyperparameters and is humorously called graduate student descent\todo{ref}. % TODO find reference
+Parameters given as part of a configuration to the machine learning model are called hyperparameters \parencite{yangHyperparameterOptimizationMachine2020}. \improvement{Find simple examples}
+
+%For example learning rate, batch size or a classification threshold are hyperparameters set before the model is trained.
+%\todo{ref} Most common hyperparameter selection technique in practice is manually adjusting the hyperparameters and is humorously called graduate student descent\todo{ref}. % TODO find reference
 
 % Benefits of hyperparameter search
 Automatic tuning of hyperparameters can help achieve state-of-the-art performance in machine learning systems \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
@@ -111,8 +99,6 @@ Performance prediction is an important step to reduce the amount of computation 
 
 \subsection{Performance prediction and early stopping}
 
-Early stopping is a technique in which model training is halted before completion\todo{ref}. %TODO find reference
-This is done to save on computational resources and the main reason for early stopping is predicting that the model will have poor performance\todo{ref}. %TODO find reference.
-Performance prediction usually relies on predicting a machine learning performance metric such as RMSE or F1 score given the current model is performing during training compared to other models\todo{ref}. %TODO find reference
+Early stopping is a technique in which model training is halted before completion to avoid wasting computational resources \parencite{precheltAutomaticEarlyStopping1998}.
 
 Machine learning systems in addition to machine learning performance metrics and system performance metrics will have their performance metrics tied to product or organization metrics such as user churn rate or click-through rate \parencite{shankarOperationalizingMachineLearning2022}. Choosing the right metrics to evaluate a machine learning system is important and the metrics will be different for different machine learning systems \parencite{shankarOperationalizingMachineLearning2022}.

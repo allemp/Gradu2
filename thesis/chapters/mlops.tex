@@ -1,20 +1,19 @@
 \chapter{Machine Learning Operations}
 \label{chap:mloper}
 
-\improvement[inline]{Add outline of how ML, DevOps and MLOps fit together, add scope}
+Software involving machine learning adds additional complexity to the overall system. Developing, deploying and monitoring machine learning systems involves both traditional software system concepts and some new machine learning specific concepts. Section \ref{sec:ml} introduces machine learning and evaluating model performance from a practical perspective. Section \ref{sec:devops} introduces DevOps and performance evaluation. Section \ref{sec:mldevops} combines machine learning and DevOps for production machine learning systems and introduces hyperparameter optimization and performance prediction.
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{Machine Learning} % 2 pages
 \label{sec:ml}
-\improvement[inline]{Add outline of how Practical ML and ML metrics fit together, add scope}
+Real world applications of machine learning are often messy with a large number of decisions for the developer that can result in different behavior of the machine learning model. This section introduces machine learning from a practical standpoint including necessary performance metrics for model training and empirical performance evaluation.
 
 \subsection{Practical machine learning}
 
-\info[inline]{Intro to ML} % Definition and basics of ML
 Writing programs and developing algorithms to complete specific tasks is a labor intensive task requiring professional programming expertise.
 A different approach is to develop generic algorithms that can change behavior by learning.
 The field studying these types of algorithms is called machine learning.
-Machine learning algorithms learn by applying an optimization algorithm to adjust set of parameters called a model and this process is called training the model \parencite{lecunDeepLearning2015}. % TODO find reference
+Machine learning algorithms learn by applying an optimization algorithm to adjust set of parameters called a model and this process is called training the model \parencite{lecunDeepLearning2015}.
 A simplified machine learning workflow consists of splitting the data into training and test datasets, performing preprocessing separately for each dataset, training the model on the training dataset and finally evaluating the trained model on the test dataset\todo{ref}.  % TODO find reference
 
 
@@ -24,20 +23,23 @@ Machine learning can be practiced with two different goals in mind. First is exp
 One practical difference is that unlike predictive modeling, explanatory modeling rarely uses holdout test sets or cross validation for evaluation \parencite{shmueliExplainPredict2010a}.
 Lack or presence of evaluation on a test set can be used as a heuristic to quickly determine whether a machine learning project is explanatory or predictive in nature.
 However, even explanatory modeling benefits from evaluating the predictive power \parencite{shmueliExplainPredict2010a}.
-Domingos \parencite*{domingosFewUsefulThings2012} in their paper assume all machine learning is predictive in nature and state that machine learning should generalize beyond the training set \unsure{Direct quote paraphrased}.
+Domingos \parencite*{domingosFewUsefulThings2012} in their paper assume all machine learning is predictive in nature and state that machine learning should generalize beyond the training set.
 It is important to keep in mind the end goals of a machine learning project, because common practices in a research setting might not be applicable when creating machine learning systems.
 
 Machine learning algorithms can be categorized as supervised learning, unsupervised learning or reinforcement learning\todo{ref}. %TODO find reference
 The main differences are related to whether the model learns by using "right answers" provided by labeled data in supervised learning, by finding structure in the dataset in unsupervised learning or by interacting with the world in reinforcement learning\todo{ref}. %TODO find reference
-Model evaluation is also different with supervised learning mostly relying on universal cross-validation on previously unseen data and unsupervised or reinforcement learning relying on internal evaluation metrics tied to the specific algorithm\todo{ref}. %TODO find reference  
 Unsupervised learning has the advantage of not requiring labeled data which is an advantage for problems where labels are uncommon \parencite{leBuildingHighlevelFeatures2012}.
 
 
-\subsection{Machine learning performance metrics}
+\subsection{Model evaluation}
 \label{sec:mlperf}
-\info[inline]{Intro}
-\info[inline]{Training vs Validation metrics}
-\info[inline]{Domain specific metrics}
+
+Performance evaluation of machine learning models is usually done empirically using cross-validation \parencite{formanApplestoApplesCrossValidationStudies,sokolovaSystematicAnalysisPerformance2009}. Cross-validation involves splitting the data into $k$-folds and using all but one of the folds for training and the last one for validating the performance of the model after which the procedure is repeated $k$ times with each fold being used for validation \parencite{cawleyOverfittingModelSelection}. For example $3$-fold validation would use a third of the data for validation and two thirds for training repeated three times. The performance metrics collected during the computationally expensive cross validation are typically averaged \parencite{cawleyOverfittingModelSelection}. These types of global averages might not be desirable and instead of random folds the data can be sliced according to some criterion such as by country and allow detecting performance differences between slices \parencite{breckMLTestScore2017a}.
+
+Machine learning training involves minimizing an optimization criterion such as log loss, squared hinge loss or Cauchy-Schwarz Divergence \parencite{janochaLossFunctionsDeep2017}. Different loss metrics are chosen depending on the application such as resistance to noisy data or labels \parencite{janochaLossFunctionsDeep2017}. The loss metric is sometimes not informative of model performance such as in classification tasks. In these cases performance metrics such as accuracy, precision, recall, specificity, error-rate , AUC and F-score are used \parencite{sokolovaSystematicAnalysisPerformance2009,formanApplestoApplesCrossValidationStudies}. Metrics such as accuracy are well defined, but the final F-score from cross-validation may be computed in several ways resulting in different results \parencite{formanApplestoApplesCrossValidationStudies}.
+
+Even more informative metrics can be created for specific applications. For example Torrabla and Efros \parencite*{torralbaUnbiasedLookDataset2011} developed performance metrics to compare different datasets and determine a "market value" for the data by using the generalization performance of machine learning models on the datasets. Defining correctness of the prediction is an important part when defining performance metrics \parencite{linMicrosoftCOCOCommon2014}
+
 
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
@@ -54,7 +56,7 @@ Continuous integration, continuous deployment and continuous monitoring are well
 
 Performance evaluation is a useful tool for optimizing the overall system design and tailoring for a specific production environment in addition to correctly sizing resources \parencite{brunnertPerformanceorientedDevOpsResearch2015,wallerIncludingPerformanceBenchmarks2015}. Resource demands might change depending on the inputs \parencite{brunnertPerformanceorientedDevOpsResearch2015} making it important to systematically measure performance not only based on code changes but also on configuration changes or even data changes. Performance evaluation is directly tied to defining and collecting performance metrics and monitoring.
 
-\subsection{Software performance metrics}
+\subsection{Performance evaluation}
 
 Performance metrics are fundamental to all activities involving performance evaluation such as profiling or monitoring \parencite{brunnertPerformanceorientedDevOpsResearch2015}. Common metrics involve measuring the CPU, but other metrics such as memory usage, network traffic or I/O usage do not have clear definitions \parencite{brunnertPerformanceorientedDevOpsResearch2015}. Collecting metrics happens through hardware based monitors or software monitors instrumented into software through code modification or indirectly for example through middleware interception \parencite{brunnertPerformanceorientedDevOpsResearch2015}. Metrics can be event driven in which a monitor is triggered with every occurrence or based on sampling at fixed time intervals \parencite{brunnertPerformanceorientedDevOpsResearch2015}. The types of metrics collected and what information is expected depends on the performance goals and the life cycle of the software \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
 

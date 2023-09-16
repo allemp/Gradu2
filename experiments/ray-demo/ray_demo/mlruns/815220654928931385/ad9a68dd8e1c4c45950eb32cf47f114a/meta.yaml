@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/c/Users/master/Documents/University/Gradu2/experiments/ray-demo/ray_demo/mlruns/815220654928931385/ad9a68dd8e1c4c45950eb32cf47f114a/artifacts
+end_time: 1694368954595
+entry_point_name: ''
+experiment_id: '815220654928931385'
+lifecycle_stage: active
+run_id: ad9a68dd8e1c4c45950eb32cf47f114a
+run_name: SklearnTrainer_33de0_00000
+run_uuid: ad9a68dd8e1c4c45950eb32cf47f114a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1694368950680
+status: 3
+tags: []
+user_id: unknown

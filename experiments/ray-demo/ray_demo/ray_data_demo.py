@@ -1,4 +1,7 @@
 # %%
+from datetime import datetime
+from time import time
+
 import pandas as pd
 import psutil
 import ray
@@ -29,8 +32,9 @@ class CustomTrainer(BaseTrainer):
         classes = self.datasets["train"].unique("target")
         X_test = self.datasets["test"].to_pandas().drop("target", axis=1)
         y_test = self.datasets["test"].to_pandas()["target"]
-        max_steps = 10000
+        max_steps = 1000
         step = 0
+        step_time_sum = 0
         while step <= max_steps:
             train_loss_sum = 0
             num_batches = 0
@@ -39,22 +43,29 @@ class CustomTrainer(BaseTrainer):
             )
 
             for batch in train_batches:
-                print("Step: ", step)
+                start_time = time()
                 X = batch.drop("target", axis=1)
                 y = batch["target"]
                 self.model.partial_fit(X, y, classes=classes)
-                batch_loss = hinge_loss(y, self.model.decision_function(X))
+
+                batch_loss = hinge_loss(
+                    y, self.model.decision_function(X), labels=classes
+                )
                 train_loss_sum += batch_loss
                 num_batches += 1
                 step += 1
+                step_time_sum += time() - start_time
                 if step >= max_steps:
                     break
-                if step % 10 == 0:
+                if step % 100 == 0:
                     pred = self.model.predict(X_test)
                     accuracy = accuracy_score(pred, y_test)
-                    test_loss = hinge_loss(y_test, self.model.decision_function(X_test))
+                    test_loss = hinge_loss(
+                        y_test, self.model.decision_function(X_test), labels=classes
+                    )
                     cpu = process.cpu_percent(interval=0.0)
-                    ram = process.memory_info().rss
+                    mem_info = process.memory_info()
+                    ram = (mem_info.rss - mem_info.shared) / 1024 / 1024
                     ray.train.report(
                         {
                             "step": step,
@@ -63,14 +74,18 @@ class CustomTrainer(BaseTrainer):
                             "accuracy": accuracy,
                             "cpu": cpu,
                             "ram": ram,
+                            "avg_step_time": step_time_sum / step,
                         }
                     )
 
 
 # %%
-tune_config = tune.TuneConfig(num_samples=1, max_concurrent_trials=4)
+tune_config = tune.TuneConfig(num_samples=1, max_concurrent_trials=7)
 run_config = ray.train.RunConfig(
-    name="MLFlow", callbacks=[MLflowLoggerCallback(experiment_name="test1")]
+    name="MLFlow",
+    callbacks=[
+        MLflowLoggerCallback(experiment_name=datetime.now().strftime("%Y-%m-%d-%H%M%S"))
+    ],
 )
 # %%
 
@@ -84,7 +99,7 @@ my_tuner = Tuner(
     my_trainer,
     param_space={
         "metadata": {
-            "params": {"batch_size": tune.grid_search([2**i for i in range(6, 15)])}
+            "params": {"batch_size": tune.grid_search([5, 50, 500, 5000, 50000])}
         }
     },
     tune_config=tune_config,

@@ -4,6 +4,9 @@
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{Research setup}
 \subsection{Scope}
+
+In this thesis the choice of machine learning algorithms is limited to implementations with iterative training and a possibility for metric collection between training steps. 
+
 The scope of the study is limited to 5 performance metrics of 3 different ML models trained and tested on 3 different datasets using a distributed computing framework Ray Tune \parencite{liawTuneResearchPlatform2018}.
 
 TODO different models, different datasets
@@ -28,10 +31,9 @@ TODO different resources (memory, time, accuracy)
 \subsection{Research Questions}
 This master's thesis asks the following research questions:
 \begin{itemize}
-    %\item \emph{RQ1}: How can we measure the performance of real-world ML systems using Ray Tune \parencite{liawTuneResearchPlatform2018}?
-    \item \emph{RQ1}: How early stopping on resource usage metrics affects required computation during hyperparameter optimization?
-    \item \emph{RQ2}: How early stopping on application performance metrics affects required computation during hyperparameter optimization?
-
+    \item \emph{RQ1}: How do changes in hyperparameters affect system performance during model training?
+    \item \emph{RQ2}: How does early stopping on system performance criteria affect computational budgets during model training?
+          
 \end{itemize}
 
 \subsection{Methodology}

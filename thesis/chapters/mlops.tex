@@ -40,7 +40,7 @@ Machine learning training involves minimizing an optimization criterion such as 
 
 Even more informative metrics can be created for specific applications. For example Torrabla and Efros \parencite*{torralbaUnbiasedLookDataset2011} developed performance metrics to compare different datasets and determine a "market value" for the data by using the generalization performance of machine learning models on the datasets. Defining correctness of the prediction is an important part when defining performance metrics \parencite{linMicrosoftCOCOCommon2014}
 
-
+TODO: Define batch, training step, epoch
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{DevOps} % 2 pages
@@ -63,6 +63,8 @@ Performance metrics are fundamental to all activities involving performance eval
 Metrics can be divided into application metrics such as response time or throughput and resource utilization metrics such as CPU utilization or available memory \parencite{brunnertPerformanceorientedDevOpsResearch2015}. There is little peer reviewed research available with specifics on which metrics are to be collected or how they are defined. Kounev et al. \parencite*{kounevSystemsBenchmarkingScientists2020} in their textbook on systems benchmarking bring up the following quality attributes for benchmark metrics: easy to measure, repeatable, reliable, linear, consistent and independent. Most metrics will not satisfy all of the above quality attributes and aggregated higher level composite metrics are requires \parencite{kounevSystemsBenchmarkingScientists2020}.
 
 Measurement based performance evaluation requires a system to test while model based performance evaluation allows to predict the performance of the future system \parencite{brunnertPerformanceorientedDevOpsResearch2015}. This type of performance prediction allows for better planning and comparing use cases especially when an existing legacy system exists with measured performance metrics \parencite{brunnertPerformanceorientedDevOpsResearch2015}.
+
+TODO: measuring CPU, memory, times (real, wall etc.)
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{MLOps} % 4 pages
@@ -97,6 +99,9 @@ Similar concepts to hyperparameter optimization are neural architecture optimiza
 Tuning hyperparameters is generally a difficult task \parencite{maclaurinGradientbasedHyperparameterOptimization2015}. Traditional hyperparameter tuning methods such as Bayesian optimization are unfeasible for more than 10-20 hyperparameters \parencite{maclaurinGradientbasedHyperparameterOptimization2015}.
 More advanced techniques are required if a larger amount of tunable hyperparameters is desired.
 Performance prediction is an important step to reduce the amount of computation required for neural architecture search and hyperparameter optimization \parencite{bakerAcceleratingNeuralArchitecture2017}.
+
+TODO: add things from \parencite{shallueMeasuringEffectsData2019}
+TODO: Computational budget, steps, 
 
 \subsection{Performance prediction and early stopping}
 

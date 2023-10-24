@@ -1,8 +1,12 @@
 \chapter{Methods}
+\label{chap:methods}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{Research setup}
 \subsection{Scope}
+
+In this thesis the choice of machine learning algorithms is limited to implementations with iterative training and a possibility for metric collection between training steps. 
+
 The scope of the study is limited to 5 performance metrics of 3 different ML models trained and tested on 3 different datasets using a distributed computing framework Ray Tune \parencite{liawTuneResearchPlatform2018}.
 
 TODO different models, different datasets
@@ -11,37 +15,55 @@ TODO Vertailukriteeristö: tapana ohjelmistopuolella + tapana koneoppimispuolell
 
 TODO different resources (memory, time, accuracy)
 
+%\begin{itemize}
+%    \item Task Completion time
+%    \item Throughput
+%    \item Latency
+%    \item CPU usage
+%    \item GPU usage
+%    \item RAM usage
+%    \item VRAM usage
+%    \item I/O usage
+%    \item Network traffic
+%\end{itemize}
 
 
 \subsection{Research Questions}
 This master's thesis asks the following research questions:
 \begin{itemize}
-    %\item \emph{RQ1}: How can we measure the performance of real-world ML systems using Ray Tune \parencite{liawTuneResearchPlatform2018}?
-    \item \emph{RQ1}: How early stopping affects performance metrics during hyperparameter optimization?
-    \item \emph{RQ2}: How early stopping affects performance metrics during neural architecture optimization?
+    \item \emph{RQ1}: How do changes in hyperparameters affect system performance during model training?
+    \item \emph{RQ2}: How does early stopping on system performance criteria affect computational budgets during model training?
+          
 \end{itemize}
 
+\subsection{Proposed method}
+
+
+
+
+\section{Experimental setup}
+
 \subsection{Methodology}
-
-Methodology used is expanded from an existing methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016} to include AutoML and 
-
-%--------------------------------------------------------------------------------------------------------------------------------------------
-\section{Experiments}
-\label{sec:experiments}
-%\subsection{Overview}
+Methodology used is expanded from an existing methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016} to include AutoML and
 \subsection{Datasets}
 % Tarkemmin esimerkkinä, loput vähemmän tarkasti
 MNIST \parencite{dengMNISTDatabaseHandwritten2012}
 
 % Satunnaisesti valitaan X kappaletta
 Penn Machine Learning Benchmarks \parencite{olsonPMLBLargeBenchmark2017}
-
-
-
-
-\subsection{Machine Learning algorithms}
 \subsection{Metrics}
-\subsection{Training and validation}
-\subsection{Inference}
+\subsection{Algorithms}
+\subsection{Validation}
+\subsection{Software and Hardware}
+
+
+%--------------------------------------------------------------------------------------------------------------------------------------------
+\section{Experiments}
+\label{sec:experiments}
+%\subsection{Overview}
+
+\subsection{Preliminary experiments}
+\subsection{System performance}
+\subsection{Computational budget}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,10 +1,23 @@
+@misc{amodeiAICompute2018,
+  title = {{{AI}} and Compute},
+  author = {Amodei, Dario and Hernandez, Danny},
+  year = {2018},
+  month = may,
+  urldate = {2023-07-29},
+  abstract = {We're releasing an analysis showing that since 2012, the amount of compute used in the largest AI training runs has been increasing exponentially with a 3.4-month doubling time (by comparison, Moore's Law had a 2-year doubling period)[\^footnote-correction]. Since 2012, this metric has grown by more than 300,000x (a 2-year doubling period would yield only a 7x increase). Improvements in compute have been a key component of AI progress, so as long as this trend continues, it's worth preparing for the implications of systems far outside today's capabilities.},
+  howpublished = {https://openai.com/research/ai-and-compute},
+  langid = {american},
+  file = {C:\Users\master\Zotero\storage\3XICH52X\ai-and-compute.html}
+}
+
 @misc{bakerAcceleratingNeuralArchitecture2017,
   title = {Accelerating {{Neural Architecture Search}} Using {{Performance Prediction}}},
   author = {Baker, Bowen and Gupta, Otkrist and Raskar, Ramesh and Naik, Nikhil},
   year = {2017},
   month = nov,
   number = {arXiv:1705.10823},
-  eprint = {arXiv:1705.10823},
+  eprint = {1705.10823},
+  primaryclass = {cs},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.1705.10823},
   urldate = {2023-01-25},
@@ -20,7 +33,7 @@
   booktitle = {Proceedings of {{IEEE Big Data}}},
   author = {Breck, Eric and Cai, Shanqing and Nielsen, Eric and Salib, Michael and Sculley, D.},
   year = {2017},
-  file = {C\:\\Users\\master\\Zotero\\storage\\LEKCIDWU\\Breck et al_2017_The ML Test Score.pdf}
+  file = {C:\Users\master\Zotero\storage\LEKCIDWU\Breck et al_2017_The ML Test Score.pdf}
 }
 
 @misc{brunnertPerformanceorientedDevOpsResearch2015,
@@ -30,7 +43,8 @@
   year = {2015},
   month = aug,
   number = {arXiv:1508.04752},
-  eprint = {arXiv:1508.04752},
+  eprint = {1508.04752},
+  primaryclass = {cs},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.1508.04752},
   urldate = {2023-01-17},
@@ -49,8 +63,34 @@
   pages = {626--633},
   doi = {10.1109/ICMLA51294.2020.00104},
   abstract = {Machine learning (ML) is becoming critical to many businesses. Keeping an ML solution online and responding is therefore a necessity, and is part of the MLOps (Machine Learning operationalization) movement. One aspect for this process is monitoring not only prediction quality, but also system resources. This is important to correctly provide the necessary infrastructure, either using a fully-managed cloud platform or a local solution. This is not a difficult task, as there are many tools available. However, it requires some planning and knowledge about what to monitor. Also, many ML professionals are not experts in system operations and may not have the skills to easily setup a monitoring and benchmarking environment. In the spirit of MLOps, this paper presents an approach, based on a simple API and set of tools, to monitor ML solutions. The approach was tested with 9 different solutions. The results indicate that the approach can deliver useful information to help in decision making, proper resource provision and operation of ML systems.},
-  keywords = {_tablet,Benchmark,Benchmark testing,Machine learning,Machine Learning,MLOps,Monitoring,Production,Systems operation,Task analysis,Tools},
+  keywords = {Benchmark,Benchmark testing,Machine learning,Machine Learning,MLOps,Monitoring,Production,Systems operation,Task analysis,Tools},
   file = {C\:\\Users\\master\\Zotero\\storage\\7WJUB6UG\\Cardoso Silva et al_2020_Benchmarking Machine Learning Solutions in Production.pdf;C\:\\Users\\master\\Zotero\\storage\\3PXPYX5A\\9356298.html}
+}
+
+@article{cawleyOverfittingModelSelection,
+  title = {On {{Over-fitting}}g in{{Model Selection}}n and{{Subsequent Selection Bias}}s in{{Performance Evaluation}}},
+  author = {Cawley, Gavin C and Talbot, Nicola L C},
+  abstract = {Model selection strategies for machine learning algorithms typically involve the numerical optimisation of an appropriate model selection criterion, often based on an estimator of generalisation performance, such as k-fold cross-validation. The error of such an estimator can be broken down into bias and variance components. While unbiasedness is often cited as a beneficial quality of a model selection criterion, we demonstrate that a low variance is at least as important, as a nonnegligible variance introduces the potential for over-fitting in model selection as well as in training the model. While this observation is in hindsight perhaps rather obvious, the degradation in performance due to over-fitting the model selection criterion can be surprisingly large, an observation that appears to have received little attention in the machine learning literature to date. In this paper, we show that the effects of this form of over-fitting are often of comparable magnitude to differences in performance between learning algorithms, and thus cannot be ignored in empirical evaluation. Furthermore, we show that some common performance evaluation practices are susceptible to a form of selection bias as a result of this form of over-fitting and hence are unreliable. We discuss methods to avoid over-fitting in model selection and subsequent selection bias in performance evaluation, which we hope will be incorporated into best practice. While this study concentrates on cross-validation based model selection, the findings are quite general and apply to any model selection practice involving the optimisation of a model selection criterion evaluated over a finite sample of data, including maximisation of the Bayesian evidence and optimisation of performance bounds.},
+  langid = {english},
+  file = {C:\Users\master\Zotero\storage\9KBI9V8C\Cawley_Talbot_On Over-ﬁtting in Model Selection and Subsequent Selection Bias in Performance.pdf}
+}
+
+@article{chenDeepLearningEdge2019,
+  title = {Deep {{Learning With Edge Computing}}: {{A Review}}},
+  shorttitle = {Deep {{Learning With Edge Computing}}},
+  author = {Chen, Jiasi and Ran, Xukan},
+  year = {2019},
+  month = aug,
+  journal = {Proceedings of the IEEE},
+  volume = {107},
+  number = {8},
+  pages = {1655--1674},
+  issn = {0018-9219, 1558-2256},
+  doi = {10.1109/JPROC.2019.2921977},
+  urldate = {2023-07-29},
+  abstract = {Deep learning is currently widely used in a variety of applications, including computer vision and natural language processing. End devices such as smartphones and IoT sensors are generating data that need to be analyzed in real-time using deep learning or used to train deep learning models. However, deep learning inference and training require substantial computation resources to run quickly. Edge computing, where a fine mesh of compute nodes are placed close to end devices, is a viable way to meet the high computation and low latency requirements of deep learning on edge devices, and also provides additional benefits in terms of privacy, bandwidth efficiency, and scalability.},
+  langid = {english},
+  file = {C:\Users\master\Zotero\storage\H3RYTRQL\Chen_Ran_2019_Deep Learning With Edge Computing.pdf}
 }
 
 @misc{coteQualityIssuesMachine2022,
@@ -59,7 +99,8 @@
   year = {2022},
   month = aug,
   number = {arXiv:2208.08982},
-  eprint = {arXiv:2208.08982},
+  eprint = {2208.08982},
+  primaryclass = {cs},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.2208.08982},
   urldate = {2022-12-07},
@@ -85,6 +126,24 @@
   file = {C\:\\Users\\master\\Zotero\\storage\\YD2EFMVK\\Deng_2012_The MNIST Database of Handwritten Digit Images for Machine Learning Research.pdf;C\:\\Users\\master\\Zotero\\storage\\8XXBPIR7\\6296535.html}
 }
 
+@misc{dodgeFineTuningPretrainedLanguage2020,
+  title = {Fine-{{Tuning Pretrained Language Models}}: {{Weight Initializations}}, {{Data Orders}}, and {{Early Stopping}}},
+  shorttitle = {Fine-{{Tuning Pretrained Language Models}}},
+  author = {Dodge, Jesse and Ilharco, Gabriel and Schwartz, Roy and Farhadi, Ali and Hajishirzi, Hannaneh and Smith, Noah},
+  year = {2020},
+  month = feb,
+  number = {arXiv:2002.06305},
+  eprint = {2002.06305},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2002.06305},
+  urldate = {2023-07-30},
+  abstract = {Fine-tuning pretrained contextual word embedding models to supervised downstream tasks has become commonplace in natural language processing. This process, however, is often brittle: even with the same hyperparameter values, distinct random seeds can lead to substantially different results. To better understand this phenomenon, we experiment with four datasets from the GLUE benchmark, fine-tuning BERT hundreds of times on each while varying only the random seeds. We find substantial performance increases compared to previously reported results, and we quantify how the performance of the best-found model varies as a function of the number of fine-tuning trials. Further, we examine two factors influenced by the choice of random seed: weight initialization and training data order. We find that both contribute comparably to the variance of out-of-sample performance, and that some weight initializations perform well across all tasks explored. On small datasets, we observe that many fine-tuning trials diverge part of the way through training, and we offer best practices for practitioners to stop training less promising runs early. We publicly release all of our experimental data, including training and validation scores for 2,100 trials, to encourage further analysis of training dynamics during fine-tuning.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {C\:\\Users\\master\\Zotero\\storage\\KZLYZF2C\\Dodge et al_2020_Fine-Tuning Pretrained Language Models.pdf;C\:\\Users\\master\\Zotero\\storage\\BNDUS4FB\\2002.html}
+}
+
 @article{domingosFewUsefulThings2012,
   title = {A Few Useful Things to Know about Machine Learning},
   author = {Domingos, Pedro},
@@ -98,7 +157,31 @@
   doi = {10.1145/2347736.2347755},
   urldate = {2023-03-14},
   abstract = {Tapping into the "folk knowledge" needed to advance machine learning applications.},
-  file = {C\:\\Users\\master\\Zotero\\storage\\J2LSZY59\\Domingos_2012_A few useful things to know about machine learning.pdf}
+  file = {C:\Users\master\Zotero\storage\J2LSZY59\Domingos_2012_A few useful things to know about machine learning.pdf}
+}
+
+@inproceedings{eistySurveySoftwareMetric2018,
+  title = {A {{Survey}} of {{Software Metric Use}} in {{Research Software Development}}},
+  booktitle = {2018 {{IEEE}} 14th {{International Conference}} on E-{{Science}} (e-{{Science}})},
+  author = {Eisty, Nasir U. and Thiruvathukal, George K. and Carver, Jeffrey C.},
+  year = {2018},
+  month = oct,
+  pages = {212--222},
+  doi = {10.1109/eScience.2018.00036},
+  abstract = {Background: Breakthroughs in research increasingly depend on complex software libraries, tools, and applications aimed at supporting specific science, engineering, business, or humanities disciplines. The complexity and criticality of this software motivate the need for ensuring quality and reliability. Software metrics are a key tool for assessing, measuring, and understanding software quality and reliability. Aims: The goal of this work is to better understand how research software developers use traditional software engineering concepts, like metrics, to support and evaluate both the software and the software development process. One key aspect of this goal is to identify how the set of metrics relevant to research software corresponds to the metrics commonly used in traditional software engineering. Method: We surveyed research software developers to gather information about their knowledge and use of code metrics and software process metrics. We also analyzed the influence of demographics (project size, development role, and development stage) on these metrics. Results: The survey results, from 129 respondents, indicate that respondents have a general knowledge of metrics. However, their knowledge of specific SE metrics is lacking, their use even more limited. The most used metrics relate to performance and testing. Even though code complexity often poses a significant challenge to research software development, respondents did not indicate much use of code metrics. Conclusions: Research software developers appear to be interested and see some value in software metrics but may be encountering roadblocks when trying to use them. Further study is needed to determine the extent to which these metrics could provide value in continuous process improvement.},
+  keywords = {Complexity theory,Software,Software engineering,Software metrics,{Survey, Software Metrics, Software Engineering, Research Software},Tools},
+  file = {C\:\\Users\\master\\Zotero\\storage\\9BLC6WCD\\Eisty et al_2018_A Survey of Software Metric Use in Research Software Development.pdf;C\:\\Users\\master\\Zotero\\storage\\QQIXAFZM\\8588655.html}
+}
+
+@inproceedings{fayyadKnowledgeDiscoveryData1996,
+  title = {Knowledge {{Discovery}} and {{Data Mining}}: {{Towards}} a {{Unifying Framework}}},
+  booktitle = {{{KDD-96 Proceedings}}},
+  author = {Fayyad, Usama and {Piatetsky-Shapiro}, Gregory and Smyth, Padhraic},
+  year = {1996},
+  pages = {7},
+  abstract = {This paper presents a first step towards a unifying frameworkfor KnowledgeDiscovery in Databases. We describe finks betweendata milfing, knowledgediscovery, and other related fields. Wethen define the KDDprocess and basic data mining algorithms, discuss application issues and conclude with an analysis of challengesfacing practitioners in the field.},
+  langid = {english},
+  file = {C\:\\Users\\master\\Zotero\\storage\\6RPQKHQ5\\Fayyad et al_Knowledge Discovery and Data Mining_annotated.pdf;C\:\\Users\\master\\Zotero\\storage\\QAFSNS2S\\Fayyad et al_Knowledge Discovery and Data Mining.pdf}
 }
 
 @article{fernandez-lozanoMethodologyDesignExperiments2016,
@@ -115,7 +198,7 @@
   abstract = {The design of experiments and the validation of the results achieved with them are vital in any research study. This paper focuses on the use of different Machine Learning approaches for regression tasks in the field of Computational Intelligence and especially on a correct comparison between the different results provided for different methods, as those techniques are complex systems that require further study to be fully understood. A methodology commonly accepted in Computational intelligence is implemented in an R package called RRegrs. This package includes ten simple and complex regression models to carry out predictive modeling using Machine Learning and well-known regression algorithms. The framework for experimental design presented herein is evaluated and validated against RRegrs. Our results are different for three out of five state-of-the-art simple datasets and it can be stated that the selection of the best model according to our proposal is statistically significant and relevant. It is of relevance to use a statistical approach to indicate whether the differences are statistically significant using this kind of algorithms. Furthermore, our results with three real complex datasets report different best models than with the previously published methodology. Our final goal is to provide a complete methodology for the use of different steps in order to compare the results obtained in Computational Intelligence problems, as well as from other fields, such as for bioinformatics, cheminformatics, etc., given that our proposal is open and~modifiable.},
   pmcid = {PMC5136129},
   pmid = {27920952},
-  file = {C\:\\Users\\master\\Zotero\\storage\\R4QQLYJX\\Fernandez-Lozano et al_2016_A methodology for the design of experiments in computational intelligence with.pdf}
+  file = {C:\Users\master\Zotero\storage\R4QQLYJX\Fernandez-Lozano et al_2016_A methodology for the design of experiments in computational intelligence with.pdf}
 }
 
 @article{finzerDataScienceEducation2013,
@@ -129,7 +212,32 @@
   urldate = {2023-01-17},
   abstract = {The need for people fluent in working with data is growing rapidly and enormously, but U.S. K\textendash 12 education does not provide meaningful learning experiences designed to develop understanding of data science concepts or a fluency with data science skills. Data science is inherently inter-disciplinary, so it makes sense to integrate it with existing content areas, but difficulties abound. Consideration of the work involved in doing data science and the habits of mind that lie behind it leads to a way of thinking about integrating data science with mathematics and science. Examples drawn from current activity development in the Data Games project shed some light on what technology-based, data-driven might be like. The project's ongoing research on learners' conceptions of organizing data and the relevance to data science education is explained.},
   langid = {english},
-  file = {C\:\\Users\\master\\Zotero\\storage\\YWX2L6LE\\Finzer_2013_The Data Science Education Dilemma.pdf}
+  file = {C:\Users\master\Zotero\storage\YWX2L6LE\Finzer_2013_The Data Science Education Dilemma.pdf}
+}
+
+@article{formanApplestoApplesCrossValidationStudies,
+  title = {Apples-to-{{Apples}} in {{Cross-Validation Studies}}: {{Pitfalls}} in {{Classifier Performance Measurement}}},
+  author = {Forman, George and Scholz, Martin},
+  abstract = {Cross-validation is a mainstay for measuring performance and progress in machine learning. There are subtle differences in how exactly to compute accuracy, F-measure and Area Under the ROC Curve (AUC) in cross-validation studies. However, these details are not discussed in the literature, and incompatible methods are used by various papers and software packages. This leads to inconsistency across the research literature. Anomalies in performance calculations for particular folds and situations go undiscovered when they are buried in aggregated results over many folds and datasets, without ever a person looking at the intermediate performance measurements. This research note clarifies and illustrates the differences, and it provides guidance for how best to measure classification performance under cross-validation. In particular, there are several divergent methods used for computing F-measure, which is often recommended as a performance measure under class imbalance, e.g., for text classification domains and in one-vs.-all reductions of datasets having many classes. We show by experiment that all but one of these computation methods leads to biased measurements, especially under high class imbalance. This paper is of particular interest to those designing machine learning software libraries and researchers focused on high class imbalance.},
+  langid = {english},
+  file = {C:\Users\master\Zotero\storage\747PD6Q2\Forman_Scholz_Apples-to-Apples in Cross-Validation Studies.pdf}
+}
+
+@misc{hestnessDeepLearningScaling2017,
+  title = {Deep {{Learning Scaling}} Is {{Predictable}}, {{Empirically}}},
+  author = {Hestness, Joel and Narang, Sharan and Ardalani, Newsha and Diamos, Gregory and Jun, Heewoo and Kianinejad, Hassan and Patwary, Md Mostofa Ali and Yang, Yang and Zhou, Yanqi},
+  year = {2017},
+  month = dec,
+  number = {arXiv:1712.00409},
+  eprint = {1712.00409},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  urldate = {2023-07-29},
+  abstract = {Deep learning (DL) creates impactful advances following a virtuous recipe: model architecture search, creating large training data sets, and scaling computation. It is widely believed that growing training sets and models should improve accuracy and result in better products. As DL application domains grow, we would like a deeper understanding of the relationships between training set size, computational scale, and model accuracy improvements to advance the state-of-the-art.},
+  archiveprefix = {arxiv},
+  langid = {english},
+  keywords = {Computer Science - Machine Learning,Statistics - Machine Learning},
+  file = {C:\Users\master\Zotero\storage\Z3LL9RNB\Hestness et al_2017_Deep Learning Scaling is Predictable, Empirically.pdf}
 }
 
 @misc{hintonDistillingKnowledgeNeural2015,
@@ -138,7 +246,8 @@
   year = {2015},
   month = mar,
   number = {arXiv:1503.02531},
-  eprint = {arXiv:1503.02531},
+  eprint = {1503.02531},
+  primaryclass = {cs, stat},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.1503.02531},
   urldate = {2023-02-03},
@@ -148,13 +257,32 @@
   file = {C\:\\Users\\master\\Zotero\\storage\\K9JTAWDA\\Hinton et al_2015_Distilling the Knowledge in a Neural Network.pdf;C\:\\Users\\master\\Zotero\\storage\\JENB6RVC\\1503.html}
 }
 
+@misc{hofferTrainLongerGeneralize2018,
+  title = {Train Longer, Generalize Better: Closing the Generalization Gap in Large Batch Training of Neural Networks},
+  shorttitle = {Train Longer, Generalize Better},
+  author = {Hoffer, Elad and Hubara, Itay and Soudry, Daniel},
+  year = {2018},
+  month = jan,
+  number = {arXiv:1705.08741},
+  eprint = {1705.08741},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1705.08741},
+  urldate = {2023-08-02},
+  abstract = {Background: Deep learning models are typically trained using stochastic gradient descent or one of its variants. These methods update the weights using their gradient, estimated from a small fraction of the training data. It has been observed that when using large batch sizes there is a persistent degradation in generalization performance - known as the "generalization gap" phenomena. Identifying the origin of this gap and closing it had remained an open problem. Contributions: We examine the initial high learning rate training phase. We find that the weight distance from its initialization grows logarithmically with the number of weight updates. We therefore propose a "random walk on random landscape" statistical model which is known to exhibit similar "ultra-slow" diffusion behavior. Following this hypothesis we conducted experiments to show empirically that the "generalization gap" stems from the relatively small number of updates rather than the batch size, and can be completely eliminated by adapting the training regime used. We further investigate different techniques to train models in the large-batch regime and present a novel algorithm named "Ghost Batch Normalization" which enables significant decrease in the generalization gap without increasing the number of updates. To validate our findings we conduct several additional experiments on MNIST, CIFAR-10, CIFAR-100 and ImageNet. Finally, we reassess common practices and beliefs concerning training of deep models and suggest they may not be optimal to achieve good generalization.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Machine Learning,Statistics - Machine Learning},
+  file = {C\:\\Users\\master\\Zotero\\storage\\CT97GYUN\\Hoffer et al_2018_Train longer, generalize better.pdf;C\:\\Users\\master\\Zotero\\storage\\9Q9H65Q6\\1705.html}
+}
+
 @misc{imbreaAutomatedMachineLearning2021,
   title = {Automated {{Machine Learning Techniques}} for {{Data Streams}}},
   author = {Imbrea, Alexandru-Ionut},
   year = {2021},
   month = jun,
   number = {arXiv:2106.07317},
-  eprint = {arXiv:2106.07317},
+  eprint = {2106.07317},
+  primaryclass = {cs},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.2106.07317},
   urldate = {2023-01-25},
@@ -164,21 +292,79 @@
   file = {C\:\\Users\\master\\Zotero\\storage\\PWERNVYQ\\Imbrea_2021_Automated Machine Learning Techniques for Data Streams.pdf;C\:\\Users\\master\\Zotero\\storage\\ER4UAF2R\\2106.html}
 }
 
-@misc{kreuzbergerMachineLearningOperations2022,
+@misc{janochaLossFunctionsDeep2017,
+  title = {On {{Loss Functions}} for {{Deep Neural Networks}} in {{Classification}}},
+  author = {Janocha, Katarzyna and Czarnecki, Wojciech Marian},
+  year = {2017},
+  month = feb,
+  number = {arXiv:1702.05659},
+  eprint = {1702.05659},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1702.05659},
+  urldate = {2023-08-27},
+  abstract = {Deep neural networks are currently among the most commonly used classifiers. Despite easily achieving very good performance, one of the best selling points of these models is their modular design - one can conveniently adapt their architecture to specific needs, change connectivity patterns, attach specialised layers, experiment with a large amount of activation functions, normalisation schemes and many others. While one can find impressively wide spread of various configurations of almost every aspect of the deep nets, one element is, in authors' opinion, underrepresented - while solving classification problems, vast majority of papers and applications simply use log loss. In this paper we try to investigate how particular choices of loss functions affect deep models and their learning dynamics, as well as resulting classifiers robustness to various effects. We perform experiments on classical datasets, as well as provide some additional, theoretical insights into the problem. In particular we show that L1 and L2 losses are, quite surprisingly, justified classification objectives for deep nets, by providing probabilistic interpretation in terms of expected misclassification. We also introduce two losses which are not typically used as deep nets objectives and show that they are viable alternatives to the existing ones.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Machine Learning},
+  file = {C\:\\Users\\master\\Zotero\\storage\\8U86FCTW\\Janocha_Czarnecki_2017_On Loss Functions for Deep Neural Networks in Classification.pdf;C\:\\Users\\master\\Zotero\\storage\\3PW72J4V\\1702.html}
+}
+
+@article{karlMultiObjectiveHyperparameterOptimization2023,
+  title = {Multi-{{Objective Hyperparameter Optimization}} in {{Machine Learning}} \textendash{} {{An Overview}}},
+  author = {Karl, Florian and Pielok, Tobias and Moosbauer, Julia and Pfisterer, Florian and Coors, Stefan and Binder, Martin and Schneider, Lennart and Thomas, Janek and Richter, Jakob and Lang, Michel and {Garrido-Merch{\'a}n}, Eduardo C. and Branke, Juergen and Bischl, Bernd},
+  year = {2023},
+  month = sep,
+  journal = {ACM Transactions on Evolutionary Learning and Optimization},
+  doi = {10.1145/3610536},
+  urldate = {2023-10-17},
+  abstract = {Hyperparameter optimization constitutes a large part of typical modern machine learning workflows. This arises from the fact that machine learning methods and corresponding preprocessing steps often only yield optimal performance when hyperparameters are properly tuned. But in many applications, we are not only interested in optimizing ML pipelines solely for predictive accuracy; additional metrics or constraints must be considered when determining an optimal configuration, resulting in a multi-objective optimization problem. This is often neglected in practice, due to a lack of knowledge and readily available software implementations for multi-objective hyperparameter optimization. In this work, we introduce the reader to the basics of multi-objective hyperparameter optimization and motivate its usefulness in applied ML. Furthermore, we provide an extensive survey of existing optimization strategies, both from the domain of evolutionary algorithms and Bayesian optimization. We illustrate the utility of MOO in several specific ML applications, considering objectives such as operating conditions, prediction time, sparseness, fairness, interpretability and robustness.},
+  keywords = {Bayesian Optimization,Multi-Objective Hyperparameter Optimization,Neural Architecture Search},
+  annotation = {Just Accepted},
+  file = {C:\Users\master\Zotero\storage\5UXS5E2G\Karl et al_2023_Multi-Objective Hyperparameter Optimization in Machine Learning – An Overview.pdf}
+}
+
+@book{kounevSystemsBenchmarkingScientists2020,
+  title = {Systems {{Benchmarking}}: {{For Scientists}} and {{Engineers}}},
+  shorttitle = {Systems {{Benchmarking}}},
+  author = {Kounev, Samuel and Lange, Klaus-Dieter and Von Kistowski, J{\'o}akim},
+  year = {2020},
+  publisher = {{Springer International Publishing}},
+  address = {{Cham}},
+  doi = {10.1007/978-3-030-41705-5},
+  urldate = {2023-08-23},
+  isbn = {978-3-030-41704-8 978-3-030-41705-5},
+  langid = {english},
+  file = {C:\Users\master\Zotero\storage\4KUA98VS\Kounev et al_2020_Systems Benchmarking.pdf}
+}
+
+@article{kreuzbergerMachineLearningOperations2023,
   title = {Machine {{Learning Operations}} ({{MLOps}}): {{Overview}}, {{Definition}}, and {{Architecture}}},
   shorttitle = {Machine {{Learning Operations}} ({{MLOps}})},
   author = {Kreuzberger, Dominik and K{\"u}hl, Niklas and Hirschl, Sebastian},
-  year = {2022},
-  month = may,
-  number = {arXiv:2205.02302},
-  eprint = {arXiv:2205.02302},
-  publisher = {{arXiv}},
-  doi = {10.48550/arXiv.2205.02302},
-  urldate = {2022-12-07},
-  abstract = {The final goal of all industrial machine learning (ML) projects is to develop ML products and rapidly bring them into production. However, it is highly challenging to automate and operationalize ML products and thus many ML endeavors fail to deliver on their expectations. The paradigm of Machine Learning Operations (MLOps) addresses this issue. MLOps includes several aspects, such as best practices, sets of concepts, and development culture. However, MLOps is still a vague term and its consequences for researchers and professionals are ambiguous. To address this gap, we conduct mixed-method research, including a literature review, a tool review, and expert interviews. As a result of these investigations, we provide an aggregated overview of the necessary principles, components, and roles, as well as the associated architecture and workflows. Furthermore, we furnish a definition of MLOps and highlight open challenges in the field. Finally, this work provides guidance for ML researchers and practitioners who want to automate and operate their ML products with a designated set of technologies.},
-  archiveprefix = {arxiv},
-  keywords = {_tablet,Computer Science - Machine Learning},
-  file = {C\:\\Users\\master\\Zotero\\storage\\XUXSDP43\\Kreuzberger et al_2022_Machine Learning Operations (MLOps).pdf;C\:\\Users\\master\\Zotero\\storage\\6LMZFC2P\\2205.html}
+  year = {2023},
+  journal = {IEEE Access},
+  volume = {11},
+  pages = {31866--31879},
+  issn = {2169-3536},
+  doi = {10.1109/ACCESS.2023.3262138},
+  abstract = {The final goal of all industrial machine learning (ML) projects is to develop ML products and rapidly bring them into production. However, it is highly challenging to automate and operationalize ML products and thus many ML endeavors fail to deliver on their expectations. The paradigm of Machine Learning Operations (MLOps) addresses this issue. MLOps includes several aspects, such as best practices, sets of concepts, and development culture. However, MLOps is still a vague term and its consequences for researchers and professionals are ambiguous. To address this gap, we conduct mixed-method research, including a literature review, a tool review, and expert interviews. As a result of these investigations, we contribute to the body of knowledge by providing an aggregated overview of the necessary principles, components, and roles, as well as the associated architecture and workflows. Furthermore, we provide a comprehensive definition of MLOps and highlight open challenges in the field. Finally, this work provides guidance for ML researchers and practitioners who want to automate and operate their ML products with a designated set of technologies.},
+  keywords = {Automation,Bibliographies,CI/CD,Codes,Collaboration,DevOps,Interviews,machine learning,Machine learning,MLOps,operations,Training,workflow orchestration},
+  file = {C\:\\Users\\master\\Zotero\\storage\\EJZL4WQN\\Kreuzberger et al_2023_Machine Learning Operations (MLOps).pdf;C\:\\Users\\master\\Zotero\\storage\\QTB7H5IF\\10081336.html}
+}
+
+@inproceedings{kumarResourceefficientMachineLearning2017,
+  title = {Resource-Efficient Machine Learning in 2 {{KB RAM}} for the Internet of Things},
+  booktitle = {Proceedings of the 34th {{International Conference}} on {{Machine Learning}} - {{Volume}} 70},
+  author = {Kumar, Ashish and Goyal, Saurabh and Varma, Manik},
+  year = {2017},
+  month = aug,
+  series = {{{ICML}}'17},
+  pages = {1935--1944},
+  publisher = {{JMLR.org}},
+  address = {{Sydney, NSW, Australia}},
+  urldate = {2023-07-29},
+  abstract = {This paper develops a novel tree-based algorithm, called Bonsai, for efficient prediction on IoT devices - such as those based on the Arduino Uno board having an 8 bit ATmega328P microcontroller operating at 16 MHz with no native floating point support, 2 KB RAM and 32 KB read-only flash. Bonsai maintains prediction accuracy while minimizing model size and prediction costs by: (a) developing a tree model which learns a single, shallow, sparse tree with powerful nodes; (b) sparsely projecting all data into a low-dimensional space in which the tree is learnt; and (c) jointly learning all tree and projection parameters. Experimental results on multiple benchmark datasets demonstrate that Bonsai can make predictions in milliseconds even on slow microcontrollers, can fit in KB of memory, has lower battery consumption than all other algorithms while achieving prediction accuracies that can be as much as 30\% higher than state-of-the-art methods for resource-efficient machine learning. Bonsai is also shown to generalize to other resource constrained settings beyond IoT by generating significantly better search results as compared to Bing's L3 ranker when the model size is restricted to 300 bytes. Bonsai's code can be downloaded from (BonsaiCode).},
+  file = {C:\Users\master\Zotero\storage\DTSA6WCD\Kumar et al_2017_Resource-efficient machine learning in 2 KB RAM for the internet of things.pdf}
 }
 
 @misc{leBuildingHighlevelFeatures2012,
@@ -187,7 +373,8 @@
   year = {2012},
   month = jul,
   number = {arXiv:1112.6209},
-  eprint = {arXiv:1112.6209},
+  eprint = {1112.6209},
+  primaryclass = {cs},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.1112.6209},
   urldate = {2023-02-03},
@@ -197,6 +384,26 @@
   file = {C\:\\Users\\master\\Zotero\\storage\\HA2RAJ2C\\Le et al_2012_Building high-level features using large scale unsupervised learning.pdf;C\:\\Users\\master\\Zotero\\storage\\7CYMMR8Y\\1112.html}
 }
 
+@article{lecunDeepLearning2015,
+  title = {Deep Learning},
+  author = {LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey},
+  year = {2015},
+  month = may,
+  journal = {Nature},
+  volume = {521},
+  number = {7553},
+  pages = {436--444},
+  publisher = {{Nature Publishing Group}},
+  issn = {1476-4687},
+  doi = {10.1038/nature14539},
+  urldate = {2023-06-15},
+  abstract = {Deep learning allows computational models that are composed of multiple processing layers to learn representations of data with multiple levels of abstraction. These methods have dramatically improved the state-of-the-art in speech recognition, visual object recognition, object detection and many other domains such as drug discovery and genomics. Deep learning discovers intricate structure in large data sets by using the backpropagation algorithm to indicate how a machine should change its internal parameters that are used to compute the representation in each layer from the representation in the previous layer. Deep convolutional nets have brought about breakthroughs in processing images, video, speech and audio, whereas recurrent nets have shone light on sequential data such as text and speech.},
+  copyright = {2015 Springer Nature Limited},
+  langid = {english},
+  keywords = {Computer science,Mathematics and computing},
+  file = {C:\Users\master\Zotero\storage\Z4NV27YU\LeCun et al_2015_Deep learning.pdf}
+}
+
 @misc{liawTuneResearchPlatform2018,
   title = {Tune: {{A Research Platform}} for {{Distributed Model Selection}} and {{Training}}},
   shorttitle = {Tune},
@@ -204,14 +411,83 @@
   year = {2018},
   month = jul,
   number = {arXiv:1807.05118},
-  eprint = {arXiv:1807.05118},
+  eprint = {1807.05118},
+  primaryclass = {cs, stat},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.1807.05118},
   urldate = {2023-02-22},
   abstract = {Modern machine learning algorithms are increasingly computationally demanding, requiring specialized hardware and distributed computation to achieve high performance in a reasonable time frame. Many hyperparameter search algorithms have been proposed for improving the efficiency of model selection, however their adaptation to the distributed compute environment is often ad-hoc. We propose Tune, a unified framework for model selection and training that provides a narrow-waist interface between training scripts and search algorithms. We show that this interface meets the requirements for a broad range of hyperparameter search algorithms, allows straightforward scaling of search to large clusters, and simplifies algorithm implementation. We demonstrate the implementation of several state-of-the-art hyperparameter search algorithms in Tune. Tune is available at http://ray.readthedocs.io/en/latest/tune.html.},
   archiveprefix = {arxiv},
-  keywords = {Computer Science - Distributed; Parallel; and Cluster Computing,Computer Science - Machine Learning,Statistics - Machine Learning},
+  keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Machine Learning,Statistics - Machine Learning},
   file = {C\:\\Users\\master\\Zotero\\storage\\CZZSUU97\\Liaw et al_2018_Tune.pdf;C\:\\Users\\master\\Zotero\\storage\\V45V3LPN\\1807.html}
+}
+
+@misc{liHyperbandNovelBanditBased2018,
+  title = {Hyperband: {{A Novel Bandit-Based Approach}} to {{Hyperparameter Optimization}}},
+  shorttitle = {Hyperband},
+  author = {Li, Lisha and Jamieson, Kevin and DeSalvo, Giulia and Rostamizadeh, Afshin and Talwalkar, Ameet},
+  year = {2018},
+  month = jun,
+  number = {arXiv:1603.06560},
+  eprint = {1603.06560},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1603.06560},
+  urldate = {2023-08-03},
+  abstract = {Performance of machine learning algorithms depends critically on identifying a good set of hyperparameters. While recent approaches use Bayesian optimization to adaptively select configurations, we focus on speeding up random search through adaptive resource allocation and early-stopping. We formulate hyperparameter optimization as a pure-exploration non-stochastic infinite-armed bandit problem where a predefined resource like iterations, data samples, or features is allocated to randomly sampled configurations. We introduce a novel algorithm, Hyperband, for this framework and analyze its theoretical properties, providing several desirable guarantees. Furthermore, we compare Hyperband with popular Bayesian optimization methods on a suite of hyperparameter optimization problems. We observe that Hyperband can provide over an order-of-magnitude speedup over our competitor set on a variety of deep-learning and kernel-based learning problems.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Machine Learning,Statistics - Machine Learning},
+  file = {C\:\\Users\\master\\Zotero\\storage\\SN4XNI9W\\Li et al_2018_Hyperband.pdf;C\:\\Users\\master\\Zotero\\storage\\TMDUQ4T5\\1603.html}
+}
+
+@inproceedings{linMicrosoftCOCOCommon2014,
+  title = {Microsoft {{COCO}}: {{Common Objects}} in {{Context}}},
+  shorttitle = {Microsoft {{COCO}}},
+  booktitle = {Computer {{Vision}} \textendash{} {{ECCV}} 2014},
+  author = {Lin, Tsung-Yi and Maire, Michael and Belongie, Serge and Hays, James and Perona, Pietro and Ramanan, Deva and Doll{\'a}r, Piotr and Zitnick, C. Lawrence},
+  editor = {Fleet, David and Pajdla, Tomas and Schiele, Bernt and Tuytelaars, Tinne},
+  year = {2014},
+  series = {Lecture {{Notes}} in {{Computer Science}}},
+  pages = {740--755},
+  publisher = {{Springer International Publishing}},
+  address = {{Cham}},
+  doi = {10.1007/978-3-319-10602-1_48},
+  abstract = {We present a new dataset with the goal of advancing the state-of-the-art in object recognition by placing the question of object recognition in the context of the broader question of scene understanding. This is achieved by gathering images of complex everyday scenes containing common objects in their natural context. Objects are labeled using per-instance segmentations to aid in precise object localization. Our dataset contains photos of 91 objects types that would be easily recognizable by a 4 year old. With a total of 2.5 million labeled instances in 328k images, the creation of our dataset drew upon extensive crowd worker involvement via novel user interfaces for category detection, instance spotting and instance segmentation. We present a detailed statistical analysis of the dataset in comparison to PASCAL, ImageNet, and SUN. Finally, we provide baseline performance analysis for bounding box and segmentation detection results using a Deformable Parts Model.},
+  isbn = {978-3-319-10602-1},
+  langid = {english},
+  keywords = {Common Object,Object Category,Object Detection,Object Instance,Scene Understanding},
+  file = {C:\Users\master\Zotero\storage\Z4Q52KNW\Lin et al_2014_Microsoft COCO.pdf}
+}
+
+@inproceedings{linROUGEPackageAutomatic2004,
+  title = {{{ROUGE}}: {{A Package}} for {{Automatic Evaluation}} of {{Summaries}}},
+  shorttitle = {{{ROUGE}}},
+  booktitle = {Text {{Summarization Branches Out}}},
+  author = {Lin, Chin-Yew},
+  year = {2004},
+  month = jul,
+  pages = {74--81},
+  publisher = {{Association for Computational Linguistics}},
+  address = {{Barcelona, Spain}},
+  urldate = {2023-08-27},
+  file = {C:\Users\master\Zotero\storage\UBCXNB3P\Lin_2004_ROUGE.pdf}
+}
+
+@misc{liSystemMassivelyParallel2020,
+  title = {A {{System}} for {{Massively Parallel Hyperparameter Tuning}}},
+  author = {Li, Liam and Jamieson, Kevin and Rostamizadeh, Afshin and Gonina, Ekaterina and Hardt, Moritz and Recht, Benjamin and Talwalkar, Ameet},
+  year = {2020},
+  month = mar,
+  number = {arXiv:1810.05934},
+  eprint = {1810.05934},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1810.05934},
+  urldate = {2023-08-03},
+  abstract = {Modern learning models are characterized by large hyperparameter spaces and long training times. These properties, coupled with the rise of parallel computing and the growing demand to productionize machine learning workloads, motivate the need to develop mature hyperparameter optimization functionality in distributed computing settings. We address this challenge by first introducing a simple and robust hyperparameter optimization algorithm called ASHA, which exploits parallelism and aggressive early-stopping to tackle large-scale hyperparameter optimization problems. Our extensive empirical results show that ASHA outperforms existing state-of-the-art hyperparameter optimization methods; scales linearly with the number of workers in distributed settings; and is suitable for massive parallelism, as demonstrated on a task with 500 workers. We then describe several design decisions we encountered, along with our associated solutions, when integrating ASHA in Determined AI's end-to-end production-quality machine learning system that offers hyperparameter tuning as a service.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Machine Learning,Statistics - Machine Learning},
+  file = {C\:\\Users\\master\\Zotero\\storage\\BZGNEU25\\Li et al_2020_A System for Massively Parallel Hyperparameter Tuning.pdf;C\:\\Users\\master\\Zotero\\storage\\H3WBUUSG\\1810.html}
 }
 
 @misc{lonesHowAvoidMachine2022,
@@ -221,7 +497,8 @@
   year = {2022},
   month = sep,
   number = {arXiv:2108.02497},
-  eprint = {arXiv:2108.02497},
+  eprint = {2108.02497},
+  primaryclass = {cs},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.2108.02497},
   urldate = {2022-12-07},
@@ -237,7 +514,8 @@
   year = {2019},
   month = sep,
   number = {arXiv:1808.07233},
-  eprint = {arXiv:1808.07233},
+  eprint = {1808.07233},
+  primaryclass = {cs, stat},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.1808.07233},
   urldate = {2023-01-25},
@@ -253,7 +531,8 @@
   year = {2015},
   month = apr,
   number = {arXiv:1502.03492},
-  eprint = {arXiv:1502.03492},
+  eprint = {1502.03492},
+  primaryclass = {cs, stat},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.1502.03492},
   urldate = {2023-02-03},
@@ -261,6 +540,26 @@
   archiveprefix = {arxiv},
   keywords = {Computer Science - Machine Learning,Statistics - Machine Learning},
   file = {C\:\\Users\\master\\Zotero\\storage\\IXIGPQTZ\\Maclaurin et al_2015_Gradient-based Hyperparameter Optimization through Reversible Learning.pdf;C\:\\Users\\master\\Zotero\\storage\\RTHEZPGN\\1502.html}
+}
+
+@article{makridakisStatisticalMachineLearning2018,
+  title = {Statistical and {{Machine Learning}} Forecasting Methods: {{Concerns}} and Ways Forward},
+  shorttitle = {Statistical and {{Machine Learning}} Forecasting Methods},
+  author = {Makridakis, Spyros and Spiliotis, Evangelos and Assimakopoulos, Vassilios},
+  year = {2018},
+  month = mar,
+  journal = {PLOS ONE},
+  volume = {13},
+  number = {3},
+  pages = {e0194889},
+  publisher = {{Public Library of Science}},
+  issn = {1932-6203},
+  doi = {10.1371/journal.pone.0194889},
+  urldate = {2023-08-27},
+  abstract = {Machine Learning (ML) methods have been proposed in the academic literature as alternatives to statistical ones for time series forecasting. Yet, scant evidence is available about their relative performance in terms of accuracy and computational requirements. The purpose of this paper is to evaluate such performance across multiple forecasting horizons using a large subset of 1045 monthly time series used in the M3 Competition. After comparing the post-sample accuracy of popular ML methods with that of eight traditional statistical ones, we found that the former are dominated across both accuracy measures used and for all forecasting horizons examined. Moreover, we observed that their computational requirements are considerably greater than those of statistical methods. The paper discusses the results, explains why the accuracy of ML models is below that of statistical ones and proposes some possible ways forward. The empirical results found in our research stress the need for objective and unbiased ways to test the performance of forecasting methods that can be achieved through sizable and open competitions allowing meaningful comparisons and definite conclusions.},
+  langid = {english},
+  keywords = {Algorithms,Artificial intelligence,Computing methods,Forecasting,Neural networks,Preprocessing,Statistical methods,Support vector machines},
+  file = {C:\Users\master\Zotero\storage\VQB8HMTP\Makridakis et al_2018_Statistical and Machine Learning forecasting methods.pdf}
 }
 
 @article{mishraDevOpsSoftwareQuality2020,
@@ -277,8 +576,26 @@
   urldate = {2023-01-17},
   abstract = {Quality pressure is one of the factors affecting processes for software development in its various stages. DevOps is one of the proposed solutions to such pressure. The primary focus of DevOps is to increase the deployment speed, frequency and quality. DevOps is a mixture of different developments and operations to its multitudinous ramifications in software development industries, DevOps have attracted the interest of many researchers. There are considerable literature surveys on this critical innovation in software development, yet, little attention has been given to DevOps impact on software quality. This research is aimed at analyzing the implications of DevOps features on software quality. DevOps can also be referred to a change in organization cultures aimed at removal of gaps between the development and operations of an organization. The adoption of DevOps in an organization provides many benefits including quality but also brings challenges to an organization. This study presents systematic mapping of the impact of DevOps on software quality. The results of this study provide a better understanding of DevOps on software quality for both professionals and researchers working in this area. The study shows research was mainly focused in automation, culture, continuous delivery, fast feedback of DevOps. There is need of further research in many areas of DevOps (for instance: measurement, development of metrics of different stages to assess its performance, culture, practices toward ensuring quality assurance, and quality factors such as usability, efficiency, software maintainability and portability).},
   langid = {english},
-  keywords = {_tablet,Automation,Development,DevOps,Measurement,Operations,Software,Software quality,Systematic mapping},
+  keywords = {Automation,Development,DevOps,Measurement,Operations,Software,Software quality,Systematic mapping},
   file = {C\:\\Users\\master\\Zotero\\storage\\FI2BPQCJ\\Mishra_Otaiwi_2020_DevOps and software quality.pdf;C\:\\Users\\master\\Zotero\\storage\\NTDWUG9S\\S1574013720304081.html}
+}
+
+@article{morales-hernandezSurveyMultiobjectiveHyperparameter2023,
+  title = {A Survey on Multi-Objective Hyperparameter Optimization Algorithms for Machine Learning},
+  author = {{Morales-Hern{\'a}ndez}, Alejandro and Van Nieuwenhuyse, Inneke and Rojas Gonzalez, Sebastian},
+  year = {2023},
+  month = aug,
+  journal = {Artificial Intelligence Review},
+  volume = {56},
+  number = {8},
+  pages = {8043--8093},
+  issn = {1573-7462},
+  doi = {10.1007/s10462-022-10359-2},
+  urldate = {2023-10-17},
+  abstract = {Hyperparameter optimization (HPO) is a necessary step to ensure the best possible performance of Machine Learning (ML) algorithms. Several methods have been developed to perform HPO; most of these are focused on optimizing one performance measure (usually an error-based measure), and the literature on such single-objective HPO problems is vast. Recently, though, algorithms have appeared that focus on optimizing multiple conflicting objectives simultaneously. This article presents a systematic survey of the literature published between 2014 and 2020 on multi-objective HPO algorithms, distinguishing between metaheuristic-based algorithms, metamodel-based algorithms and approaches using a mixture of both. We also discuss the quality metrics used to compare multi-objective HPO procedures and present future research directions.},
+  langid = {english},
+  keywords = {Hyperparameter optimization,Machine learning,Meta-heuristic,Metamodel,Multi-objective optimization},
+  file = {C:\Users\master\Zotero\storage\HZ3JA67J\Morales-Hernández et al_2023_A survey on multi-objective hyperparameter optimization algorithms for machine.pdf}
 }
 
 @article{myllyahoMisbehaviourFaultTolerance2022,
@@ -296,6 +613,22 @@
   langid = {english},
   keywords = {Case study,Fault tolerance,Machine learning,Software architecture,Software engineering},
   file = {C\:\\Users\\master\\Zotero\\storage\\PF8PE5AX\\Myllyaho et al_2022_On misbehaviour and fault tolerance in machine learning systems.pdf;C\:\\Users\\master\\Zotero\\storage\\IRCSGYBT\\S016412122100193X.html}
+}
+
+@inproceedings{niculescu-mizilPredictingGoodProbabilities2005,
+  title = {Predicting Good Probabilities with Supervised Learning},
+  booktitle = {Proceedings of the 22nd International Conference on {{Machine}} Learning},
+  author = {{Niculescu-Mizil}, Alexandru and Caruana, Rich},
+  year = {2005},
+  month = aug,
+  series = {{{ICML}} '05},
+  pages = {625--632},
+  publisher = {{Association for Computing Machinery}},
+  address = {{New York, NY, USA}},
+  doi = {10.1145/1102351.1102430},
+  urldate = {2023-08-26},
+  abstract = {We examine the relationship between the predictions made by different learning algorithms and true posterior probabilities. We show that maximum margin methods such as boosted trees and boosted stumps push probability mass away from 0 and 1 yielding a characteristic sigmoid shaped distortion in the predicted probabilities. Models such as Naive Bayes, which make unrealistic independence assumptions, push probabilities toward 0 and 1. Other models such as neural nets and bagged trees do not have these biases and predict well calibrated probabilities. We experiment with two ways of correcting the biased probabilities predicted by some learning methods: Platt Scaling and Isotonic Regression. We qualitatively examine what kinds of distortions these calibration methods are suitable for and quantitatively examine how much data they need to be effective. The empirical results show that after calibration boosted trees, random forests, and SVMs predict the best probabilities.},
+  isbn = {978-1-59593-180-1}
 }
 
 @article{olsonPMLBLargeBenchmark2017,
@@ -316,6 +649,18 @@
   file = {C\:\\Users\\master\\Zotero\\storage\\DQMHLZIA\\Olson et al_2017_PMLB.pdf;C\:\\Users\\master\\Zotero\\storage\\T9Y2UVYZ\\s13040-017-0154-4.html}
 }
 
+@misc{openaiIntroducingChatGPT2022,
+  title = {Introducing {{ChatGPT}}},
+  author = {OpenAI},
+  year = {2022},
+  month = nov,
+  urldate = {2023-07-24},
+  abstract = {We've trained a model called ChatGPT which interacts in a conversational way. The dialogue format makes it possible for ChatGPT to answer followup questions, admit its mistakes, challenge incorrect premises, and reject inappropriate requests.},
+  howpublished = {https://openai.com/blog/chatgpt},
+  langid = {american},
+  file = {C:\Users\master\Zotero\storage\6X4N5BY7\chatgpt.html}
+}
+
 @inproceedings{pereraImproveSoftwareQuality2017,
   title = {Improve Software Quality through Practicing {{DevOps}}},
   booktitle = {2017 {{Seventeenth International Conference}} on {{Advances}} in {{ICT}} for {{Emerging Regions}} ({{ICTer}})},
@@ -326,8 +671,44 @@
   issn = {2472-7598},
   doi = {10.1109/ICTER.2017.8257807},
   abstract = {DevOps is extended from certain agile practices with a mix of patterns intended to improve collaboration between development and operation teams. The main purpose of this paper is to conduct a study on how DevOps practice has impacted to software quality. The secondary objective is to find how to improve quality efficiently. A literature survey has carried out to explore about current DevOps practices in industry. According to the literature survey, the conceptual research model was developed and five hypotheses were derived. Research objectives were accomplished by testing hypotheses using Pearson correlation. A linear model is derived based on the linear regression analysis. An online questionnaire was used to collect quantitative data whereas interviews with experts on DevOps and Quality assurance have been used to identify how to improve the quality of software by practicing DevOps. Recommendations are given based on interview feedback, hypotheses testing with regression analysis. According to the quantitative study, researchers have identified that quality of the software gets improved when practice DevOps by following CAMS (Culture, Automation, Measurement, Sharing) framework. Automation is the most critical factor to improve the software quality. As per the results of multiple regression analysis, it has proved culture, automation, measurement and sharing are important factors to consider to improve quality of the software. In conclusion it can be recommended to use DevOps to achieve high quality software.},
-  keywords = {_tablet,Automation,CAMS Framework,Companies,DevOps,ISO 9126,Quality,Software measurement,Software quality,Testing},
+  keywords = {Automation,CAMS Framework,Companies,DevOps,ISO 9126,Quality,Software measurement,Software quality,Testing},
   file = {C\:\\Users\\master\\Zotero\\storage\\D8E3C6NR\\Perera et al_2017_Improve software quality through practicing DevOps.pdf;C\:\\Users\\master\\Zotero\\storage\\URNWQ29A\\8257807.html}
+}
+
+@article{posoldovaMachineLearningPipelines2020,
+  title = {Machine {{Learning Pipelines}}: {{From Research}} to {{Production}}},
+  shorttitle = {Machine {{Learning Pipelines}}},
+  author = {Posoldova, Alexandra},
+  year = {2020},
+  month = nov,
+  journal = {IEEE Potentials},
+  volume = {39},
+  number = {6},
+  pages = {38--42},
+  issn = {1558-1772},
+  doi = {10.1109/MPOT.2020.3016280},
+  abstract = {Machine learning (ML) and artificial intelligence (AI) are getting lot of attention these days, and an increasing number of people are interested in becoming data scientists. Many imagine ML/AI as a black box that does its magic and is somehow able to make predictions. Well, the magic is that an ML algorithm is designed in such a way that it is able to find a pattern in data that have the correct answers and use that to predict the next answer. The learning task may vary from predicting the next word in a sentence, a sentiment, or what else would you like to buy based on what you already have in your basket.},
+  keywords = {Artificial intelligence,Artificial neural networks,Containers,Data models,Pipelines,Task analysis,Tools},
+  file = {C\:\\Users\\master\\Zotero\\storage\\DUHHCVJD\\Posoldova_2020_Machine Learning Pipelines.pdf;C\:\\Users\\master\\Zotero\\storage\\ZS2XA5P2\\9258455.html}
+}
+
+@article{precheltAutomaticEarlyStopping1998,
+  title = {Automatic Early Stopping Using Cross Validation: Quantifying the Criteria},
+  shorttitle = {Automatic Early Stopping Using Cross Validation},
+  author = {Prechelt, Lutz},
+  year = {1998},
+  month = jun,
+  journal = {Neural Networks},
+  volume = {11},
+  number = {4},
+  pages = {761--767},
+  issn = {0893-6080},
+  doi = {10.1016/S0893-6080(98)00010-0},
+  urldate = {2023-08-02},
+  abstract = {Cross validation can be used to detect when overfitting starts during supervised training of a neural network; training is then stopped before convergence to avoid the overfitting (`early stopping'). The exact criterion used for cross validation based early stopping, however, is chosen in an ad-hoc fashion by most researchers or training is stopped interactively. To aid a more well-founded selection of the stopping criterion, 14 different automatic stopping criteria from three classes were evaluated empirically for their efficiency and effectiveness in 12 different classification and approximation tasks using multi-layer perceptrons with RPROP training. The experiments show that, on average, slower stopping criteria allow for small improvements in generalization (in the order of 4\%), but cost about a factor of 4 longer in training time.},
+  langid = {english},
+  keywords = {Cross validation,Early stopping,Empirical study,Generalization,Overfitting,Supervised learning},
+  file = {C\:\\Users\\master\\Zotero\\storage\\SF72UPQ2\\Prechelt_1998_Automatic early stopping using cross validation.pdf;C\:\\Users\\master\\Zotero\\storage\\4DAK9L4Z\\S0893608098000100.html}
 }
 
 @misc{rivolliCharacterizingClassificationDatasets2019,
@@ -337,7 +718,8 @@
   year = {2019},
   month = aug,
   number = {arXiv:1808.10406},
-  eprint = {arXiv:1808.10406},
+  eprint = {1808.10406},
+  primaryclass = {cs, stat},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.1808.10406},
   urldate = {2023-01-25},
@@ -347,6 +729,49 @@
   file = {C\:\\Users\\master\\Zotero\\storage\\RBLAW9V5\\Rivolli et al_2019_Characterizing classification datasets.pdf;C\:\\Users\\master\\Zotero\\storage\\GZWP5W9J\\1808.html}
 }
 
+@misc{rombachHighResolutionImageSynthesis2022,
+  title = {High-{{Resolution Image Synthesis}} with {{Latent Diffusion Models}}},
+  author = {Rombach, Robin and Blattmann, Andreas and Lorenz, Dominik and Esser, Patrick and Ommer, Bj{\"o}rn},
+  year = {2022},
+  month = apr,
+  number = {arXiv:2112.10752},
+  eprint = {2112.10752},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2112.10752},
+  urldate = {2023-07-22},
+  abstract = {By decomposing the image formation process into a sequential application of denoising autoencoders, diffusion models (DMs) achieve state-of-the-art synthesis results on image data and beyond. Additionally, their formulation allows for a guiding mechanism to control the image generation process without retraining. However, since these models typically operate directly in pixel space, optimization of powerful DMs often consumes hundreds of GPU days and inference is expensive due to sequential evaluations. To enable DM training on limited computational resources while retaining their quality and flexibility, we apply them in the latent space of powerful pretrained autoencoders. In contrast to previous work, training diffusion models on such a representation allows for the first time to reach a near-optimal point between complexity reduction and detail preservation, greatly boosting visual fidelity. By introducing cross-attention layers into the model architecture, we turn diffusion models into powerful and flexible generators for general conditioning inputs such as text or bounding boxes and high-resolution synthesis becomes possible in a convolutional manner. Our latent diffusion models (LDMs) achieve a new state of the art for image inpainting and highly competitive performance on various tasks, including unconditional image generation, semantic scene synthesis, and super-resolution, while significantly reducing computational requirements compared to pixel-based DMs. Code is available at https://github.com/CompVis/latent-diffusion .},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition},
+  file = {C\:\\Users\\master\\Zotero\\storage\\I5XNBHGL\\Rombach et al_2022_High-Resolution Image Synthesis with Latent Diffusion Models.pdf;C\:\\Users\\master\\Zotero\\storage\\XS89TD75\\Rombach et al. - 2022 - High-Resolution Image Synthesis with Latent Diffus.pdf;C\:\\Users\\master\\Zotero\\storage\\4Y2J95DE\\2112.html}
+}
+
+@inproceedings{sculleyHiddenTechnicalDebt2015a,
+  title = {Hidden {{Technical Debt}} in {{Machine Learning Systems}}},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Sculley, D. and Holt, Gary and Golovin, Daniel and Davydov, Eugene and Phillips, Todd and Ebner, Dietmar and Chaudhary, Vinay and Young, Michael and Crespo, Jean-Fran{\c c}ois and Dennison, Dan},
+  year = {2015},
+  volume = {28},
+  publisher = {{Curran Associates, Inc.}},
+  urldate = {2023-08-13},
+  abstract = {Machine learning offers a fantastically powerful toolkit for building useful complexprediction systems quickly. This paper argues it is dangerous to think ofthese quick wins as coming for free. Using the software engineering frameworkof technical debt, we find it is common to incur massive ongoing maintenancecosts in real-world ML systems. We explore several ML-specific risk factors toaccount for in system design. These include boundary erosion, entanglement,hidden feedback loops, undeclared consumers, data dependencies, configurationissues, changes in the external world, and a variety of system-level anti-patterns.},
+  file = {C:\Users\master\Zotero\storage\XDLRWE7U\Sculley et al_2015_Hidden Technical Debt in Machine Learning Systems.pdf}
+}
+
+@article{shallueMeasuringEffectsData2019,
+  title = {Measuring the {{Effects}} of {{Data Parallelism}} on {{Neural Network Training}}},
+  author = {Shallue, Christopher J. and Lee, Jaehoon and Antognini, Joseph and {Sohl-Dickstein}, Jascha and Frostig, Roy and Dahl, George E.},
+  year = {2019},
+  journal = {Journal of Machine Learning Research},
+  volume = {20},
+  number = {112},
+  pages = {1--49},
+  issn = {1533-7928},
+  urldate = {2023-09-28},
+  abstract = {Recent hardware developments have dramatically increased the scale of data parallelism available for neural network training. Among the simplest ways to harness next-generation hardware is to increase the batch size in standard mini-batch neural network training algorithms. In this work, we aim to experimentally characterize the effects of increasing the batch size on training time, as measured by the number of steps necessary to reach a goal out-of-sample error. We study how this relationship varies with the training algorithm, model, and data set, and find extremely large variation between workloads. Along the way, we show that disagreements in the literature on how batch size affects model quality can largely be explained by differences in metaparameter tuning and compute budgets at different batch sizes. We find no evidence that larger batch sizes degrade out-of-sample performance. Finally, we discuss the implications of our results on efforts to train neural networks much faster in the future. Our experimental data is publicly available as a database of 71,638,836 loss measurements taken over the course of training for 168,160 individual models across 35 workloads.},
+  file = {C:\Users\master\Zotero\storage\LZPDZCG8\Shallue et al_2019_Measuring the Effects of Data Parallelism on Neural Network Training.pdf}
+}
+
 @misc{shankarOperationalizingMachineLearning2022,
   title = {Operationalizing {{Machine Learning}}: {{An Interview Study}}},
   shorttitle = {Operationalizing {{Machine Learning}}},
@@ -354,7 +779,8 @@
   year = {2022},
   month = sep,
   number = {arXiv:2209.09125},
-  eprint = {arXiv:2209.09125},
+  eprint = {2209.09125},
+  primaryclass = {cs},
   publisher = {{arXiv}},
   doi = {10.48550/arXiv.2209.09125},
   urldate = {2022-12-07},
@@ -398,8 +824,108 @@
   abstract = {As the interest in DevOps continues to grow, there is an increasing need for software organizations to understand how to adopt it successfully. This study has as objective to clarify the concept and provide insight into existing challenges of adopting DevOps. First, the existing literature is reviewed. A definition of DevOps is then formed based on the literature by breaking down the concept into its defining characteristics. We interview 13 subjects in a software company adopting DevOps and, finally, we present 11 impediments for the company's DevOps adoption that were identified based on the interviews.},
   isbn = {978-3-319-18612-2},
   langid = {english},
-  keywords = {_tablet,Cloud Service,Continuous Delivery,Cultural Aspect,Service Failure,Software Process Improvement},
-  file = {C\:\\Users\\master\\Zotero\\storage\\TGE2W5BX\\Smeds et al_2015_DevOps.pdf}
+  keywords = {Cloud Service,Continuous Delivery,Cultural Aspect,Service Failure,Software Process Improvement},
+  file = {C:\Users\master\Zotero\storage\TGE2W5BX\Smeds et al_2015_DevOps.pdf}
+}
+
+@article{sokolovaSystematicAnalysisPerformance2009,
+  title = {A Systematic Analysis of Performance Measures for Classification Tasks},
+  author = {Sokolova, Marina and Lapalme, Guy},
+  year = {2009},
+  month = jul,
+  journal = {Information Processing \& Management},
+  volume = {45},
+  number = {4},
+  pages = {427--437},
+  issn = {0306-4573},
+  doi = {10.1016/j.ipm.2009.03.002},
+  urldate = {2023-08-27},
+  abstract = {This paper presents a systematic analysis of twenty four performance measures used in the complete spectrum of Machine Learning classification tasks, i.e., binary, multi-class, multi-labelled, and hierarchical. For each classification task, the study relates a set of changes in a confusion matrix to specific characteristics of data. Then the analysis concentrates on the type of changes to a confusion matrix that do not change a measure, therefore, preserve a classifier's evaluation (measure invariance). The result is the measure invariance taxonomy with respect to all relevant label distribution changes in a classification problem. This formal analysis is supported by examples of applications where invariance properties of measures lead to a more reliable evaluation of classifiers. Text classification supplements the discussion with several case studies.},
+  keywords = {Machine Learning,Performance evaluation,Text classification},
+  file = {C\:\\Users\\master\\Zotero\\storage\\SBUJN78Q\\Sokolova_Lapalme_2009_A systematic analysis of performance measures for classification tasks.pdf;C\:\\Users\\master\\Zotero\\storage\\QZW2NMJB\\S0306457309000259.html}
+}
+
+@misc{stabilityaiStableDiffusionPublic2022,
+  title = {Stable {{Diffusion Public Release}}},
+  author = {{Stability AI}},
+  year = {2022},
+  month = aug,
+  journal = {Stability AI},
+  urldate = {2023-07-24},
+  abstract = {We are delighted to announce the public release of Stable Diffusion and the launch of DreamStudio Lite.},
+  howpublished = {https://stability.ai/blog/stable-diffusion-public-release},
+  langid = {british},
+  file = {C:\Users\master\Zotero\storage\MM67JQZT\stable-diffusion-public-release.html}
+}
+
+@article{strubellEnergyPolicyConsiderations2020,
+  title = {Energy and {{Policy Considerations}} for {{Modern Deep Learning Research}}},
+  author = {Strubell, Emma and Ganesh, Ananya and McCallum, Andrew},
+  year = {2020},
+  month = apr,
+  journal = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume = {34},
+  number = {09},
+  pages = {13693--13696},
+  issn = {2374-3468},
+  doi = {10.1609/aaai.v34i09.7123},
+  urldate = {2023-07-29},
+  abstract = {The field of artificial intelligence has experienced a dramatic methodological shift towards large neural networks trained on plentiful data. This shift has been fueled by recent advances in hardware and techniques enabling remarkable levels of computation, resulting in impressive advances in AI across many applications. However, the massive computation required to obtain these exciting results is costly both financially, due to the price of specialized hardware and electricity or cloud compute time, and to the environment, as a result of non-renewable energy used to fuel modern tensor processing hardware. In a paper published this year at ACL, we brought this issue to the attention of NLP researchers by quantifying the approximate financial and environmental costs of training and tuning neural network models for NLP (Strubell, Ganesh, and McCallum 2019). In this extended abstract, we briefly summarize our findings in NLP, incorporating updated estimates and broader information from recent related publications, and provide actionable recommendations to reduce costs and improve equity in the machine learning and artificial intelligence community.},
+  copyright = {Copyright (c) 2020 Association for the Advancement of Artificial Intelligence},
+  langid = {english},
+  file = {C:\Users\master\Zotero\storage\GYKMMFTG\Strubell et al_2020_Energy and Policy Considerations for Modern Deep Learning Research.pdf}
+}
+
+@misc{thompsonComputationalLimitsDeep2022,
+  title = {The {{Computational Limits}} of {{Deep Learning}}},
+  author = {Thompson, Neil C. and Greenewald, Kristjan and Lee, Keeheon and Manso, Gabriel F.},
+  year = {2022},
+  month = jul,
+  number = {arXiv:2007.05558},
+  eprint = {2007.05558},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  urldate = {2023-07-29},
+  abstract = {Deep learning's recent history has been one of achievement: from triumphing over humans in the game of Go to world-leading performance in image classification, voice recognition, translation, and other tasks. But this progress has come with a voracious appetite for computing power. This article catalogs the extent of this dependency, showing that progress across a wide variety of applications is strongly reliant on increases in computing power. Extrapolating forward this reliance reveals that progress along current lines is rapidly becoming economically, technically, and environmentally unsustainable. Thus, continued progress in these applications will require dramatically more computationallyefficient methods, which will either have to come from changes to deep learning or from moving to other machine learning methods.},
+  archiveprefix = {arxiv},
+  langid = {english},
+  keywords = {Computer Science - Machine Learning,Statistics - Machine Learning},
+  file = {C:\Users\master\Zotero\storage\L9G7ZIJD\Thompson et al_2022_The Computational Limits of Deep Learning.pdf}
+}
+
+@inproceedings{torralbaUnbiasedLookDataset2011,
+  title = {Unbiased Look at Dataset Bias},
+  booktitle = {{{CVPR}} 2011},
+  author = {Torralba, Antonio and Efros, Alexei A.},
+  year = {2011},
+  month = jun,
+  pages = {1521--1528},
+  publisher = {{IEEE}},
+  address = {{Colorado Springs, CO, USA}},
+  doi = {10.1109/CVPR.2011.5995347},
+  urldate = {2023-08-27},
+  abstract = {Datasets are an integral part of contemporary object recognition research. They have been the chief reason for the considerable progress in the field, not just as source of large amounts of training data, but also as means of measuring and comparing performance of competing algorithms. At the same time, datasets have often been blamed for narrowing the focus of object recognition research, reducing it to a single benchmark performance number. Indeed, some datasets, that started out as data capture efforts aimed at representing the visual world, have become closed worlds unto themselves (e.g. the Corel world, the Caltech101 world, the PASCAL VOC world). With the focus on beating the latest benchmark numbers on the latest dataset, have we perhaps lost sight of the original purpose? The goal of this paper is to take stock of the current state of recognition datasets. We present a comparison study using a set of popular datasets, evaluated based on a number of criteria including: relative data bias, cross-dataset generalization, effects of closed-world assumption, and sample value. The experimental results, some rather surprising, suggest directions that can improve dataset collection as well as algorithm evaluation protocols. But more broadly, the hope is to stimulate discussion in the community regarding this very important, but largely neglected issue.},
+  isbn = {978-1-4577-0394-2},
+  langid = {english},
+  file = {C:\Users\master\Zotero\storage\MC89PBKP\Torralba_Efros_2011_Unbiased look at dataset bias.pdf}
+}
+
+@misc{touvronLLaMAOpenEfficient2023,
+  title = {{{LLaMA}}: {{Open}} and {{Efficient Foundation Language Models}}},
+  shorttitle = {{{LLaMA}}},
+  author = {Touvron, Hugo and Lavril, Thibaut and Izacard, Gautier and Martinet, Xavier and Lachaux, Marie-Anne and Lacroix, Timoth{\'e}e and Rozi{\`e}re, Baptiste and Goyal, Naman and Hambro, Eric and Azhar, Faisal and Rodriguez, Aurelien and Joulin, Armand and Grave, Edouard and Lample, Guillaume},
+  year = {2023},
+  month = feb,
+  number = {arXiv:2302.13971},
+  eprint = {2302.13971},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2302.13971},
+  urldate = {2023-07-24},
+  abstract = {We introduce LLaMA, a collection of foundation language models ranging from 7B to 65B parameters. We train our models on trillions of tokens, and show that it is possible to train state-of-the-art models using publicly available datasets exclusively, without resorting to proprietary and inaccessible datasets. In particular, LLaMA-13B outperforms GPT-3 (175B) on most benchmarks, and LLaMA-65B is competitive with the best models, Chinchilla-70B and PaLM-540B. We release all our models to the research community.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Computation and Language},
+  file = {C\:\\Users\\master\\Zotero\\storage\\7QL95LTK\\Touvron et al_2023_LLaMA.pdf;C\:\\Users\\master\\Zotero\\storage\\BUKAMHIP\\2302.html}
 }
 
 @article{wallerIncludingPerformanceBenchmarks2015,
@@ -415,8 +941,18 @@
   doi = {10.1145/2735399.2735416},
   urldate = {2023-01-17},
   abstract = {The DevOps movement intends to improve communication, collaboration, and integration between software developers (Dev) and IT operations professionals (Ops). Automation of software quality assurance is key to DevOps success. We present how automated performance benchmarks may be included into continuous integration. As an example, we report on regression benchmarks for application monitoring frameworks and illustrate the inclusion of automated benchmarks into continuous integration setups.},
-  keywords = {_tablet,Jenkins,Kieker,MooBench},
-  file = {C\:\\Users\\master\\Zotero\\storage\\L5MUF3HG\\Waller et al_2015_Including Performance Benchmarks into Continuous Integration to Enable DevOps.pdf}
+  keywords = {Jenkins,Kieker,MooBench},
+  file = {C:\Users\master\Zotero\storage\L5MUF3HG\Waller et al_2015_Including Performance Benchmarks into Continuous Integration to Enable DevOps.pdf}
+}
+
+@inproceedings{wirthCrispdmStandardProcess2000,
+  title = {Crisp-Dm: Towards a Standard Process Modell for Data Mining},
+  shorttitle = {Crisp-Dm},
+  author = {Wirth, R. and Hipp, Jochen},
+  year = {2000},
+  urldate = {2023-06-15},
+  abstract = {The CRISP-DM (CRoss Industry Standard Process for Data Mining) project proposed a comprehensive process model for carrying out data mining projects. The process model is independent of both the industry sector and the technology used. In this paper we argue in favor of a standard process model for data mining and report some experiences with the CRISP-DM process model in practice. We applied and tested the CRISP-DM methodology in a response modeling application project. The final goal of the project was to specify a process which can be reliably and efficiently repeated by different people and adapted to different situations. The initial projects were performed by experienced data mining people; future projects are to be performed by people with lower technical skills and with very little time to experiment with different approaches. It turned out, that the CRISP-DM methodology with its distinction of generic and specialized process models provides both the structure and the flexibility necessary to suit the needs of both groups. The generic CRISP-DM process model is useful for planning, communication within and outside the project team, and documentation. The generic check-lists are helpful even for experienced people. The generic process model provides an excellent foundation for developing a specialized process model which prescribes the steps to be taken in detail and which gives practical advice for all these steps.},
+  file = {C:\Users\master\Zotero\storage\3NW8IB87\Wirth_Hipp_2000_Crisp-dm.pdf}
 }
 
 @inproceedings{xanthopoulosPuttingHumanBack2020,
@@ -426,7 +962,7 @@
   year = {2020},
   urldate = {2023-01-25},
   abstract = {Automated Machine Learning (AutoML) is a rapidly rising subfield of Machine Learning. AutoML aims to fully automate the machine learning process end-to-end, democratizing Machine Learning to non-experts and drastically increasing the productivity of expert analysts. So far, most comparisons of AutoML systems focus on quantitative criteria such as predictive performance and execution time. In this paper, we examine AutoML services for predictive modeling tasks from a user's perspective, going beyond predictive performance. We present a wide palette of criteria and dimensions on which to evaluate and compare these services as a user. This qualitative comparative methodology is applied on seven AutoML systems, namely Auger.AI, BigML, H2O's Driverless AI, Darwin, Just Add Data Bio, RapidMiner, and Watson. The comparison indicates the strengths and weaknesses of each service, the needs that it covers, the segment of users that is most appropriate for, and the possibilities for improvements.},
-  file = {C\:\\Users\\master\\Zotero\\storage\\SA4IQ5AH\\Xanthopoulos et al_2020_Putting the Human Back in the AutoML Loop.pdf}
+  file = {C:\Users\master\Zotero\storage\SA4IQ5AH\Xanthopoulos et al_2020_Putting the Human Back in the AutoML Loop.pdf}
 }
 
 @article{yangHyperparameterOptimizationMachine2020,
@@ -445,7 +981,7 @@
   urldate = {2023-01-25},
   abstract = {Machine learning algorithms have been used widely in various applications and areas. To fit a machine learning model into different problems, its hyper-parameters must be tuned. Selecting the best hyper-parameter configuration for machine learning models has a direct impact on the model's performance. It often requires deep knowledge of machine learning algorithms and appropriate hyper-parameter optimization techniques. Although several automatic optimization techniques exist, they have different strengths and drawbacks when applied to different types of problems. In this paper, optimizing the hyper-parameters of common machine learning models is studied. We introduce several state-of-the-art optimization techniques and discuss how to apply them to machine learning algorithms. Many available libraries and frameworks developed for hyper-parameter optimization problems are provided, and some open challenges of hyper-parameter optimization research are also discussed in this paper. Moreover, experiments are conducted on benchmark datasets to compare the performance of different optimization methods and provide practical examples of hyper-parameter optimization. This survey paper will help industrial users, data analysts, and researchers to better develop machine learning models by identifying the proper hyper-parameter configurations effectively.},
   archiveprefix = {arxiv},
-  keywords = {68T01; 90C31,C.2.0,Computer Science - Machine Learning,I.2.0,I.2.2,Statistics - Machine Learning},
+  keywords = {{68T01, 90C31},C.2.0,Computer Science - Machine Learning,I.2.0,I.2.2,Statistics - Machine Learning},
   file = {C\:\\Users\\master\\Zotero\\storage\\6TZA7J63\\Yang_Shami_2020_On Hyperparameter Optimization of Machine Learning Algorithms.pdf;C\:\\Users\\master\\Zotero\\storage\\CNXX8V4E\\2007.html}
 }
 
@@ -465,7 +1001,7 @@
   urldate = {2023-01-25},
   abstract = {With the wide spread of sensors and smart devices in recent years, the data generation speed of the Internet of Things (IoT) systems has increased dramatically. In IoT systems, massive volumes of data must be processed, transformed, and analyzed on a frequent basis to enable various IoT services and functionalities. Machine Learning (ML) approaches have shown their capacity for IoT data analytics. However, applying ML models to IoT data analytics tasks still faces many difficulties and challenges, specifically, effective model selection, design/tuning, and updating, which have brought massive demand for experienced data scientists. Additionally, the dynamic nature of IoT data may introduce concept drift issues, causing model performance degradation. To reduce human efforts, Automated Machine Learning (AutoML) has become a popular field that aims to automatically select, construct, tune, and update machine learning models to achieve the best performance on specified tasks. In this paper, we conduct a review of existing methods in the model selection, tuning, and updating procedures in the area of AutoML in order to identify and summarize the optimal solutions for every step of applying ML algorithms to IoT data analytics. To justify our findings and help industrial users and researchers better implement AutoML approaches, a case study of applying AutoML to IoT anomaly detection problems is conducted in this work. Lastly, we discuss and classify the challenges and research directions for this domain.},
   archiveprefix = {arxiv},
-  keywords = {68T01; 90C31,C.2.0,Computer Science - Cryptography and Security,Computer Science - Machine Learning,Computer Science - Networking and Internet Architecture,Electrical Engineering and Systems Science - Systems and Control,I.2.0,I.2.2},
+  keywords = {{68T01, 90C31},C.2.0,Computer Science - Cryptography and Security,Computer Science - Machine Learning,Computer Science - Networking and Internet Architecture,Electrical Engineering and Systems Science - Systems and Control,I.2.0,I.2.2},
   file = {C\:\\Users\\master\\Zotero\\storage\\MHGKKJW5\\Yang_Shami_2022_IoT Data Analytics in Dynamic Environments.pdf;C\:\\Users\\master\\Zotero\\storage\\AFUU3C7X\\2209.html}
 }
 
@@ -476,5 +1012,5 @@
   journal = {IEEE Data Eng. Bull.},
   urldate = {2023-03-14},
   abstract = {Machine learning development creates multiple new challenges that are not present in a traditional software development lifecycle. These include keeping track of the myriad inputs to an ML application (e.g., data versions, code and tuning parameters), reproducing results, and production deployment. In this paper, we summarize these challenges from our experience with Databricks customers, and describe MLflow, an open source platform we recently launched to streamline the machine learning lifecycle. MLflow covers three key challenges: experimentation, reproducibility, and model deployment, using generic APIs that work with any ML library, algorithm and programming language. The project has a rapidly growing open source community, with over 50 contributors since its launch in June 2018.},
-  file = {C\:\\Users\\master\\Zotero\\storage\\6RA7FM6Z\\Zaharia et al_2018_Accelerating the Machine Learning Lifecycle with MLflow.pdf}
+  file = {C:\Users\master\Zotero\storage\6RA7FM6Z\Zaharia et al_2018_Accelerating the Machine Learning Lifecycle with MLflow.pdf}
 }

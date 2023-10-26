@@ -33,7 +33,7 @@ This master's thesis asks the following research questions:
 \begin{itemize}
     \item \emph{RQ1}: How do changes in hyperparameters affect system performance during model training?
     \item \emph{RQ2}: How does early stopping on system performance criteria affect computational budgets during model training?
-
+          
 \end{itemize}
 
 \subsection{Proposed method}
@@ -51,26 +51,42 @@ TODO Methodology used is expanded from an existing methodology for machine learn
 Experiments were performed using Ray Tune (2.7.1) \parencite{liawTuneResearchPlatform2018}. MLFlow (2.7.1) \parencite{chenDevelopmentsMLflowSystem2020} was used for collecting metrics and tracking experiments. Scikit-learn (1.3.2) \parencite{pedregosaScikitlearnMachineLearning2011} for training and evaluating machine learning models. Hardware consisted of TODO processor and Nvidia 3060 GPU.
 
 \subsection{Datasets}
-% Tarkemmin esimerkkinä, loput vähemmän tarkasti
-MNIST \parencite{dengMNISTDatabaseHandwritten2012}
 
-% Satunnaisesti valitaan X kappaletta
-Penn Machine Learning Benchmarks \parencite{olsonPMLBLargeBenchmark2017}
-\subsection{Metrics}
-\subsection{Algorithms}
-
-Chosen algorithms shown in table \ref{table:algorithms} support training in batches and are based on stochastic gradient descent implementations in the Scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011}.
+Datasets used are chosen from Penn Machine Learning Benchmarks \parencite{olsonPMLBLargeBenchmark2017}. Mnist dataset was chosen because of popularity and the rest of datasets were chosen to uniformly represent small and large datasets in both classification and regression tasks. 
 
 \begin{table}[h]
-    \label{table:algorithms}
+    \label{table:datasets}
     \centering
-    \begin{tabular}{lll}
+    \begin{tabular}{lllll}
         \toprule
-        Algorithm                    & Type           & Loss          \\
+        Dataset        & Type    & Task           & Examples & Features \\
         \midrule
-        Linear regression            & regression     & squared\_loss \\
-        Logistic regression          & classification & log           \\
-        Support Vector Machine (SVM) & classification & hinge         \\
+        mnist          & image   & classification & 70000    & 784      \\
+        kddcup         & tabular & classification & 494020   & 41       \\
+        diabetes       & tabular & classification & 768      & 8        \\
+        1191\_BNG\_pbc & tabular & regression     & 1000000  & 19       \\
+        529\_pollen    & tabular & regression     & 3848     & 5        \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+
+\subsection{Metrics}
+\subsection{Models}
+
+Models used require support of training in batches. Models linear regression, logistic regression and support vector machine (SVM) are based on stochastic gradient descent (SGD) implementation found in Scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011}.
+
+\begin{table}[h]
+    \label{table:models}
+    \centering
+    \begin{tabular}{llll}
+        \toprule
+        Model                        & Task           & Loss          & Datasets                    \\
+        \midrule
+        Linear regression            & regression     & squared\_loss & 1191\_BNG\_pbc, 529\_pollen \\
+        Logistic regression          & classification & log           & mnist, kddcup, diabetes     \\
+        Support Vector Machine (SVM) & classification & hinge         & mnist, kddcup, diabetes     \\
         \bottomrule
     \end{tabular}
 \end{table}

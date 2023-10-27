@@ -33,7 +33,7 @@ This master's thesis asks the following research questions:
 \begin{itemize}
     \item \emph{RQ1}: How do changes in hyperparameters affect system performance during model training?
     \item \emph{RQ2}: How does early stopping on system performance criteria affect computational budgets during model training?
-          
+
 \end{itemize}
 
 \subsection{Proposed method}
@@ -52,10 +52,9 @@ Experiments were performed using Ray Tune (2.7.1) \parencite{liawTuneResearchPla
 
 \subsection{Datasets}
 
-Datasets used are chosen from Penn Machine Learning Benchmarks \parencite{olsonPMLBLargeBenchmark2017}. Mnist dataset was chosen because of popularity and the rest of datasets were chosen to uniformly represent small and large datasets in both classification and regression tasks. 
+Datasets used are chosen from Penn Machine Learning Benchmarks \parencite{olsonPMLBLargeBenchmark2017}. Mnist dataset was chosen because of popularity and familiarity in the machine learning community. The rest of the datasets were chosen by hand instead of randomly sampled to represent small and large datasets in both classification and regression tasks, because the dataset repository is unbalanced. Table~\ref{table:datasets} summarizes the machine learning task and dimensionality of the datasets.
 
 \begin{table}[h]
-    \label{table:datasets}
     \centering
     \begin{tabular}{lllll}
         \toprule
@@ -68,27 +67,30 @@ Datasets used are chosen from Penn Machine Learning Benchmarks \parencite{olsonP
         529\_pollen    & tabular & regression     & 3848     & 5        \\
         \bottomrule
     \end{tabular}
+    \caption{Summary of the datasets used.}
+    \label{table:datasets}
 \end{table}
 
 
 
 \subsection{Metrics}
-\subsection{Models}
+\subsection{Algorithms}
 
-Models used require support of training in batches. Models linear regression, logistic regression and support vector machine (SVM) are based on stochastic gradient descent (SGD) implementation found in Scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011}.
+Algorithms used require support of training in batches and are summarized in Table~\ref{table:algorithms}. Algorithms linear regression, logistic regression and support vector machine (SVM) are based on stochastic gradient descent (SGD) implementation found in Scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011}.
 
 \begin{table}[h]
-    \label{table:models}
     \centering
     \begin{tabular}{llll}
         \toprule
-        Model                        & Task           & Loss          & Datasets                    \\
+        Algorithm                    & Task           & Loss          & Datasets                    \\
         \midrule
         Linear regression            & regression     & squared\_loss & 1191\_BNG\_pbc, 529\_pollen \\
         Logistic regression          & classification & log           & mnist, kddcup, diabetes     \\
         Support Vector Machine (SVM) & classification & hinge         & mnist, kddcup, diabetes     \\
         \bottomrule
     \end{tabular}
+    \caption{Summary of the algorithms}
+    \label{table:algorithms}
 \end{table}
 
 

@@ -7,7 +7,7 @@
 
 In this thesis the choice of machine learning algorithms is limited to implementations with iterative training and a possibility for metric collection between training steps.
 
-The scope of the study is limited to 5 performance metrics of 3 different ML models trained and tested on 3 different datasets using a distributed computing framework Ray Tune \parencite{liawTuneResearchPlatform2018}.
+The scope of the study is limited to $5$ performance metrics of $3$ different ML models trained and tested on 3 different datasets using a distributed computing framework Ray Tune \parencite{liawTuneResearchPlatform2018}.
 
 TODO different models, different datasets
 
@@ -36,16 +36,11 @@ This master's thesis asks the following research questions:
 
 \end{itemize}
 
-\subsection{Proposed method}
-
-
-
+\subsection{Methodology}
+TODO Methodology used is expanded from an existing methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016} to include AutoML and
 
 \section{Experimental setup}
 \unsure[inline]{Kannattaako tässä osiossa perustella valintoja?}
-
-\subsection{Methodology}
-TODO Methodology used is expanded from an existing methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016} to include AutoML and
 
 \subsection{Software and Hardware}
 
@@ -73,31 +68,53 @@ Datasets used were chosen from Penn Machine Learning Benchmarks \parencite{olson
 \end{table}
 
 
-
-\subsection{Metrics}
 \subsection{Algorithms}
 
 Algorithms were chosen to support training in batches without being computationally heavy. Linear regression, logistic regression and support vector machine (SVM) are based on stochastic gradient descent (SGD) implementation found in Scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011}. Algorithms are summarized in Table~\ref{table:algorithms}.
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{llll}
+    \begin{tabular}{lll}
         \toprule
-        Algorithm                    & Task           & Loss          & Datasets                    \\
+        Algorithm              & Loss    & Hyperparameters                  \\
         \midrule
-        Linear regression            & regression     & squared\_loss & 1191\_BNG\_pbc, 529\_pollen \\
-        Logistic regression          & classification & log           & mnist, kddcup, diabetes     \\
-        Support Vector Machine (SVM) & classification & hinge         & mnist, kddcup, diabetes     \\
+        Linear regression      & squared & batch size, learning rate, alpha \\
+        Logistic regression    & log     & batch size, learning rate, alpha \\
+        Support Vector Machine & hinge   & batch size, learning rate, alpha \\
         \bottomrule
     \end{tabular}
     \caption{Summary of the algorithms}
     \label{table:algorithms}
 \end{table}
 
+\subsection{Metrics}
+Main metrics to be evaluated can be divided into machine learning metrics and system performance metrics and are summarized in Table~\ref{table:metrics}. Training loss was computed with each training step and the rest of the metrics were computed every $100$ steps
+% https://docs.ray.io/en/latest/ray-core/scheduling/memory-management.html#memory
+\begin{table}[h]
+    \centering
+    \begin{tabular}{llll}
+        \toprule
+        Metric                     & Type               \\
+        \midrule
+        training loss              & machine learning   \\
+        validation loss            & machine learning   \\
+        accuracy                   & machine learning   \\
+        root mean square error     & machine learning   \\
+        average training step time & system performance \\
+        total training time        & system performance \\
+        cpu util                   & system performance \\
+        memory util                & system performance \\
+
+        \bottomrule
+    \end{tabular}
+    \caption{Summary of the metrics}
+    \label{table:metrics}
+\end{table}
 
 
 \subsection{Validation}
 
+Machine learning models were validated by splitting the dataset into a $70\%$ training set and a $30\%$ test set. To make sure that measurements are not sensitive to chosen data five-fold cross validation using the training set was performed when tuning hyperparameters.
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{Experiments}

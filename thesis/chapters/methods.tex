@@ -14,6 +14,7 @@ TODO different models, different datasets
 TODO Vertailukriteeristö: tapana ohjelmistopuolella + tapana koneoppimispuolella
 
 TODO different resources (memory, time, accuracy)
+TODO Methodology used is expanded from an existing methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016} to include AutoML and
 
 %\begin{itemize}
 %    \item Task Completion time
@@ -33,21 +34,21 @@ This master's thesis asks the following research questions:
 \begin{itemize}
     \item \emph{RQ1}: How do changes in hyperparameters affect system performance during model training?
     \item \emph{RQ2}: How does early stopping on system performance criteria affect computational budgets during model training?
-
+          
 \end{itemize}
-
-\subsection{Methodology}
-TODO Methodology used is expanded from an existing methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016} to include AutoML and
 
 \section{Experimental setup}
 \unsure[inline]{Kannattaako tässä osiossa perustella valintoja?}
+\unsure[inline]{Onko parempi, jos tulokset olisivat tässä mukana eikä erillisenä lukuna?}
+
 
 \subsection{Software and Hardware}
 
-Experiments were performed using Ray Tune (2.7.1) \parencite{liawTuneResearchPlatform2018}. MLFlow (2.7.1) \parencite{chenDevelopmentsMLflowSystem2020} was used for collecting metrics and tracking experiments. Scikit-learn (1.3.2) \parencite{pedregosaScikitlearnMachineLearning2011} for training and evaluating machine learning models. Hardware used to perform the experiments consisted of TODO processor and Nvidia 3060 GPU.
+Experiments were performed using Ray Tune (2.7.1) \parencite{liawTuneResearchPlatform2018}. MLFlow (2.7.1) \parencite{chenDevelopmentsMLflowSystem2020} was used for recording metrics and tracking experiments. Scikit-learn (1.3.2) \parencite{pedregosaScikitlearnMachineLearning2011} for training, collecting machine learning performance metrics and evaluating machine learning models. Psutil \parencite{rodolaGiampaoloPsutil2023} was used for collecting system performance metrics from the operating system. Hardware used to perform the experiments consisted of Intel Core i7-9700 @ 3.00GHz CPU and Nvidia 3060 GPU.
 
 \subsection{Datasets}
 
+\unsure[inline]{Penn benchmark dataseteilla on viite, mutta ei sen kummempaa tietoa lähteestä. Kannattaako vaihtaa ja valita itse 5-6 datasettia ja kertoa niistä enemmän?}
 Datasets used were chosen from Penn Machine Learning Benchmarks \parencite{olsonPMLBLargeBenchmark2017}. Mnist dataset was chosen because of popularity and familiarity in the machine learning community. The rest of the datasets were chosen by hand instead of randomly sampled to represent small and large datasets in both classification and regression tasks, because the repository is unbalanced and contains a lot of very similar datasets. Table~\ref{table:datasets} summarizes the machine learning task and dimensionality of the datasets. The datasets are loaded using the Penn Machine Learning Benchmark \parencite{olsonPMLBLargeBenchmark2017} python package and consist of input features and a target variable.
 
 \begin{table}[h]
@@ -67,10 +68,45 @@ Datasets used were chosen from Penn Machine Learning Benchmarks \parencite{olson
     \label{table:datasets}
 \end{table}
 
+\subsection{Metrics and evaluation}
+\unsure[inline]{Kannattaako olla kaavat jokaiselle metriikalle?}
+Metrics to be evaluated can be divided into machine learning metrics and system performance metrics and are summarized in Table~\ref{table:metrics}. Training loss was computed with each training step and the rest of the metrics were computed every $100$ training steps. Machine learning metrics were computed using scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011} and system performance metrics were collected from the operating system using psutil \parencite{rodolaGiampaoloPsutil2023}. 
+
+In accordance with Ray documentation \parencite{therayteamMemoryManagementRay} to avoid double counting memory used by the object store the memory usage of the worker was computed in the following way:
+
+\[ \text{memory} = \text{resident set size (RSS)} - \text{shared memory usage (SHR)} \]
+
+Machine learning models were validated by splitting the dataset into a $70\%$ training set and a $30\%$ test set. To make sure that measurements are not sensitive to chosen data five-fold cross validation using the training set was performed when tuning hyperparameters.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{llll}
+        \toprule
+        Metric                     & Type               \\
+        \midrule
+        training loss              & machine learning   \\
+        validation loss            & machine learning   \\
+        accuracy                   & machine learning   \\
+        root mean square error     & machine learning   \\
+        average training step time & system performance \\
+        total training time        & system performance \\
+        cpu (\%)                   & system performance \\
+        memory (MB)                & system performance \\
+        
+        \bottomrule
+    \end{tabular}
+    \caption{Summary of the metrics}
+    \label{table:metrics}
+\end{table}
+
 
 \subsection{Algorithms}
 
-Algorithms were chosen to support training in batches without being computationally heavy. Linear regression, logistic regression and support vector machine (SVM) are based on stochastic gradient descent (SGD) implementation found in Scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011}. Algorithms are summarized in Table~\ref{table:algorithms}.
+Algorithms were chosen to support training in batches without being computationally heavy. Linear regression, logistic regression and support vector machine (SVM) are based on stochastic gradient descent (SGD) implementation found in Scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011}. Algorithms and hyperparameters are summarized in Table~\ref{table:algorithms}. Model training, evaluation and hyperparameter optimization was performed in parallel with each worker process using one CPU core each.
+
+Hyperparameters such as batch size, learning rate and regularization alpha are selected using grid search with the search space determined with preliminary experiments so that the optimal solution is not too close to the boundaries. Batch size search space was $2^i$ for all $i$ from $1$ until $2^i$ was equal to the number of samples in the dataset. Learning rate search space was $10^i$ for all $i$ between $-1$ and $-4$ \improvement{Parempi tapa esittää, että batch size oli 2. potenssi välillä 2-n ja learning rate oli 10. potenssi välillä 0.1 - 0.0001}.
+
+For practical 
 
 \begin{table}[h]
     \centering
@@ -87,42 +123,4 @@ Algorithms were chosen to support training in batches without being computationa
     \label{table:algorithms}
 \end{table}
 
-\subsection{Metrics}
-Main metrics to be evaluated can be divided into machine learning metrics and system performance metrics and are summarized in Table~\ref{table:metrics}. Training loss was computed with each training step and the rest of the metrics were computed every $100$ steps
-% https://docs.ray.io/en/latest/ray-core/scheduling/memory-management.html#memory
-\begin{table}[h]
-    \centering
-    \begin{tabular}{llll}
-        \toprule
-        Metric                     & Type               \\
-        \midrule
-        training loss              & machine learning   \\
-        validation loss            & machine learning   \\
-        accuracy                   & machine learning   \\
-        root mean square error     & machine learning   \\
-        average training step time & system performance \\
-        total training time        & system performance \\
-        cpu util                   & system performance \\
-        memory util                & system performance \\
 
-        \bottomrule
-    \end{tabular}
-    \caption{Summary of the metrics}
-    \label{table:metrics}
-\end{table}
-
-
-\subsection{Validation}
-
-Machine learning models were validated by splitting the dataset into a $70\%$ training set and a $30\%$ test set. To make sure that measurements are not sensitive to chosen data five-fold cross validation using the training set was performed when tuning hyperparameters.
-
-%--------------------------------------------------------------------------------------------------------------------------------------------
-\section{Experiments}
-\label{sec:experiments}
-%\subsection{Overview}
-
-\subsection{Preliminary experiments}
-\subsection{System performance}
-\subsection{Computational budget}
-
-%--------------------------------------------------------------------------------------------------------------------------------------------

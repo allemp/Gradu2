@@ -127,6 +127,23 @@
   file = {C\:\\Users\\master\\Zotero\\storage\\NPNEQEVA\\Côté et al_2022_Quality issues in Machine Learning Software Systems.pdf;C\:\\Users\\master\\Zotero\\storage\\ES8GKMEI\\2208.html}
 }
 
+@misc{dahlBenchmarkingNeuralNetwork2023,
+  title = {Benchmarking {{Neural Network Training Algorithms}}},
+  author = {Dahl, George E. and Schneider, Frank and Nado, Zachary and Agarwal, Naman and Sastry, Chandramouli Shama and Hennig, Philipp and Medapati, Sourabh and Eschenhagen, Runa and Kasimbeg, Priya and Suo, Daniel and Bae, Juhan and Gilmer, Justin and Peirson, Abel L. and Khan, Bilal and Anil, Rohan and Rabbat, Mike and Krishnan, Shankar and Snider, Daniel and Amid, Ehsan and Chen, Kongtao and Maddison, Chris J. and Vasudev, Rakshith and Badura, Michal and Garg, Ankush and Mattson, Peter},
+  year = {2023},
+  month = jun,
+  number = {arXiv:2306.07179},
+  eprint = {2306.07179},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2306.07179},
+  urldate = {2023-11-05},
+  abstract = {Training algorithms, broadly construed, are an essential part of every deep learning pipeline. Training algorithm improvements that speed up training across a wide variety of workloads (e.g., better update rules, tuning protocols, learning rate schedules, or data selection schemes) could save time, save computational resources, and lead to better, more accurate, models. Unfortunately, as a community, we are currently unable to reliably identify training algorithm improvements, or even determine the state-of-the-art training algorithm. In this work, using concrete experiments, we argue that real progress in speeding up training requires new benchmarks that resolve three basic challenges faced by empirical comparisons of training algorithms: (1) how to decide when training is complete and precisely measure training time, (2) how to handle the sensitivity of measurements to exact workload details, and (3) how to fairly compare algorithms that require hyperparameter tuning. In order to address these challenges, we introduce a new, competitive, time-to-result benchmark using multiple workloads running on fixed hardware, the AlgoPerf: Training Algorithms benchmark. Our benchmark includes a set of workload variants that make it possible to detect benchmark submissions that are more robust to workload changes than current widely-used methods. Finally, we evaluate baseline submissions constructed using various optimizers that represent current practice, as well as other optimizers that have recently received attention in the literature. These baseline results collectively demonstrate the feasibility of our benchmark, show that non-trivial gaps between methods exist, and set a provisional state-of-the-art for future benchmark submissions to try and surpass.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Machine Learning,Statistics - Machine Learning},
+  file = {C\:\\Users\\master\\Zotero\\storage\\VJRJBDX4\\Dahl et al_2023_Benchmarking Neural Network Training Algorithms.pdf;C\:\\Users\\master\\Zotero\\storage\\CZ6H62F7\\2306.html}
+}
+
 @article{dengMNISTDatabaseHandwritten2012,
   title = {The {{MNIST Database}} of {{Handwritten Digit Images}} for {{Machine Learning Research}} [{{Best}} of the {{Web}}]},
   author = {Deng, Li},
@@ -419,6 +436,22 @@
   langid = {english},
   keywords = {Computer science,Mathematics and computing},
   file = {C:\Users\master\Zotero\storage\Z4NV27YU\LeCun et al_2015_Deep learning.pdf}
+}
+
+@article{lecunGradientbasedLearningApplied1998,
+  title = {Gradient-Based Learning Applied to Document Recognition},
+  author = {Lecun, Y. and Bottou, L. and Bengio, Y. and Haffner, P.},
+  year = {1998},
+  month = nov,
+  journal = {Proceedings of the IEEE},
+  volume = {86},
+  number = {11},
+  pages = {2278--2324},
+  issn = {1558-2256},
+  doi = {10.1109/5.726791},
+  urldate = {2023-11-06},
+  abstract = {Multilayer neural networks trained with the back-propagation algorithm constitute the best example of a successful gradient based learning technique. Given an appropriate network architecture, gradient-based learning algorithms can be used to synthesize a complex decision surface that can classify high-dimensional patterns, such as handwritten characters, with minimal preprocessing. This paper reviews various methods applied to handwritten character recognition and compares them on a standard handwritten digit recognition task. Convolutional neural networks, which are specifically designed to deal with the variability of 2D shapes, are shown to outperform all other techniques. Real-life document recognition systems are composed of multiple modules including field extraction, segmentation recognition, and language modeling. A new learning paradigm, called graph transformer networks (GTN), allows such multimodule systems to be trained globally using gradient-based methods so as to minimize an overall performance measure. Two systems for online handwriting recognition are described. Experiments demonstrate the advantage of global training, and the flexibility of graph transformer networks. A graph transformer network for reading a bank cheque is also described. It uses convolutional neural network character recognizers combined with global training techniques to provide record accuracy on business and personal cheques. It is deployed commercially and reads several million cheques per day.},
+  file = {C:\Users\master\Zotero\storage\VPXBQSVP\Lecun et al_1998_Gradient-based learning applied to document recognition.pdf}
 }
 
 @misc{liawTuneResearchPlatform2018,
@@ -829,7 +862,6 @@
   issn = {1533-7928},
   urldate = {2023-09-28},
   abstract = {Recent hardware developments have dramatically increased the scale of data parallelism available for neural network training. Among the simplest ways to harness next-generation hardware is to increase the batch size in standard mini-batch neural network training algorithms. In this work, we aim to experimentally characterize the effects of increasing the batch size on training time, as measured by the number of steps necessary to reach a goal out-of-sample error. We study how this relationship varies with the training algorithm, model, and data set, and find extremely large variation between workloads. Along the way, we show that disagreements in the literature on how batch size affects model quality can largely be explained by differences in metaparameter tuning and compute budgets at different batch sizes. We find no evidence that larger batch sizes degrade out-of-sample performance. Finally, we discuss the implications of our results on efforts to train neural networks much faster in the future. Our experimental data is publicly available as a database of 71,638,836 loss measurements taken over the course of training for 168,160 individual models across 35 workloads.},
-  keywords = {\_tablet},
   file = {C:\Users\master\Zotero\storage\LZPDZCG8\Shallue et al_2019_Measuring the Effects of Data Parallelism on Neural Network Training.pdf}
 }
 

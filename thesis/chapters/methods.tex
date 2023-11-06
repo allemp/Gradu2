@@ -5,28 +5,15 @@
 \section{Research setup}
 \subsection{Scope}
 
-In this thesis the choice of machine learning algorithms is limited to implementations with iterative training and a possibility for metric collection between training steps.
+\improvement{TODO Scope}
 
-The scope of the study is limited to $5$ performance metrics of $3$ different ML models trained and tested on 3 different datasets using a distributed computing framework Ray Tune \parencite{liawTuneResearchPlatform2018}.
+\improvement{TODO different models, different datasets}
 
-TODO different models, different datasets
+\improvement{TODO Vertailukriteeristö: tapana ohjelmistopuolella + tapana koneoppimispuolella}
 
-TODO Vertailukriteeristö: tapana ohjelmistopuolella + tapana koneoppimispuolella
+\improvement{TODO different resources (memory, time, accuracy)}
 
-TODO different resources (memory, time, accuracy)
-TODO Methodology used is expanded from an existing methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016} to include AutoML and
-
-%\begin{itemize}
-%    \item Task Completion time
-%    \item Throughput
-%    \item Latency
-%    \item CPU usage
-%    \item GPU usage
-%    \item RAM usage
-%    \item VRAM usage
-%    \item I/O usage
-%    \item Network traffic
-%\end{itemize}
+This thesis uses a methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016}. The methodology consists of a workflow with the following steps: Dataset, Data preprocessing, Model Learning and Best Model Selection. 
 
 
 \subsection{Research Questions}
@@ -38,9 +25,6 @@ This master's thesis asks the following research questions:
 \end{itemize}
 
 \section{Experimental setup}
-\unsure[inline]{Kannattaako tässä osiossa perustella valintoja?}
-\unsure[inline]{Onko parempi, jos tulokset olisivat tässä mukana eikä erillisenä lukuna?}
-
 
 \subsection{Software and Hardware}
 
@@ -48,8 +32,12 @@ Experiments were performed using Ray Tune (2.7.1) \parencite{liawTuneResearchPla
 
 \subsection{Datasets}
 
-\unsure[inline]{Penn benchmark dataseteilla on viite, mutta ei sen kummempaa tietoa lähteestä. Kannattaako vaihtaa ja valita itse 5-6 datasettia ja kertoa niistä enemmän?}
-Datasets used were chosen from Penn Machine Learning Benchmarks \parencite{olsonPMLBLargeBenchmark2017}. Mnist dataset was chosen because of popularity and familiarity in the machine learning community. The rest of the datasets were chosen by hand instead of randomly sampled to represent small and large datasets in both classification and regression tasks, because the repository is unbalanced and contains a lot of very similar datasets. Table~\ref{table:datasets} summarizes the machine learning task and dimensionality of the datasets. The datasets are loaded using the Penn Machine Learning Benchmark \parencite{olsonPMLBLargeBenchmark2017} python package and consist of input features and a target variable.
+%\improvement{TODO MNIST}
+%\improvement{TODO https://www.openml.org/search?type=data\&status=active\&qualities.NumberOfClasses=\%3D_2\&id=31}
+%\improvement{TODO https://www.openml.org/search?type=data\&sort=runs\&id=42731}
+%\improvement{TODO NYC Taxi https://www.openml.org/search?type=data\&sort=runs\&id=42729&status=active}
+
+Mnist dataset was chosen because of popularity and familiarity in the machine learning community. The rest of the datasets were chosen by hand instead of randomly sampled to represent small and large datasets in both classification and regression tasks, because the repository is unbalanced and contains a lot of very similar datasets. Table~\ref{table:datasets} summarizes the machine learning task and dimensionality of the datasets. The datasets are loaded using the Penn Machine Learning Benchmark \parencite{olsonPMLBLargeBenchmark2017} python package and consist of input features and a target variable.
 
 \begin{table}[h]
     \centering
@@ -69,7 +57,6 @@ Datasets used were chosen from Penn Machine Learning Benchmarks \parencite{olson
 \end{table}
 
 \subsection{Metrics and evaluation}
-\unsure[inline]{Kannattaako olla kaavat jokaiselle metriikalle?}
 Metrics to be evaluated can be divided into machine learning metrics and system performance metrics and are summarized in Table~\ref{table:metrics}. Training loss was computed with each training step and the rest of the metrics were computed every $100$ training steps. Machine learning metrics were computed using scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011} and system performance metrics were collected from the operating system using psutil \parencite{rodolaGiampaoloPsutil2023}. 
 
 In accordance with Ray documentation \parencite{therayteamMemoryManagementRay} to avoid double counting memory used by the object store the memory usage of the worker was computed in the following way:

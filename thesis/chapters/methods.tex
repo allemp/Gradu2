@@ -2,9 +2,9 @@
 \label{chap:methods}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
-\section{Scope}
+\section{Methodology}
 
-This thesis uses a methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016}. The methodology consists of a workflow with the following steps: Dataset, Data preprocessing, Model Learning and Best Model Selection. The main focus of the thesis is on Model Learning and Best Model Selection with an emphasis of using system performance metrics. Advanced preprocessing techniques or achieving state of the art model performance are out of the scope of this thesis.
+This thesis uses a methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016}. The methodology consists of a workflow with the following steps: Dataset, Data Preprocessing, Model Learning and Best Model Selection. The main focus of the thesis is on Model Learning and Best Model Selection with an emphasis of using system performance metrics. Advanced preprocessing techniques or achieving state of the art model performance are out of the scope of this thesis.
 
 
 
@@ -29,7 +29,7 @@ Experiments were performed using Ray Tune (2.7.1) \parencite{liawTuneResearchPla
 
 OpenML \parencite{vanschorenOpenMLNetworkedScience2014} was a source of benchmarking datasets for both classification \parencite{bischlOpenMLBenchmarkingSuites2017} and regression \parencite{fischerOpenMLCTR23CuratedTabular2023} tasks. In total two classification task and two regression task datasets summarized in table~\ref{table:datasets} were chosen to keep the amount of computation reasonable.
 
-The \emph{mnist\_784} dataset consisted of $70000$ images of hand written digits with each feature representing a pixel with the task to classify which digit the image represents. The \emph{diabetes} dataset consisted of $785$ measurements of female patients with the task to classify whether the patient tests positive for diabetes. The \emph{wave\_energy} dataset consisted of $72000$ different positions for 16 buoys with the regression task to predict the total amount of energy produced. The $16$ wave energy converter features were dropped as the target variable is total energy. The \emph{red\_wine} dataset consisted of $1599$ measurements of red wine samples with the regression task of predicting the quality of the wine.
+The \emph{mnist\_784} dataset consisted of $70000$ images of handwritten digits with each feature representing a pixel with the task to classify which digit the image represents. The \emph{diabetes} dataset consisted of $785$ measurements of female patients with the task to classify whether the patient tests positive for diabetes. The \emph{wave\_energy} dataset consisted of $72000$ different positions for 16 buoys with the regression task to predict the total amount of energy produced. The $16$ wave energy converter features were dropped as the target variable is total energy. The \emph{red\_wine} dataset consisted of $1599$ measurements of red wine samples with the regression task of predicting the quality of the wine.
 
 \begin{table}[h]
     \centering
@@ -103,6 +103,27 @@ Machine learning models were validated by splitting the dataset into a $70\%$ tr
 
 
 \improvement{TODO rank-based analysis using Friedman and Nemenyi post-hoc test \parencite{fischerOpenMLCTR23CuratedTabular2023}, bonferroni correction}
+
+\subsection{Machine learning workflow}
+
+The following workflow was performed for each dataset:
+
+\begin{enumerate}
+    \item Downloading the dataset in OpenML Dataset format
+    \item Transforming an OpenML Dataset to a Ray Dataset
+    \item Splitting the data into training and test datasets
+    \item Splitting the training data into 10-folds
+    \item Normalizing the training data for each fold and applying the transformation to the test dataset
+    \item Tuning each hyperparameter for each fold
+    \item Training the model
+    \item Early stopping if criteria are met
+\end{enumerate}
+
+\begin{figure}[h]
+    \includegraphics[width=12cm]{assets/ml_workflow1.png}
+    \caption{TODO placeholder image: ML workflow}
+    \label{figure:mlworkflow}
+\end{figure}
 
 \section{Results}
 

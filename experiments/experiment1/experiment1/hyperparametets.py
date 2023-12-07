@@ -15,25 +15,24 @@ from sklearn.metrics import accuracy_score, hinge_loss
 # %%
 openml_dataset = openml.datasets.get_dataset(554)
 # %%
-data = (
-    ray.data.from_pandas(openml_dataset.get_data()[0]).repartition(7).random_shuffle()
-)
+data = ray.data.from_pandas(openml_dataset.get_data()[0]).repartition(7)
 # %%
-train, test = data.train_test_split(0.3)
+train, test = data.train_test_split(test_size=0.3, shuffle=True, seed=2023)
 
 
 # %%
 class CustomTrainer(BaseTrainer):
     def setup(self):
-        self.model = SGDClassifier(max_iter=1000, tol=1e-3)
+        self.model = SGDClassifier(max_iter=1000, tol=self.metadata["params"]["tol"])
         self.batch_size = self.metadata["params"]["batch_size"]
+        self.tol = self.metadata["params"]["tol"]
 
     def training_loop(self):
         process = psutil.Process()
         classes = self.datasets["train"].unique("class")
         X_test = self.datasets["test"].to_pandas().drop("class", axis=1)
         y_test = self.datasets["test"].to_pandas()["class"]
-        max_steps = 100000
+        max_steps = 10000
         step = 0
         step_time_sum = 0
         while step <= max_steps:
@@ -77,12 +76,13 @@ class CustomTrainer(BaseTrainer):
                             "ram": ram,
                             "avg_step_time": step_time_sum / step,
                             "batch_size": self.batch_size,
+                            "tol": self.tol,
                         }
                     )
 
 
 # %%
-tune_config = tune.TuneConfig(num_samples=1, max_concurrent_trials=7)
+tune_config = tune.TuneConfig(num_samples=3, max_concurrent_trials=7)
 run_config = ray.train.RunConfig(
     callbacks=[
         AimLoggerCallback(
@@ -95,7 +95,8 @@ run_config = ray.train.RunConfig(
 # %%
 
 my_trainer = CustomTrainer(
-    datasets={"train": train, "test": test}, metadata={"params": {"batch_size": 1024}}
+    datasets={"train": train, "test": test},
+    metadata={"params": {"batch_size": 1024, "tol": 0.01}},
 )
 
 # %%
@@ -104,7 +105,10 @@ my_tuner = ray.tune.Tuner(
     my_trainer,
     param_space={
         "metadata": {
-            "params": {"batch_size": tune.grid_search([2**p for p in range(1, 13)])}
+            "params": {
+                "batch_size": tune.grid_search([2**p for p in range(5, 6)]),
+                "tol": tune.grid_search([10 ** (-p) for p in range(1, 5)]),
+            }
         }
     },
     tune_config=tune_config,

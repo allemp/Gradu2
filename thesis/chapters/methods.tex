@@ -1,22 +1,16 @@
-\chapter{Methods}
+\chapter{Research setup}
 \label{chap:methods}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
-\section{Research setup}
-\subsection{Scope}
+\section{Methodology}
 
-\improvement{TODO Scope}
+This thesis uses a methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016}. The methodology consists of a workflow with the following steps: Dataset, Data Preprocessing, Model Learning and Best Model Selection. The main focus of the thesis is on Model Learning and Best Model Selection with an emphasis of using system performance metrics. Advanced preprocessing techniques or achieving state of the art model performance are out of the scope of this thesis.
 
-\improvement{TODO different models, different datasets}
+
+
 
 \improvement{TODO Vertailukriteeristö: tapana ohjelmistopuolella + tapana koneoppimispuolella}
 
-\improvement{TODO different resources (memory, time, accuracy)}
-
-This thesis uses a methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016}. The methodology consists of a workflow with the following steps: Dataset, Data preprocessing, Model Learning and Best Model Selection. 
-
-
-\subsection{Research Questions}
 This master's thesis asks the following research questions:
 \begin{itemize}
     \item \emph{RQ1}: How do changes in hyperparameters affect system performance during model training?
@@ -32,60 +26,26 @@ Experiments were performed using Ray Tune (2.7.1) \parencite{liawTuneResearchPla
 
 \subsection{Datasets}
 
-%\improvement{TODO MNIST}
-%\improvement{TODO https://www.openml.org/search?type=data\&status=active\&qualities.NumberOfClasses=\%3D_2\&id=31}
-%\improvement{TODO https://www.openml.org/search?type=data\&sort=runs\&id=42731}
-%\improvement{TODO NYC Taxi https://www.openml.org/search?type=data\&sort=runs\&id=42729&status=active}
 
-Mnist dataset was chosen because of popularity and familiarity in the machine learning community. The rest of the datasets were chosen by hand instead of randomly sampled to represent small and large datasets in both classification and regression tasks, because the repository is unbalanced and contains a lot of very similar datasets. Table~\ref{table:datasets} summarizes the machine learning task and dimensionality of the datasets. The datasets are loaded using the Penn Machine Learning Benchmark \parencite{olsonPMLBLargeBenchmark2017} python package and consist of input features and a target variable.
+OpenML \parencite{vanschorenOpenMLNetworkedScience2014} was a source of benchmarking datasets for both classification \parencite{bischlOpenMLBenchmarkingSuites2017} and regression \parencite{fischerOpenMLCTR23CuratedTabular2023} tasks. In total two classification task and two regression task datasets summarized in table~\ref{table:datasets} were chosen to keep the amount of computation reasonable.
+
+The \emph{mnist\_784} dataset consisted of $70000$ images of handwritten digits with each feature representing a pixel with the task to classify which digit the image represents. The \emph{diabetes} dataset consisted of $785$ measurements of female patients with the task to classify whether the patient tests positive for diabetes. The \emph{wave\_energy} dataset consisted of $72000$ different positions for 16 buoys with the regression task to predict the total amount of energy produced. The $16$ wave energy converter features were dropped as the target variable is total energy. The \emph{red\_wine} dataset consisted of $1599$ measurements of red wine samples with the regression task of predicting the quality of the wine.
 
 \begin{table}[h]
     \centering
     \begin{tabular}{lllll}
         \toprule
-        Dataset        & Type    & Task           & Examples & Features \\
+        Dataset      & Type    & Task           & Instances & Features \\
         \midrule
-        mnist          & image   & classification & 70000    & 784      \\
-        kddcup         & tabular & classification & 494020   & 41       \\
-        diabetes       & tabular & classification & 768      & 8        \\
-        1191\_BNG\_pbc & tabular & regression     & 1000000  & 19       \\
-        529\_pollen    & tabular & regression     & 3848     & 5        \\
+        mnist\_784   & image   & classification & 70000     & 785      \\
+        diabetes     & tabular & classification & 768       & 9        \\
+        wave\_energy & tabular & regression     & 72000     & 33       \\
+        red\_wine    & tabular & regression     & 1599      & 12       \\
         \bottomrule
     \end{tabular}
     \caption{Summary of the datasets used.}
     \label{table:datasets}
 \end{table}
-
-\subsection{Metrics and evaluation}
-Metrics to be evaluated can be divided into machine learning metrics and system performance metrics and are summarized in Table~\ref{table:metrics}. Training loss was computed with each training step and the rest of the metrics were computed every $100$ training steps. Machine learning metrics were computed using scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011} and system performance metrics were collected from the operating system using psutil \parencite{rodolaGiampaoloPsutil2023}. 
-
-In accordance with Ray documentation \parencite{therayteamMemoryManagementRay} to avoid double counting memory used by the object store the memory usage of the worker was computed in the following way:
-
-\[ \text{memory} = \text{resident set size (RSS)} - \text{shared memory usage (SHR)} \]
-
-Machine learning models were validated by splitting the dataset into a $70\%$ training set and a $30\%$ test set. To make sure that measurements are not sensitive to chosen data five-fold cross validation using the training set was performed when tuning hyperparameters.
-
-\begin{table}[h]
-    \centering
-    \begin{tabular}{llll}
-        \toprule
-        Metric                     & Type               \\
-        \midrule
-        training loss              & machine learning   \\
-        validation loss            & machine learning   \\
-        accuracy                   & machine learning   \\
-        root mean square error     & machine learning   \\
-        average training step time & system performance \\
-        total training time        & system performance \\
-        cpu (\%)                   & system performance \\
-        memory (MB)                & system performance \\
-        
-        \bottomrule
-    \end{tabular}
-    \caption{Summary of the metrics}
-    \label{table:metrics}
-\end{table}
-
 
 \subsection{Algorithms}
 
@@ -93,7 +53,8 @@ Algorithms were chosen to support training in batches without being computationa
 
 Hyperparameters such as batch size, learning rate and regularization alpha are selected using grid search with the search space determined with preliminary experiments so that the optimal solution is not too close to the boundaries. Batch size search space was $2^i$ for all $i$ from $1$ until $2^i$ was equal to the number of samples in the dataset. Learning rate search space was $10^i$ for all $i$ between $-1$ and $-4$ \improvement{Parempi tapa esittää, että batch size oli 2. potenssi välillä 2-n ja learning rate oli 10. potenssi välillä 0.1 - 0.0001}.
 
-For practical 
+\improvement{TODO: Add early stopping}
+
 
 \begin{table}[h]
     \centering
@@ -110,4 +71,78 @@ For practical
     \label{table:algorithms}
 \end{table}
 
+\subsection{Metrics and evaluation}
+Metrics to be evaluated can be divided into machine learning metrics and system performance metrics and are summarized in Table~\ref{table:metrics}. Training loss was computed with each training step and the rest of the metrics were computed every $100$ training steps. Machine learning metrics were computed using scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011} and system performance metrics were collected from the operating system using psutil \parencite{rodolaGiampaoloPsutil2023}. Computational budget was measured as elapsed wall-time required for training.
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{llll}
+        \toprule
+        Metric                     & Type               \\
+        \midrule
+        training loss              & machine learning   \\
+        validation loss            & machine learning   \\
+        accuracy                   & machine learning   \\
+        root mean square error     & machine learning   \\
+        average training step time & system performance \\
+        total training time        & system performance \\
+        cpu (\%)                   & system performance \\
+        memory (MB)                & system performance \\
+        \bottomrule
+    \end{tabular}
+    \caption{Summary of the metrics}
+    \label{table:metrics}
+\end{table}
+
+In accordance with Ray documentation \parencite{therayteamMemoryManagementRay} to avoid double counting memory used by the object store the memory usage of the worker was computed in the following way:
+
+\[ \text{memory} = \text{resident set size (RSS)} - \text{shared memory usage (SHR)} \]
+
+Machine learning models were validated by splitting the dataset into a $70\%$ training set and a $30\%$ test set. To make sure that measurements are not sensitive to chosen data ten-fold cross validation using the training set was performed when tuning hyperparameters.
+
+
+\improvement{TODO rank-based analysis using Friedman and Nemenyi post-hoc test \parencite{fischerOpenMLCTR23CuratedTabular2023}, bonferroni correction}
+
+\subsection{Machine learning workflow}
+
+The following workflow was performed for each dataset:
+
+\begin{enumerate}
+    \item Downloading the dataset in OpenML Dataset format
+    \item Transforming an OpenML Dataset to a Ray Dataset
+    \item Splitting the data into training and test datasets
+    \item Splitting the training data into 10-folds
+    \item Normalizing the training data for each fold and applying the transformation to the test dataset
+    \item Tuning each hyperparameter for each fold
+    \item Training the model
+    \item Early stopping if criteria are met
+\end{enumerate}
+
+\begin{figure}[h]
+    \includegraphics[width=12cm]{assets/ml_workflow1.png}
+    \caption{TODO placeholder image: ML workflow}
+    \label{figure:mlworkflow}
+\end{figure}
+
+\section{Results}
+
+\subsection{Effects of hyperparameter changes on system metrics}
+
+\improvement[inline]{metrics vs time (grid of plots)}
+
+\improvement[inline]{hyperparameters vs metrics (grid of plots)}
+
+
+
+\begin{figure}[h]
+    \includegraphics[width=12cm]{assets/tol.png}
+    \caption{TODO placeholder image: Effect of tol hyperparameter on system performance metrics}
+    \label{figure:tol}
+\end{figure}
+
+\subsection{Effects of early stopping on computational budgets}
+
+\improvement[inline]{ML performance threshold}
+\improvement[inline]{ram threshold}
 

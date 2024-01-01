@@ -14,3 +14,4 @@
 .vscode/settings.json
 thesis/gradu2.pdf
 experiments/ray-demo/ray_demo/mlruns
+experiments/experiment1/experiment1/ray_results

@@ -1,4 +1,4 @@
-\chapter{Research setup}
+\chapter{Experiments}
 \label{chap:methods}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
@@ -6,15 +6,13 @@
 
 This thesis uses a methodology for machine learning experiment design \parencite{fernandez-lozanoMethodologyDesignExperiments2016}. The methodology consists of a workflow with the following steps: Dataset, Data Preprocessing, Model Learning and Best Model Selection. The main focus of the thesis is on Model Learning and Best Model Selection with an emphasis of using system performance metrics. Advanced preprocessing techniques or achieving state of the art model performance are out of the scope of this thesis.
 
-
-
-
 \improvement{TODO Vertailukriteeristö: tapana ohjelmistopuolella + tapana koneoppimispuolella}
 
 This master's thesis asks the following research questions:
 \begin{itemize}
-    \item \emph{RQ1}: How do changes in hyperparameters affect system performance during model training?
-    \item \emph{RQ2}: How does early stopping on system performance criteria affect computational budgets during model training?
+    \item \emph{RQ1}: How does system performance change over time during model training?
+    \item \emph{RQ2}: How do changes in hyperparameters affect system performance during model training?
+    \item \emph{RQ3}: How does early stopping on system performance criteria affect computational budgets during model training?
           
 \end{itemize}
 
@@ -72,23 +70,22 @@ Hyperparameters such as batch size, learning rate and regularization alpha are s
 \end{table}
 
 \subsection{Metrics and evaluation}
-Metrics to be evaluated can be divided into machine learning metrics and system performance metrics and are summarized in Table~\ref{table:metrics}. Training loss was computed with each training step and the rest of the metrics were computed every $100$ training steps. Machine learning metrics were computed using scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011} and system performance metrics were collected from the operating system using psutil \parencite{rodolaGiampaoloPsutil2023}. Computational budget was measured as elapsed wall-time required for training.
-
+Metrics to be evaluated can be divided into machine learning metrics and system performance metrics and are summarized in Table~\ref{table:metrics}. Machine learning metrics consisted of training loss, validation loss, accuracy for classification and root mean square error for regression respectively. System compute performance was measured through mean training step time and cpu utilization percentage. System memory performance was measured through memory use of the process and computational budget was measured as elapsed wall-time required for training the model. Training loss was computed with each training step and the rest of the metrics were computed every $100$ training steps. Machine learning metrics were computed using scikit-learn \parencite{pedregosaScikitlearnMachineLearning2011} and system performance metrics were collected from the operating system using psutil \parencite{rodolaGiampaoloPsutil2023}.
 
 \begin{table}[h]
     \centering
     \begin{tabular}{llll}
         \toprule
-        Metric                     & Type               \\
+        Metric                  & Type               \\
         \midrule
-        training loss              & machine learning   \\
-        validation loss            & machine learning   \\
-        accuracy                   & machine learning   \\
-        root mean square error     & machine learning   \\
-        average training step time & system performance \\
-        total training time        & system performance \\
-        cpu (\%)                   & system performance \\
-        memory (MB)                & system performance \\
+        training loss           & machine learning   \\
+        validation loss         & machine learning   \\
+        accuracy                & machine learning   \\
+        root mean square error  & machine learning   \\
+        mean training step time & system performance \\
+        total training time     & system performance \\
+        cpu utilization (\%)    & system performance \\
+        memory (MB)             & system performance \\
         \bottomrule
     \end{tabular}
     \caption{Summary of the metrics}
@@ -127,12 +124,27 @@ The following workflow was performed for each dataset:
 
 \section{Results}
 
+First set of experiments were performed to determine whether system performance is constant during model training. Second set of experiments were performed to determine how changes in the hyperparameters affect system performance metrics. For each metric the average of all the runs was visualized and inspected for clear patterns with the focus on system performance metrics. Final set of experiments were performed to determine how setting a system performance criterion affects the computational budget can reduce the computational budget.
+
+
+
+
+\subsection{Changes in system performance during model training}
+
+
+The behavior of machine learning metrics was as expected with both the training loss and the validation loss decreased during training with the validation loss eventually plateaued. Accuracy increased during model training before plateauing. \improvement{Add figure} \improvement{add msre} \improvement{add details}
+
+Compute metrics mean training step time and cpu utilization percentage had variability but did not clearly decrease or increase during model training. \improvement{add figure} Memory use steadily grew in a stepwise manner over time during model training. \improvement{add figure} \improvement{add details}
+
+\improvement{add shape of different algorithms and datasets}
+
 \subsection{Effects of hyperparameter changes on system metrics}
 
-\improvement[inline]{metrics vs time (grid of plots)}
+Batch size
 
-\improvement[inline]{hyperparameters vs metrics (grid of plots)}
+Learning rate
 
+alpha
 
 
 \begin{figure}[h]
@@ -142,6 +154,8 @@ The following workflow was performed for each dataset:
 \end{figure}
 
 \subsection{Effects of early stopping on computational budgets}
+
+
 
 \improvement[inline]{ML performance threshold}
 \improvement[inline]{ram threshold}

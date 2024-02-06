@@ -1,4 +1,4 @@
-\chapter{Experiments}
+\chapter{Methods}
 \label{chap:methods}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ The following workflow was performed for each dataset:
     \label{figure:mlworkflow}
 \end{figure}
 
-\section{Results}
+\section{Experiments and Results}
 
 First set of experiments were performed to determine whether system performance is constant during model training. Second set of experiments were performed to determine how changes in the hyperparameters affect system performance metrics. For each metric the average of all the runs was visualized and inspected for clear patterns with the focus on system performance metrics. Final set of experiments were performed to determine how setting a system performance criterion affects the computational budget can reduce the computational budget.
 
@@ -132,7 +132,13 @@ First set of experiments were performed to determine whether system performance 
 \subsection{Changes in system performance during model training}
 
 
-The behavior of machine learning metrics was as expected with both the training loss and the validation loss decreased during training with the validation loss eventually plateaued. Accuracy increased during model training before plateauing. \improvement{Add figure} \improvement{add msre} \improvement{add details}
+The behavior of machine learning metrics was as expected with both the training loss and the validation loss decreased during training with the validation loss eventually plateaued. Accuracy had high variability and did not clearly increase or decrease during model training. An example of ML metrics with SVM trained on MNIST dataset ~\ref{figure:mlmetrics}. 
+
+\begin{figure}[h]
+    \includegraphics[width=12cm]{assets/ml_metrics.png}
+    \caption{Support Vector Machine training loss, test loss and accuracy averaged over 10 runs on MNIST dataset}
+    \label{figure:mlmetrics}
+\end{figure}
 
 Compute metrics mean training step time and cpu utilization percentage had variability but did not clearly decrease or increase during model training. \improvement{add figure} Memory use steadily grew in a stepwise manner over time during model training. \improvement{add figure} \improvement{add details}
 

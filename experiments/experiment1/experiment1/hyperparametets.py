@@ -1,5 +1,6 @@
 # %%
 from datetime import datetime
+from pathlib import Path
 from time import time
 
 import openml
@@ -11,6 +12,8 @@ from ray.train.trainer import BaseTrainer
 from ray.tune.logger.aim import AimLoggerCallback
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import accuracy_score, hinge_loss
+
+# %%
 
 # %%
 openml_dataset = openml.datasets.get_dataset(554)
@@ -32,7 +35,7 @@ class CustomTrainer(BaseTrainer):
         classes = self.datasets["train"].unique("class")
         X_test = self.datasets["test"].to_pandas().drop("class", axis=1)
         y_test = self.datasets["test"].to_pandas()["class"]
-        max_steps = 10000
+        max_steps = 1000
         step = 0
         step_time_sum = 0
         while step <= max_steps:
@@ -86,10 +89,10 @@ tune_config = tune.TuneConfig(num_samples=3, max_concurrent_trials=7)
 run_config = ray.train.RunConfig(
     callbacks=[
         AimLoggerCallback(
-            repo="/mnt/c/Users/master/Documents/University/Gradu2/experiments/experiment1/experiment1/ray_results",
+            repo=Path.cwd().joinpath("ray_results"),
         )
     ],
-    storage_path="/mnt/c/Users/master/Documents/University/Gradu2/experiments/experiment1/experiment1/ray_results",
+    storage_path=Path.cwd().joinpath("ray_results"),
     name=datetime.now().strftime("%Y-%m-%d-%H%M%S"),
 )
 # %%

@@ -24,6 +24,7 @@ async-timeout = "^4.0.3"
 tdqm = "^0.0.1"
 aim = {version = "^3.17.5", python="^3.11,<3.12"}
 matplotlib = "^3.8.2"
+ipywidgets = "^8.1.2"
 
 
 [build-system]

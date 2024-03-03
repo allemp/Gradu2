@@ -15,8 +15,6 @@ def loss_fn_wrapper(loss_fn, *args, **kwargs):
         return hinge_loss(*args, **kwargs)
     if loss_fn == "log_loss":
         return log_loss(*args, **kwargs)
-    if loss_fn == "squared_error":
-        return mean_squared_error(*args, **kwargs)
 
 
 class RegressorTrainer(BaseTrainer):
@@ -31,9 +29,8 @@ class RegressorTrainer(BaseTrainer):
 
     def training_loop(self):
         process = psutil.Process()
-        classes = self.datasets["train"].unique("class")
-        X_test = self.datasets["test"].to_pandas().drop("class", axis=1)
-        y_test = self.datasets["test"].to_pandas()["class"]
+        X_test = self.datasets["test"].to_pandas().drop("quality", axis=1)
+        y_test = self.datasets["test"].to_pandas()["quality"]
         max_steps = self.max_steps
         step = 0
         step_time_sum = 0
@@ -49,12 +46,13 @@ class RegressorTrainer(BaseTrainer):
 
             for batch in train_batches:
                 start_time = time()
-                X = batch.drop("class", axis=1)
-                y = batch["class"]
+                X = batch.drop("quality", axis=1)
+                y = batch["quality"]
                 self.model.partial_fit(X, y)
 
-                batch_loss = loss_fn_wrapper(
-                    self.loss_fn, y, self.model.decision_function(X), labels=classes
+                batch_loss = mean_squared_error(
+                    y,
+                    self.model.predict(X),
                 )
                 train_loss_sum += batch_loss
                 num_batches += 1
@@ -63,13 +61,9 @@ class RegressorTrainer(BaseTrainer):
                 if step >= max_steps:
                     break
                 if step % 100 == 0:
-                    pred = self.model.predict(X_test)
-                    accuracy = accuracy_score(pred, y_test)
-                    test_loss = loss_fn_wrapper(
-                        self.loss_fn,
-                        y_test,
-                        self.model.decision_function(X_test),
-                        labels=classes,
+                    test_loss = mean_squared_error(
+                        y,
+                        self.model.predict(X),
                     )
                     cpu = process.cpu_percent(interval=0.0)
                     mem_info = process.memory_info()
@@ -80,12 +74,10 @@ class RegressorTrainer(BaseTrainer):
                             "step": step,
                             "train_loss": train_loss_sum / num_batches,
                             "test_loss": test_loss,
-                            "accuracy": accuracy,
                             "cpu": cpu,
                             "ram": ram,
                             "avg_step_time": step_time_sum / step,
                             "batch_size": self.batch_size,
-                            "tol": self.tol,
                         }
                     )
 

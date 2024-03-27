@@ -23,14 +23,15 @@ class RegressorTrainer(BaseTrainer):
         self.tol = self.metadata["params"]["tol"]
         self.loss_fn = self.metadata["params"]["loss_fn"]
         self.max_steps = self.metadata["params"]["max_steps"]
+        self.target_variable = self.metadata["params"]["target_variable"]
         self.model = SGDRegressor(
             loss=self.loss_fn, max_iter=self.max_steps, tol=self.tol
         )
 
     def training_loop(self):
         process = psutil.Process()
-        X_test = self.datasets["test"].to_pandas().drop("quality", axis=1)
-        y_test = self.datasets["test"].to_pandas()["quality"]
+        X_test = self.datasets["test"].to_pandas().drop(self.target_variable, axis=1)
+        y_test = self.datasets["test"].to_pandas()[self.target_variable]
         max_steps = self.max_steps
         step = 0
         step_time_sum = 0
@@ -46,8 +47,8 @@ class RegressorTrainer(BaseTrainer):
 
             for batch in train_batches:
                 start_time = time()
-                X = batch.drop("quality", axis=1)
-                y = batch["quality"]
+                X = batch.drop(self.target_variable, axis=1)
+                y = batch[self.target_variable]
                 self.model.partial_fit(X, y)
 
                 batch_loss = mean_squared_error(
@@ -62,8 +63,8 @@ class RegressorTrainer(BaseTrainer):
                     break
                 if step % 100 == 0:
                     test_loss = mean_squared_error(
-                        y,
-                        self.model.predict(X),
+                        y_test,
+                        self.model.predict(X_test),
                     )
                     cpu = process.cpu_percent(interval=0.0)
                     mem_info = process.memory_info()

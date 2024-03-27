@@ -21,11 +21,11 @@ run_config = ray.train.RunConfig(
         )
     ],
     storage_path=Path.cwd().joinpath("ray_results"),
-    name=f"red_wine {time_now}",
+    name=f"wave_energy {time_now}",
 )
 # %%
 
-openml_dataset = openml.datasets.get_dataset(44972)
+openml_dataset = openml.datasets.get_dataset(44975)
 data = ray.data.from_pandas(openml_dataset.get_data()[0]).repartition(7)
 train, test = data.train_test_split(test_size=0.3, shuffle=True, seed=2023)
 # %%
@@ -34,7 +34,7 @@ my_trainer = RegressorTrainer(
     datasets={"train": train, "test": test},
     metadata={
         "params": {
-            "target_variable": "quality",
+            "target_variable": "energy_total",
             "max_steps": 25000,
             "batch_size": 32,
             "tol": 0.01,

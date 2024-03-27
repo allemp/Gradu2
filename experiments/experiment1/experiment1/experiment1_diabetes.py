@@ -33,7 +33,7 @@ my_trainer = ClassifierTrainer(
     datasets={"train": train, "test": test},
     metadata={
         "params": {
-            "max_steps": 25000,
+            "max_steps": 100000,
             "batch_size": 32,
             "tol": 0.01,
             "loss_fn": "perceptron",

@@ -126,13 +126,11 @@ The following workflow was performed for each dataset:
 
 First set of experiments were performed to determine whether system performance is constant during model training. Second set of experiments were performed to determine how changes in the hyperparameters affect system performance metrics. For each metric the average of all the runs was visualized and inspected for clear patterns with the focus on system performance metrics. Final set of experiments were performed to determine how setting a system performance criterion affects the computational budget can reduce the computational budget.
 
-
-
-
 \subsection{Changes in system performance during model training}
 
+\improvement{define workload}
 
-The behavior of machine learning metrics was as expected with both the training loss and the validation loss decreased during training with the validation loss eventually plateaued. Accuracy had high variability and did not clearly increase or decrease during model training. An example of ML metrics with SVM trained on MNIST dataset ~\ref{figure:mlmetrics}. 
+Both training loss and validation loss decreased during training for each workload as seen in figure \improvement{add figure}. Accuracy did not clearly increase or decrease during model training on classification workloads demonstrated by figure \improvement{add figure}. For regression workloads RSME decreased like training and test loss metrics seen in figure \improvement{add figure}.
 
 \begin{figure}[h]
     \includegraphics[width=12cm]{assets/ml_metrics.png}
